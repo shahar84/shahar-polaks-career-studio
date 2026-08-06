@@ -14,13 +14,24 @@ Truthful, ATS-safe CV tailoring, LinkedIn positioning, job-fit analysis, and int
 
 Career Studio never invents achievements, titles, qualifications, dates, metrics, or experience. It matches job requirements only to evidence the candidate has verified.
 
-## Install
+## Install in Codex
 
 Add this repository as a Codex plugin marketplace, install `shahar-polaks-career-studio`, then start a new task with the plugin enabled.
 
 ```bash
 codex plugin marketplace add shahar84/shahar-polaks-career-studio
 ```
+
+## Install in Claude Code
+
+Add the marketplace and install the plugin from a terminal where Claude Code is authenticated to GitHub:
+
+```bash
+claude plugin marketplace add shahar84/shahar-polaks-career-studio
+claude plugin install shahar-polaks-career-studio@shahar-polaks-career-studio
+```
+
+Reload Claude Code, then use the career workflow with `/shahar-polaks-career-studio:shahar-cv-optimizer`.
 
 ## Privacy
 

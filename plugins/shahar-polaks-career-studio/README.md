@@ -1,6 +1,6 @@
 # Shahar Polak’s Career Studio
 
-A skills-only Codex plugin for truthful CV tailoring, ATS optimization, LinkedIn positioning, job-posting analysis, and interview preparation. It supports Hebrew or English working conversations and produces final professional materials in English by default.
+A skills-only plugin for Codex and Claude Code that provides truthful CV tailoring, ATS optimization, LinkedIn positioning, job-posting analysis, and interview preparation. It supports Hebrew or English working conversations and produces final professional materials in English by default.
 
 ## What it does
 

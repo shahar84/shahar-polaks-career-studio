@@ -9,7 +9,7 @@
       "name": "shahar-polaks-career-studio",
       "source": "./plugins/shahar-polaks-career-studio",
       "description": "Evidence-based CV, LinkedIn, and interview support—tailored truthfully for your target role.",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "author": {
         "name": "Shahar Polak"
       },

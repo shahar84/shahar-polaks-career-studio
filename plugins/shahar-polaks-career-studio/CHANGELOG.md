@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.1 — 2026-08-06
+
+- Added Claude Code display and license metadata.
+- Clarified the plugin README supports both Codex and Claude Code.
+
 ## 0.2.0 — 2026-08-06
 
 - Added Claude Code marketplace and plugin packaging.

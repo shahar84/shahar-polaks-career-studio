@@ -1,0 +1,20 @@
+{
+  "name": "shahar-polaks-career-studio",
+  "interface": {
+    "displayName": "Shahar Polak’s Career Studio"
+  },
+  "plugins": [
+    {
+      "name": "shahar-polaks-career-studio",
+      "source": {
+        "source": "local",
+        "path": "./plugins/shahar-polaks-career-studio"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

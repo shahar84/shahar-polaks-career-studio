@@ -1,0 +1,30 @@
+{
+  "name": "shahar-polaks-career-studio",
+  "version": "0.1.0",
+  "description": "Truthful, ATS-safe CV, LinkedIn, job-match, and interview optimization.",
+  "homepage": "https://www.shaharpolak.com/",
+  "repository": "https://github.com/shahar84/shahar-polaks-career-studio",
+  "license": "Proprietary",
+  "keywords": ["career", "cv", "resume", "ats", "linkedin", "interview", "hebrew", "israel"],
+  "author": {
+    "name": "Shahar Polak",
+    "url": "https://www.shaharpolak.com/"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Shahar Polak’s Career Studio",
+    "shortDescription": "Truthful, ATS-safe career materials and job-fit analysis.",
+    "longDescription": "A bilingual workflow for evidence-based CV tailoring, LinkedIn optimization, job analysis, and interview preparation.",
+    "developerName": "Shahar Polak",
+    "category": "Productivity",
+    "capabilities": ["Interactive", "Write"],
+    "websiteURL": "https://www.shaharpolak.com/",
+    "privacyPolicyURL": "https://github.com/shahar84/shahar-polaks-career-studio/blob/main/plugins/shahar-polaks-career-studio/PRIVACY.md",
+    "termsOfServiceURL": "https://github.com/shahar84/shahar-polaks-career-studio/blob/main/plugins/shahar-polaks-career-studio/LICENSE",
+    "defaultPrompt": [
+      "Tailor my CV truthfully for this role.",
+      "Analyze my CV against this job posting.",
+      "Improve my LinkedIn profile for my target role."
+    ]
+  }
+}

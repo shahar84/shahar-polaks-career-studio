@@ -1,0 +1,16 @@
+.DS_Store
+
+# Local editor settings
+.idea/
+.vscode/
+
+# Candidate and test data
+test-data/
+*.resume.pdf
+*.cv.pdf
+*.export.pdf
+
+# Secrets
+.env
+.env.*
+!.env.example

@@ -1,8 +1,8 @@
 {
   "name": "shahar-polaks-career-studio",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "displayName": "Shahar Polak's Career Studio (Beta)",
-  "description": "Public-beta CV, LinkedIn, and interview support—tailored truthfully for your target role.",
+  "description": "Public-beta CV, LinkedIn, interview-pitch, and STAR-method support—tailored truthfully for your target role.",
   "author": {
     "name": "Shahar Polak"
   },

@@ -8,13 +8,13 @@ A skills-only plugin for Codex and Claude Code that provides truthful CV tailori
 
 - Analyzes uploaded/pasted CVs and accessible job postings
 - Matches requirements only to verified candidate evidence
-- Creates ATS-safe CV content, LinkedIn recommendations, application strategy, and interview preparation
+- Creates ATS-safe CV content, LinkedIn recommendations, application strategy, interview preparation, spoken interview pitches, and STAR-method answers
 - Uses Israel as the default market, with explicit adjustment for other markets
 - Keeps Classic as the default PDF style; Crimson and Warm are late-stage options
 
 ## Quick start
 
-Choose one path: tailor a CV for a specific job, strengthen an existing CV, improve a LinkedIn profile, or prepare for an interview. Send a CV (PDF or text), a target role or job posting, and any achievements that must be included. Your LinkedIn link is optional. If you are unsure where to begin, reply with `1`, `2`, `3`, or `4` after activating the plugin.
+Choose one path: tailor a CV for a specific job, strengthen an existing CV, improve a LinkedIn profile, or prepare for an interview. Interview preparation includes a spoken "tell me about yourself" pitch and STAR-method behavioral answers. Send a CV (PDF or text), a target role or job posting, and any achievements that must be included. Your LinkedIn link is optional. If you are unsure where to begin, reply with `1`, `2`, `3`, or `4` after activating the plugin.
 
 ## Install and test
 

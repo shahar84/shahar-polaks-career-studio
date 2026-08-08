@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.0 — 2026-08-08
+
+- Added the `interview-pitch` skill for truthful spoken interview pitches.
+- Added STAR-method behavioral-interview answers with verified Situation, Task, Action, and Result evidence.
+
 ## 0.3.2 — 2026-08-08
 
 - Added adaptive English and Hebrew onboarding with four clear starting paths.

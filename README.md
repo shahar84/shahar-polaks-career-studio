@@ -12,7 +12,7 @@ Truthful, ATS-safe CV tailoring, LinkedIn positioning, job-fit analysis, and int
 
 - Turns verified experience into clear, credible career materials
 - Tailors ATS-safe CV content to specific roles and job descriptions
-- Improves LinkedIn positioning, application strategy, and interview preparation
+- Improves LinkedIn positioning, application strategy, interview pitches, and STAR-method behavioral answers
 - Supports Hebrew or English working conversations; final professional materials are English by default
 - Uses Israel as the default market, with explicit adjustments for other markets
 
@@ -22,7 +22,7 @@ Career Studio never invents achievements, titles, qualifications, dates, metrics
 
 ## Quick start
 
-Start with one of four paths: tailor a CV for a specific job, strengthen an existing CV, improve a LinkedIn profile, or prepare for an interview. Send a CV (PDF or text), a target role or job posting, and any achievements that must be included. Your LinkedIn link is optional. If you are unsure where to begin, activate the plugin and reply with `1`, `2`, `3`, or `4` to choose a path.
+Start with one of four paths: tailor a CV for a specific job, strengthen an existing CV, improve a LinkedIn profile, or prepare for an interview. Interview preparation includes a spoken "tell me about yourself" pitch and STAR-method behavioral answers. Send a CV (PDF or text), a target role or job posting, and any achievements that must be included. Your LinkedIn link is optional. If you are unsure where to begin, activate the plugin and reply with `1`, `2`, `3`, or `4` to choose a path.
 
 ## Install in Codex
 

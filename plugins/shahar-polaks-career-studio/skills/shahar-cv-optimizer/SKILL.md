@@ -56,6 +56,8 @@ When useful evidence is missing: ask one focused question; label it `Requires co
 5. Write concise, achievement-oriented content using STAR-I: situation, task, action, result, insight. Use only substantiated metrics; otherwise use truthful scope, complexity, frequency, adoption, stakeholder level, ownership, speed, or quality evidence.
 6. Run the quality review in [ATS guidelines](references/ats-guidelines.md), then produce the requested deliverables and items requiring confirmation.
 
+For a "tell me about yourself" answer, elevator pitch, or behavioral-interview question, route to the bundled `interview-pitch` skill. Carry forward the verified evidence inventory, target role, professional narrative, and any `Requires confirmation` items rather than asking the user to repeat them.
+
 Assume Israel as the target market unless the role, company, location, or user signals otherwise. If a non-Israeli market is likely but unclear, ask for country before applying market-specific norms. See [market guidance](references/geographic-market-guidelines.md).
 
 ## Required output for CV + job description

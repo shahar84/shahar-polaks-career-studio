@@ -16,6 +16,10 @@ Truthful, ATS-safe CV tailoring, LinkedIn positioning, job-fit analysis, and int
 
 Career Studio never invents achievements, titles, qualifications, dates, metrics, or experience. It matches job requirements only to evidence the candidate has verified.
 
+## Quick start
+
+Start with one of four paths: tailor a CV for a specific job, strengthen an existing CV, improve a LinkedIn profile, or prepare for an interview. Send a CV (PDF or text), a target role or job posting, and any achievements that must be included. Your LinkedIn link is optional. If you are unsure where to begin, activate the plugin and reply with `1`, `2`, `3`, or `4` to choose a path.
+
 ## Install in Codex
 
 Add this repository as a Codex plugin marketplace, install `shahar-polaks-career-studio`, then start a new task with the plugin enabled.

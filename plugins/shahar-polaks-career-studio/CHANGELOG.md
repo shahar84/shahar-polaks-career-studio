@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.2 — 2026-08-08
+
+- Added adaptive English and Hebrew onboarding with four clear starting paths.
+
 ## 0.3.1 — 2026-08-08
 
 - Marked the public release as beta across documentation and plugin listings.

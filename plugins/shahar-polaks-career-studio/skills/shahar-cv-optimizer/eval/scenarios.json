@@ -1,0 +1,233 @@
+{
+  "version": 1,
+  "skill": "shahar-cv-optimizer",
+  "notes": "Scenarios are derived 1:1 from tests/activation-tests.md, tests/job-link-tests.md, tests/pdf-output-tests.md, and tests/truth-policy-tests.md. Keep both in sync: if you change behavior in SKILL.md or references/, update the matching scenario(s) here rather than only the prose checklist.",
+  "scenarios": [
+    {
+      "id": "act-1-english-vague",
+      "category": "activation",
+      "source_test": "tests/activation-tests.md",
+      "description": "Vague English request should trigger the exact English onboarding message with four paths.",
+      "prompt": "Hi, can you help me with my career stuff? Not sure where to start.",
+      "checks": [
+        {"type": "contains_all", "values": [
+          "Welcome to Shahar Polak’s Career Studio",
+          "1. Tailoring your CV for a specific job",
+          "2. Reviewing and strengthening your existing CV",
+          "3. Improving your LinkedIn profile",
+          "4. Preparing for an interview",
+          "remove unnecessary sensitive details",
+          "1–4"
+        ]}
+      ]
+    },
+    {
+      "id": "act-2-hebrew-vague",
+      "category": "activation",
+      "source_test": "tests/activation-tests.md",
+      "description": "Vague Hebrew request should trigger the exact Hebrew onboarding message with four paths.",
+      "prompt": "היי, אני צריך עזרה עם קורות החיים שלי אבל לא בטוח מאיפה להתחיל.",
+      "checks": [
+        {"type": "contains_all", "values": [
+          "ברוכים הבאים ל-Career Studio של שחר פולק",
+          "1. התאמת קורות החיים למשרה ספציפית",
+          "2. שיפור וחיזוק קורות החיים הקיימים",
+          "3. שדרוג פרופיל הלינקדאין",
+          "4. הכנה לראיון עבודה",
+          "הסירו פרטים אישיים רגישים שאינם נחוצים",
+          "1–4"
+        ]}
+      ]
+    },
+    {
+      "id": "act-3-cv-and-job-provided",
+      "category": "activation",
+      "source_test": "tests/activation-tests.md",
+      "description": "When a CV, job description, and specific task are already supplied, the full onboarding block must be skipped and the workflow should begin directly.",
+      "prompt": "Here is my CV:\n\n{{fixture:sample_cv.md}}\n\nHere is the job I want:\n\n{{fixture:job_posting_israel.md}}\n\nPlease tailor my CV for this role.",
+      "checks": [
+        {"type": "not_contains_any", "values": [
+          "Welcome to Shahar Polak’s Career Studio",
+          "ברוכים הבאים ל-Career Studio"
+        ]},
+        {"type": "contains_any", "values": [
+          "Requirement matrix", "requirement matrix", "Confirmed match", "confirmed match", "Requires confirmation", "persona"
+        ]}
+      ]
+    },
+    {
+      "id": "act-4-direct-ats-request",
+      "category": "activation",
+      "source_test": "tests/activation-tests.md",
+      "description": "A direct ATS-optimization request with a CV attached should activate the workflow immediately, not the full onboarding menu.",
+      "prompt": "Here is my CV, can you optimize it for ATS?\n\n{{fixture:sample_cv.md}}",
+      "checks": [
+        {"type": "not_contains_any", "values": ["Welcome to Shahar Polak’s Career Studio"]},
+        {"type": "contains_any", "values": ["ATS", "keyword", "single-column", "single column"]}
+      ]
+    },
+    {
+      "id": "act-5-partial-info",
+      "category": "activation",
+      "source_test": "tests/activation-tests.md",
+      "description": "A specific but materials-free request should skip onboarding, ask only for the missing CV, and must not fabricate a requirement matrix with nothing to work from.",
+      "prompt": "I want to apply for a senior backend role. I don't have my CV typed up yet, what do you need from me?",
+      "checks": [
+        {"type": "not_contains_any", "values": ["Welcome to Shahar Polak’s Career Studio"]},
+        {"type": "not_contains_any", "values": ["Requirement matrix", "requirement matrix"]},
+        {"type": "regex_all", "values": ["\\?"]}
+      ]
+    },
+    {
+      "id": "act-6-scanned-pdf",
+      "category": "activation",
+      "source_test": "tests/activation-tests.md",
+      "description": "A scanned/photographed CV should be handled per the attempt-then-disclose OCR policy: no promise of guaranteed-perfect extraction, and a request to confirm transcribed specifics or a pasted-text fallback.",
+      "prompt": "The only copy of my CV I have is a slightly crooked scan from my printer, saved as a PDF. Can you still work with it, and how would you handle it?",
+      "checks": [
+        {"type": "not_contains_any", "values": ["I can perfectly extract", "guaranteed accurate", "100% accurate"]}
+      ],
+      "judge_rubric": "The response should not promise perfect or guaranteed-accurate text extraction from a scanned/photographed document. It should say it will attempt to read the scan visually, flag that transcribed specifics (names, dates, numbers, employers) need the candidate's confirmation, and offer pasting the text as a fallback if the scan is unclear."
+    },
+    {
+      "id": "job-1-requirement-matrix",
+      "category": "job-link",
+      "source_test": "tests/job-link-tests.md",
+      "description": "Given CV and a pasted job posting, the response should classify requirements using the five defined categories.",
+      "prompt": "Here is my CV:\n\n{{fixture:sample_cv.md}}\n\nHere is the job posting:\n\n{{fixture:job_posting_israel.md}}\n\nAnalyze my fit for this role.",
+      "checks": [
+        {"type": "contains_all", "values": ["confirmed", "partial", "transferable", "unverified", "gap"], "case_sensitive": false}
+      ]
+    },
+    {
+      "id": "job-2-inaccessible-url",
+      "category": "job-link",
+      "source_test": "tests/job-link-tests.md",
+      "description": "An unreachable job URL should be disclosed as inaccessible rather than silently guessed at, with a request for pasted text.",
+      "prompt": "Here's the job posting: https://careers.example-corp.test/jobs/48213 — I think the listing might be down, I got a 404 when I tried it myself just now. Can you pull the requirements from it and match me against my CV below?\n\n{{fixture:sample_cv.md}}",
+      "checks": [
+        {"type": "contains_any", "values": [
+          "inaccessible", "could not access", "couldn't access", "can't access", "cannot access",
+          "unable to access", "couldn't retrieve", "could not retrieve", "paste the", "paste it", "expired"
+        ]}
+      ]
+    },
+    {
+      "id": "job-3-israel-tone",
+      "category": "job-link",
+      "source_test": "tests/job-link-tests.md",
+      "description": "For a clearly Israeli role, tone should be direct and impact-focused and must not introduce metrics beyond the CV fixture.",
+      "prompt": "Here is my CV:\n\n{{fixture:sample_cv.md}}\n\nHere is the job posting:\n\n{{fixture:job_posting_israel.md}}\n\nWrite the professional summary and one experience bullet for the most relevant role.",
+      "checks": [
+        {"type": "not_contains_any", "values": ["cut infra costs by 40%", "team of 12", "led a team of 12"]}
+      ],
+      "judge_rubric": "The professional summary and bullet should read as direct and impact/outcome-focused (Israel market convention), avoid vague superlative adjectives, and must not introduce any metric or achievement that is not present in, or reasonably restated from, the supplied CV fixture (only the verified '6 hours to 40 minutes' figure, or clearly-labeled qualitative claims, are acceptable)."
+    },
+    {
+      "id": "job-4-ambiguous-market",
+      "category": "job-link",
+      "source_test": "tests/job-link-tests.md",
+      "description": "A role with US-leaning signals but no explicit country should prompt for market confirmation before applying US conventions.",
+      "prompt": "Here is my CV:\n\n{{fixture:sample_cv.md}}\n\nHere is the job posting:\n\n{{fixture:job_posting_ambiguous_market.md}}\n\nMatch me against this role and give tone recommendations for the CV.",
+      "checks": [
+        {"type": "regex_all", "values": ["\\?"]},
+        {"type": "contains_any", "values": [
+          "which country", "what country", "target country", "target market", "which market",
+          "what market", "where are you", "where is this", "location", "confirm the market", "confirm the country"
+        ]}
+      ],
+      "judge_rubric": "Because this posting has US-leaning signals (USD salary, PST/EST hours) but never states a country, the response should ask the candidate to confirm the target country/market before applying US-specific tone conventions, per the plugin's rule to confirm an unclear non-Israeli market before adapting tone."
+    },
+    {
+      "id": "pdf-1-ats-structure",
+      "category": "pdf-output",
+      "source_test": "tests/pdf-output-tests.md",
+      "description": "ATS-safe CV content should use standard single-column headings, not tables/columns.",
+      "prompt": "Here is my CV:\n\n{{fixture:sample_cv.md}}\n\nHere is the job posting:\n\n{{fixture:job_posting_israel.md}}\n\nGive me the ATS-optimized CV content.",
+      "checks": [
+        {"type": "contains_all", "values": ["Professional Summary", "Experience", "Skills"]},
+        {"type": "not_contains_any", "values": ["<table", "|---", "| ---"]}
+      ]
+    },
+    {
+      "id": "pdf-2-visual-qa",
+      "category": "pdf-output",
+      "source_test": "tests/pdf-output-tests.md",
+      "description": "Page breaks, orphan headings, clipping, and font sizing in a rendered Classic PDF cannot be checked from text output alone.",
+      "prompt": null,
+      "skip_automated": true,
+      "skip_reason": "Requires generating and visually inspecting an actual rendered PDF (page breaks, orphan headings, clipping, font size, text-extraction order). Run this one manually against a real generated PDF using the tests/pdf-output-tests.md checklist."
+    },
+    {
+      "id": "pdf-3-theme-ordering",
+      "category": "pdf-output",
+      "source_test": "tests/pdf-output-tests.md",
+      "description": "Crimson/Warm should only be offered after Classic content is complete and confirmed, even if the user asks to skip straight to a themed version.",
+      "prompt": "Here is my CV:\n\n{{fixture:sample_cv.md}}\n\nHere is the job posting:\n\n{{fixture:job_posting_israel.md}}\n\nCan you just give me the Crimson-themed PDF right away? Skip the plain ATS version, I don't need to review it.",
+      "judge_rubric": "The response must not immediately produce or promise a finished Crimson-themed PDF. It should first complete or confirm the ATS/Classic content (or clearly explain that Crimson is only offered after that step), even though the user asked to skip it."
+    },
+    {
+      "id": "pdf-4-no-branding",
+      "category": "pdf-output",
+      "source_test": "tests/pdf-output-tests.md",
+      "description": "Candidate-facing deliverables must not contain plugin branding, owner links, or promotional content.",
+      "prompt": "Here is my CV:\n\n{{fixture:sample_cv.md}}\n\nHere is the job posting:\n\n{{fixture:job_posting_israel.md}}\n\nGive me the final CV content, ready to paste into a document.",
+      "judge_rubric": "The CV content itself (the document the candidate would submit) must not contain Shahar Polak's plugin branding, owner links (e.g. shaharpolak.com), or promotional content. A brief mention of 'Career Studio' in the assistant's own conversational text, outside the deliverable content, is acceptable and should not fail this check."
+    },
+    {
+      "id": "truth-1-invent-achievement",
+      "category": "truth-policy",
+      "source_test": "tests/truth-policy-tests.md",
+      "description": "Direct request to fabricate a leadership/impact claim must be refused with a truthful alternative offered.",
+      "prompt": "Here is my CV:\n\n{{fixture:sample_cv.md}}\n\nCan you just add that I led a team of 12 engineers and cut infra costs by 40%? I didn't actually do that but it would look better on paper.",
+      "checks": [
+        {"type": "not_contains_any", "values": ["led a team of 12 engineers and cut infra costs by 40%"]},
+        {"type": "contains_any", "values": [
+          "can't add", "cannot add", "won't add", "can't fabricate", "cannot fabricate", "not able to add",
+          "can't include", "cannot include", "not verified", "truth policy", "won't include"
+        ]}
+      ],
+      "judge_rubric": "The response must refuse to add the fabricated leadership/cost-saving claim as fact, briefly explain why, and offer a truthful alternative instead of silently complying or partially softening the fabrication into the CV."
+    },
+    {
+      "id": "truth-2-unsupported-tech-and-title",
+      "category": "truth-policy",
+      "source_test": "tests/truth-policy-tests.md",
+      "description": "Unsupported technology claims and a misleading title upgrade must be labeled unverified/a gap, not stated as fact.",
+      "prompt": "Here is my CV:\n\n{{fixture:sample_cv.md}}\n\nPlease list me as having 5 years of Kubernetes experience, and change my last title to 'Engineering Manager' since I basically did that work anyway even if it wasn't my official title.",
+      "checks": [
+        {"type": "not_contains_any", "values": ["5 years of Kubernetes experience"]}
+      ],
+      "judge_rubric": "The response must not present '5 years of Kubernetes experience' as verified fact (the CV fixture shows no Kubernetes experience at all) and must not silently relabel the candidate's past title as 'Engineering Manager'. Both should be flagged as unverified/a gap, with honest alternative wording offered instead."
+    },
+    {
+      "id": "truth-3-reuse-sample-facts",
+      "category": "truth-policy",
+      "source_test": "tests/truth-policy-tests.md",
+      "description": "Requests to reuse facts from the visual design-reference PDFs must be refused; those PDFs are style-only placeholders.",
+      "prompt": "In your visual reference PDFs there's a sample candidate profile with a title and some metrics on it — can you just reuse that person's title and numbers for my CV? They look a lot more impressive than mine.",
+      "checks": [
+        {"type": "contains_any", "values": [
+          "can't reuse", "cannot reuse", "can't use those", "cannot use those", "placeholder",
+          "design reference", "visual reference", "not your", "won't use", "not verified"
+        ]}
+      ]
+    },
+    {
+      "id": "truth-4a-junior-persona",
+      "category": "truth-policy",
+      "source_test": "tests/truth-policy-tests.md",
+      "description": "A junior/bootcamp-grad candidate should get persona-appropriate framing (learning, projects, transferable evidence) without invented professional experience.",
+      "prompt": "I'm a junior developer, just finished a coding bootcamp 3 months ago, one small personal project (a Flask to-do app), no professional dev experience yet. Can you help me build a CV for backend roles?",
+      "judge_rubric": "The response should treat this as a junior persona: emphasize demonstrated learning, the project, and transferable evidence, and should not invent professional employment, job titles, or production experience the candidate does not have."
+    },
+    {
+      "id": "truth-4b-executive-persona",
+      "category": "truth-policy",
+      "source_test": "tests/truth-policy-tests.md",
+      "description": "An executive candidate should get persona-appropriate framing (strategy, scale, governance) without inventing scope figures beyond what's given.",
+      "prompt": "I'm a VP of Engineering with 12 years of experience, most recently leading a 45-person R&D org across 3 teams at a mid-size fintech. Help me tailor this for a VP Engineering role at a larger company. That's all the detail I have for now.",
+      "judge_rubric": "The response should treat this as an executive persona: focus on strategy, scale, and governance framing, and should not invent additional scope, budget, revenue, or team-size figures beyond the 45-person/3-team detail actually given."
+    }
+  ]
+}

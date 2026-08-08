@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.5.0 — 2026-08-08
+
+- Added an automated eval harness (`skills/shahar-cv-optimizer/eval/`) that runs the scenarios behind `tests/*.md` against a live `claude -p` call and checks the output deterministically and, where judgment is needed, via an LLM-judge rubric. Not yet run end-to-end against a live model in this environment — run it locally (`python3 eval/run_eval.py`) and note the result here before relying on it as a regression gate.
+- Added `references/worked-examples.md`: calibrated before/after examples for CV bullets (with and without a verified metric), gap labeling, and LinkedIn headline/About content, linked from `SKILL.md` and the relevant templates.
+- Added `references/document-input-handling.md`: attempt-then-disclose handling for scanned/photographed CVs — attempt to read visually, never claim guaranteed-accurate extraction or "OCR," flag transcribed specifics as needing confirmation, fall back to asking for pasted text.
+- Added a "Model compatibility" note to the repo README pointing at the eval harness as the way to re-validate behavior after a model or CLI upgrade.
+
 ## 0.4.2 — 2026-08-08
 
 - Added copy-and-paste usage examples for every Career Studio workflow to both READMEs.

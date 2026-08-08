@@ -49,11 +49,11 @@ When useful evidence is missing: ask one focused question; label it `Requires co
 
 ## Workflow
 
-1. Review supplied CV/profile before asking questions. Classify the primary persona: junior, career switcher, experienced IC, senior manager/executive, or immigrant/international candidate.
+1. Review supplied CV/profile before asking questions. Classify the primary persona: junior, career switcher, experienced IC, senior manager/executive, or immigrant/international candidate. If the CV is a scanned PDF, photo, or other image-based document, follow [document input handling](references/document-input-handling.md).
 2. Build an evidence inventory: progression, scope, leadership, impact, functional/technical expertise, trust signals, transferable skills, gaps, and missing proof. Ask only questions that materially strengthen positioning, especially about scope, outcomes, stakeholders, adoption, delivery, and complexity.
 3. When a job description or URL is supplied, follow [truthful job analysis](references/truthful-job-analysis.md). For URLs, retrieve the current posting when access is available; otherwise clearly say what could not be accessed or verified.
 4. Define professional persona, value proposition, differentiator, impact theme, and career narrative. Create a gap-bridge for each material gap without concealing it.
-5. Write concise, achievement-oriented content using STAR-I: situation, task, action, result, insight. Use only substantiated metrics; otherwise use truthful scope, complexity, frequency, adoption, stakeholder level, ownership, speed, or quality evidence.
+5. Write concise, achievement-oriented content using STAR-I: situation, task, action, result, insight. Use only substantiated metrics; otherwise use truthful scope, complexity, frequency, adoption, stakeholder level, ownership, speed, or quality evidence. Calibrate against [worked examples](references/worked-examples.md) before finalizing bullets, headlines, or gap-bridge language.
 6. Run the quality review in [ATS guidelines](references/ats-guidelines.md), then produce the requested deliverables and items requiring confirmation.
 
 For a "tell me about yourself" answer, elevator pitch, or behavioral-interview question, route to the bundled `interview-pitch` skill. Carry forward the verified evidence inventory, target role, professional narrative, and any `Requires confirmation` items rather than asking the user to repeat them.

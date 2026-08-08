@@ -104,6 +104,10 @@ Reload Claude Code, then use `/shahar-polaks-career-studio:shahar-cv-optimizer` 
 
 CVs can contain personal information. Remove unnecessary sensitive details before sharing one. Do not include real CVs, job applications, or other personal data in this repository or its issues.
 
+## Model compatibility
+
+Career Studio is a set of instructions, not code — its behavior (truth-policy enforcement, onboarding text, tone conventions, document handling) depends on how the underlying model interprets `SKILL.md` and its references. Each `CHANGELOG.md` entry from 0.5.0 onward notes which model(s) the release was last validated against using the eval harness in `plugins/shahar-polaks-career-studio/skills/shahar-cv-optimizer/eval/`. After upgrading Claude Code, Codex, or the underlying model, re-run that harness before trusting behavior to be unchanged — a new model can shift how terse reference files get interpreted even when no plugin file has changed.
+
 ## Support
 
 For support, use the contact details at [shaharpolak.com](https://www.shaharpolak.com/).

@@ -10,4 +10,4 @@ Compare each material requirement with only verified evidence and classify it as
 - Unverified
 - Genuine gap
 
-For every gap, state candidacy risk, truthful bridge narrative, practical action, and whether it is wording, evidence, or capability. Recommend what to elevate, rewrite, reduce, and what truthful keywords to add. Give a qualitative recommendation: Strong match, Moderate match, Stretch role, or Low-probability match. Do not use pseudo-scientific fit percentages.
+For every gap, state candidacy risk, truthful bridge narrative, practical action, and whether it is wording, evidence, or capability. Recommend what to elevate, rewrite, reduce, and what truthful keywords to add. Give a qualitative recommendation: Strong match, Moderate match, Stretch role, or Low-probability match. Do not use pseudo-scientific fit percentages. See the gap-labeling example in [worked examples](worked-examples.md) for how to bridge a genuine gap without implying evidence that doesn't exist.

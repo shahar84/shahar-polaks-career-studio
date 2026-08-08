@@ -64,6 +64,22 @@ Four `pdf-output` scenarios exist for completeness, but `pdf-2-visual-qa` is
 marked `skip_automated: true` — actual page-break/clipping/font QA requires
 looking at a rendered PDF, which this harness doesn't generate or inspect.
 
+## A known sharp edge in deterministic checks
+
+`not_contains_any` checks that target a fabricated phrase are risky on
+refusal scenarios: a compliant model very naturally quotes the fabricated
+claim back while declining it ("I won't add that you led a team of 12
+engineers..."), which trips a naive forbidden-string check even though the
+response is correct. `truth-1` and `truth-2` were both caught doing this
+during a logic dry-run (hand-written compliant/violating sample responses
+run through the check functions directly, without calling `claude`) — fix
+was to drop the brittle string check and lean on the `judge_rubric`, which
+can tell "quoted while refusing" apart from "stated as fact." If you add a
+new truth-policy scenario, default to `judge_rubric` for anything involving
+a refusal, and only add a `not_contains_any` check for phrases a compliant
+response has no legitimate reason to ever produce (see `job-3-israel-tone`
+for that safer pattern).
+
 ## Keeping this in sync
 
 If you change onboarding copy, the truth policy, market-tone rules, or PDF

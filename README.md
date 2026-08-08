@@ -24,7 +24,51 @@ Career Studio never invents achievements, titles, qualifications, dates, metrics
 
 Start with one of four paths: tailor a CV for a specific job, strengthen an existing CV, improve a LinkedIn profile, or prepare for an interview. Interview preparation includes a spoken "tell me about yourself" pitch and STAR-method behavioral answers. Send a CV (PDF or text), a target role or job posting, and any achievements that must be included. Your LinkedIn link is optional. If you are unsure where to begin, activate the plugin and reply with `1`, `2`, `3`, or `4` to choose a path.
 
-## Interview pitches and STAR answers
+## How to use Career Studio
+
+You can write naturally in English or Hebrew. Replace bracketed text with your own details and share only verified information.
+
+### Tailor a CV for a specific role
+
+```text
+I’m applying for [role] at [company]. Here is my CV and the job description.
+Tailor my CV truthfully for this role, show my strongest matches and gaps,
+and flag anything that needs confirmation.
+```
+
+### Strengthen an existing CV
+
+```text
+Review my CV for clarity, positioning, and ATS safety.
+I’m targeting [role] roles in [country]. Suggest stronger wording without
+inventing any achievements or metrics.
+```
+
+### Improve a LinkedIn profile
+
+```text
+Help me improve my LinkedIn profile for [target role].
+Here is my current headline, About section, and experience. Keep every claim
+grounded in my verified experience.
+```
+
+### Analyze a job match
+
+```text
+Compare my CV with this job posting. Build a requirement matrix showing what is
+confirmed, transferable, partial, unverified, or a genuine gap. Recommend
+whether and how I should apply.
+```
+
+### Prepare for an interview
+
+```text
+I have an interview for [role] at [company]. Based on my CV and this job
+description, help me prepare the most likely questions, my verified evidence,
+and questions I should ask the interviewer.
+```
+
+### Interview pitches and STAR answers
 
 Use the interview-pitch skill naturally in English or Hebrew:
 

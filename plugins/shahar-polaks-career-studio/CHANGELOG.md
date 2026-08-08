@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.1 — 2026-08-08
+
+- Marked the public release as beta across documentation and plugin listings.
+
 ## 0.3.0 — 2026-08-08
 
 - Released the plugin publicly under the Shahar Polak Personal Use License 1.0.

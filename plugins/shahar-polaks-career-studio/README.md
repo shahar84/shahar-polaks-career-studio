@@ -2,6 +2,8 @@
 
 A skills-only plugin for Codex and Claude Code that provides truthful CV tailoring, ATS optimization, LinkedIn positioning, job-posting analysis, and interview preparation. It supports Hebrew or English working conversations and produces final professional materials in English by default.
 
+> **Public beta:** This plugin is actively evolving. Workflows, templates, and outputs may change. Review every final document for accuracy before using it, and do not include CVs or other personal information in feedback.
+
 ## What it does
 
 - Analyzes uploaded/pasted CVs and accessible job postings

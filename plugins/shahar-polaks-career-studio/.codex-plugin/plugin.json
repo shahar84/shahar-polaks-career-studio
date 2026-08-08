@@ -1,6 +1,6 @@
 {
   "name": "shahar-polaks-career-studio",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Truthful, ATS-safe CV, LinkedIn, job-match, and interview optimization.",
   "homepage": "https://www.shaharpolak.com/",
   "repository": "https://github.com/shahar84/shahar-polaks-career-studio",
@@ -13,8 +13,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Shahar Polak’s Career Studio",
-    "shortDescription": "Truthful, ATS-safe career materials and job-fit analysis.",
-    "longDescription": "A bilingual workflow for evidence-based CV tailoring, LinkedIn optimization, job analysis, and interview preparation.",
+    "shortDescription": "Public-beta, truthful career materials and job-fit analysis.",
+    "longDescription": "A public-beta bilingual workflow for evidence-based CV tailoring, LinkedIn optimization, job analysis, and interview preparation.",
     "developerName": "Shahar Polak",
     "category": "Productivity",
     "capabilities": ["Interactive", "Write"],

@@ -14,3 +14,8 @@ test-data/
 .env
 .env.*
 !.env.example
+
+# Eval harness output
+plugins/*/skills/*/eval/report.json
+plugins/*/skills/*/eval/__pycache__/
+*.tmp

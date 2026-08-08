@@ -1,5 +1,7 @@
 # Name and contact details
 
+See [worked examples](../references/worked-examples.md) for calibrated bullet writing before filling this in.
+
 ## Professional Summary
 
 Two to four evidence-based lines tailored to the target role.

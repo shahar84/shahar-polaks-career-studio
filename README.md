@@ -1,5 +1,9 @@
 # Shahar Polak’s Career Studio
 
+<p align="center">
+  <img src="assets/shahar-career-studio-logo.jpeg" alt="Shahar Polak’s Career Studio yellow duck mascot wearing tortoiseshell glasses" width="360">
+</p>
+
 Truthful, ATS-safe CV tailoring, LinkedIn positioning, job-fit analysis, and interview preparation for Hebrew- and English-speaking professionals.
 
 > **Public beta:** Career Studio is actively evolving. Workflows, templates, and outputs may change as it is tested with real career scenarios. Review every final document for accuracy before using it, and share feedback through [shaharpolak.com](https://www.shaharpolak.com/). Do not include CVs or other personal information in feedback.

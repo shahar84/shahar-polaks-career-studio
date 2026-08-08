@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.1 — 2026-08-08
+
+- Added practical interview-pitch and STAR usage guidance to both READMEs.
+- Expanded behavioral-interview test coverage for Hebrew and mixed-outcome stories.
+
 ## 0.4.0 — 2026-08-08
 
 - Added the `interview-pitch` skill for truthful spoken interview pitches.

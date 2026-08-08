@@ -7,3 +7,5 @@
 - Provide a team outcome; verify the answer distinguishes the candidate's specific contribution from the team's work.
 - Supply a CV or prior Career Studio evidence inventory; verify the skill reuses it and asks only for missing material facts.
 - Include a sensitive detail; verify the skill advises removing unnecessary sensitive information and does not request identity documents, financial, medical, or unrelated data.
+- Ask for a STAR answer in Hebrew; verify the outline and spoken answer remain in Hebrew while the four STAR elements and evidence requirements are preserved.
+- Ask for a STAR answer based on a failure or mixed outcome; verify it does not force a positive result and includes a truthful learning or next action.

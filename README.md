@@ -24,6 +24,19 @@ Career Studio never invents achievements, titles, qualifications, dates, metrics
 
 Start with one of four paths: tailor a CV for a specific job, strengthen an existing CV, improve a LinkedIn profile, or prepare for an interview. Interview preparation includes a spoken "tell me about yourself" pitch and STAR-method behavioral answers. Send a CV (PDF or text), a target role or job posting, and any achievements that must be included. Your LinkedIn link is optional. If you are unsure where to begin, activate the plugin and reply with `1`, `2`, `3`, or `4` to choose a path.
 
+## Interview pitches and STAR answers
+
+Use the interview-pitch skill naturally in English or Hebrew:
+
+- “Help me answer ‘Tell me about yourself’ for this role.”
+- “Review and tighten this interview pitch.”
+- “Help me answer: Tell me about a time you handled a conflict.”
+- “Build a STAR answer from this real experience.”
+
+For a pitch, share the target role plus your verified career highlights. For a STAR answer, share the exact interview question, a real example, your specific responsibility and actions, and the result. If there is no reliable metric, say so—the plugin will use a truthful qualitative result rather than inventing a number.
+
+You will receive a concise, spoken answer in your language. STAR requests also return a Situation–Task–Action–Result outline, items that require confirmation, and one likely follow-up question to prepare for.
+
 ## Install in Codex
 
 Add this repository as a Codex plugin marketplace, install `shahar-polaks-career-studio`, then start a new task with the plugin enabled.
@@ -41,7 +54,7 @@ claude plugin marketplace add shahar84/shahar-polaks-career-studio
 claude plugin install shahar-polaks-career-studio@shahar-polaks-career-studio
 ```
 
-Reload Claude Code, then use the career workflow with `/shahar-polaks-career-studio:shahar-cv-optimizer`.
+Reload Claude Code, then use `/shahar-polaks-career-studio:shahar-cv-optimizer` for CV and job-fit work or `/shahar-polaks-career-studio:interview-pitch` for interview pitches and STAR answers.
 
 ## Privacy
 

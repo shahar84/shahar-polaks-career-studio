@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.2 — 2026-08-08
+
+- Added copy-and-paste usage examples for every Career Studio workflow to both READMEs.
+
 ## 0.4.1 — 2026-08-08
 
 - Added practical interview-pitch and STAR usage guidance to both READMEs.

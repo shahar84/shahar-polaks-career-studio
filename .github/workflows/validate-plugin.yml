@@ -1,0 +1,29 @@
+name: Validate Career Studio Plugin
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate-package:
+    name: Validate plugin package
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate manifests and skill metadata
+        run: python3 scripts/validate_plugin.py
+
+      - name: Validate evaluation suite definition
+        run: python3 plugins/shahar-polaks-career-studio/skills/shahar-cv-optimizer/eval/run_eval.py --list

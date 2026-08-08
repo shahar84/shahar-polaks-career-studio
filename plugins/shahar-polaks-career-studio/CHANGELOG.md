@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.0 — 2026-08-08
+
+- Released the plugin publicly under the Shahar Polak Personal Use License 1.0.
+
 ## 0.2.1 — 2026-08-06
 
 - Added Claude Code display and license metadata.

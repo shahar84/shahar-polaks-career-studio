@@ -20,4 +20,4 @@ Provide a CV (PDF or text), target role/job description or URL, optional LinkedI
 
 ## Privacy and licence
 
-Read [PRIVACY.md](PRIVACY.md) before use. This is proprietary software; see [LICENSE](LICENSE). Keep the repository private or access-controlled because a licence cannot technically prevent copying by people who can access the source.
+Read [PRIVACY.md](PRIVACY.md) before use. This plugin is free for individual personal career use under the [Shahar Polak Personal Use License 1.0](LICENSE). It is source-available, not open source: redistribution, modification, commercial use, and competing use require written permission.

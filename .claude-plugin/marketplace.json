@@ -9,12 +9,13 @@
       "name": "shahar-polaks-career-studio",
       "source": "./plugins/shahar-polaks-career-studio",
       "description": "Evidence-based CV, LinkedIn, and interview support—tailored truthfully for your target role.",
-      "version": "0.2.1",
+      "version": "0.3.0",
       "author": {
         "name": "Shahar Polak"
       },
       "homepage": "https://www.shaharpolak.com/",
       "repository": "https://github.com/shahar84/shahar-polaks-career-studio",
+      "license": "LicenseRef-Shahar-Polak-Personal-Use-1.0",
       "category": "productivity",
       "tags": ["career", "cv", "resume", "ats", "linkedin", "interview", "hebrew", "israel"]
     }

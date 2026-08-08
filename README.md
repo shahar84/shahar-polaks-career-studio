@@ -43,4 +43,4 @@ For support, use the contact details at [shaharpolak.com](https://www.shaharpola
 
 ## License
 
-Proprietary. See [the plugin license](plugins/shahar-polaks-career-studio/LICENSE).
+Free for individual personal career use under the [Shahar Polak Personal Use License 1.0](LICENSE). It is source-available, not open source: redistribution, modification, commercial use, and competing use require written permission.

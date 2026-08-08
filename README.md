@@ -4,90 +4,58 @@
   <img src="assets/shahar-career-studio-logo.jpeg" alt="Shahar Polak’s Career Studio yellow duck mascot wearing tortoiseshell glasses" width="360">
 </p>
 
-Truthful, ATS-safe CV tailoring, LinkedIn positioning, job-fit analysis, and interview preparation for Hebrew- and English-speaking professionals.
+<p align="center">
+  <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/license-Personal%20Use%201.0-blue.svg"></a>
+  <img alt="Status" src="https://img.shields.io/badge/status-public%20beta-orange.svg">
+  <a href="#install-in-claude-code"><img alt="Claude Code" src="https://img.shields.io/badge/Claude%20Code-supported-6e56cf.svg"></a>
+  <a href="#install-in-codex"><img alt="Codex" src="https://img.shields.io/badge/Codex-experimental-lightgrey.svg"></a>
+</p>
 
-> **Public beta:** Career Studio is actively evolving. Workflows, templates, and outputs may change as it is tested with real career scenarios. Review every final document for accuracy before using it, and share feedback through [shaharpolak.com](https://www.shaharpolak.com/). Do not include CVs or other personal information in feedback.
+**Career Studio tailors your CV, LinkedIn profile, and interview prep to a specific job — without inventing a single achievement to get there.**
 
-## What it does
+ATS-safe CV tailoring, LinkedIn positioning, job-fit analysis, and interview preparation, in Hebrew or English. Free for personal job-search use.
 
-- Turns verified experience into clear, credible career materials
-- Tailors ATS-safe CV content to specific roles and job descriptions
-- Improves LinkedIn positioning, application strategy, interview pitches, and STAR-method behavioral answers
-- Supports Hebrew or English working conversations; final professional materials are English by default
-- Uses Israel as the default market, with explicit adjustments for other markets
+<p align="center">
+  <a href="#install-in-claude-code">Install (Claude Code)</a> ·
+  <a href="#install-in-codex">Install (Codex)</a> ·
+  <a href="#what-you-can-do">What you can do</a> ·
+  <a href="#how-to-use-career-studio">Usage examples</a> ·
+  <a href="#support">Support</a>
+</p>
+
+> **Public beta.** Workflows, templates, and outputs may still change as Career Studio gets tested on real career scenarios. Review every final document before you use it, and send feedback via [shaharpolak.com](https://www.shaharpolak.com/) — please don't include CVs or other personal information when you do.
 
 ## Core principle
 
-Career Studio never invents achievements, titles, qualifications, dates, metrics, or experience. It matches job requirements only to evidence the candidate has verified.
+Career Studio never invents achievements, titles, qualifications, dates, metrics, or experience. It only writes what your evidence actually supports — everything else in this README is detail; this is the rule that doesn't bend.
 
-## Quick start
+For example, if your CV shows a reporting job that went from 6 hours to 40 minutes after a migration, Career Studio writes:
 
-Start with one of four paths: tailor a CV for a specific job, strengthen an existing CV, improve a LinkedIn profile, or prepare for an interview. Interview preparation includes a spoken "tell me about yourself" pitch and STAR-method behavioral answers. Send a CV (PDF or text), a target role or job posting, and any achievements that must be included. Your LinkedIn link is optional. If you are unsure where to begin, activate the plugin and reply with `1`, `2`, `3`, or `4` to choose a path.
+> "Migrated a legacy reporting job to an Airflow DAG, cutting run time from 6 hours to 40 minutes."
 
-## How to use Career Studio
+It will not write "reduced costs by 85%" just because that sounds stronger — no such number exists in your evidence, so it doesn't show up in your CV either. Where evidence is missing, it says so and asks, instead of guessing.
 
-You can write naturally in English or Hebrew. Replace bracketed text with your own details and share only verified information.
+## What you can do
 
-### Tailor a CV for a specific role
+Career Studio bundles two skills. Start with whichever fits, or just describe what you need in plain English or Hebrew and it'll route you to the right one.
 
-```text
-I’m applying for [role] at [company]. Here is my CV and the job description.
-Tailor my CV truthfully for this role, show my strongest matches and gaps,
-and flag anything that needs confirmation.
-```
+**CV & job-fit** (`shahar-cv-optimizer`)
 
-### Strengthen an existing CV
+1. Tailor your CV for a specific job
+2. Strengthen an existing CV
+3. Improve your LinkedIn profile
+4. Analyze how well you match a job posting — confirmed, transferable, partial, unverified, or a genuine gap
+5. Prepare for an interview: likely questions, your verified evidence, questions to ask back
 
-```text
-Review my CV for clarity, positioning, and ATS safety.
-I’m targeting [role] roles in [country]. Suggest stronger wording without
-inventing any achievements or metrics.
-```
+**Interview pitches** (`interview-pitch`)
 
-### Improve a LinkedIn profile
+6. Build or sharpen a spoken "tell me about yourself" pitch, or a STAR-method answer to a behavioral question
 
-```text
-Help me improve my LinkedIn profile for [target role].
-Here is my current headline, About section, and experience. Keep every claim
-grounded in my verified experience.
-```
+Not sure where to start? Just say so — Career Studio will offer these as numbered starting paths and walk you through it.
 
-### Analyze a job match
+## Getting started
 
-```text
-Compare my CV with this job posting. Build a requirement matrix showing what is
-confirmed, transferable, partial, unverified, or a genuine gap. Recommend
-whether and how I should apply.
-```
-
-### Prepare for an interview
-
-```text
-I have an interview for [role] at [company]. Based on my CV and this job
-description, help me prepare the most likely questions, my verified evidence,
-and questions I should ask the interviewer.
-```
-
-### Interview pitches and STAR answers
-
-Use the interview-pitch skill naturally in English or Hebrew:
-
-- “Help me answer ‘Tell me about yourself’ for this role.”
-- “Review and tighten this interview pitch.”
-- “Help me answer: Tell me about a time you handled a conflict.”
-- “Build a STAR answer from this real experience.”
-
-For a pitch, share the target role plus your verified career highlights. For a STAR answer, share the exact interview question, a real example, your specific responsibility and actions, and the result. If there is no reliable metric, say so—the plugin will use a truthful qualitative result rather than inventing a number.
-
-You will receive a concise, spoken answer in your language. STAR requests also return a Situation–Task–Action–Result outline, items that require confirmation, and one likely follow-up question to prepare for.
-
-## Install in Codex
-
-Add this repository as a Codex plugin marketplace, install `shahar-polaks-career-studio`, then start a new task with the plugin enabled.
-
-```bash
-codex plugin marketplace add shahar84/shahar-polaks-career-studio
-```
+Send a CV (PDF or text), a target role or job posting, and any achievements you want included. Add your target country if it isn't Israel, and your LinkedIn link if you have one and want it reviewed. That's it — everything else happens in conversation.
 
 ## Install in Claude Code
 
@@ -98,19 +66,101 @@ claude plugin marketplace add shahar84/shahar-polaks-career-studio
 claude plugin install shahar-polaks-career-studio@shahar-polaks-career-studio
 ```
 
-Reload Claude Code, then use `/shahar-polaks-career-studio:shahar-cv-optimizer` for CV and job-fit work or `/shahar-polaks-career-studio:interview-pitch` for interview pitches and STAR answers.
+Reload Claude Code, then use `/shahar-polaks-career-studio:shahar-cv-optimizer` for CV and job-fit work, or `/shahar-polaks-career-studio:interview-pitch` for interview pitches and STAR answers.
+
+## Install in Codex
+
+Add this repository as a Codex plugin marketplace, install `shahar-polaks-career-studio`, then start a new task with the plugin enabled.
+
+```bash
+codex plugin marketplace add shahar84/shahar-polaks-career-studio
+```
+
+> Career Studio is developed and tested primarily against Claude Code. Codex support works, but document handling (scanned PDFs, generated PDFs) can behave less consistently — if something feels off, try pasting text instead of a scan.
+
+## How to use Career Studio
+
+Write naturally in English or Hebrew, and replace the bracketed text with your own details. Click any example below to expand it.
+
+<details>
+<summary><strong>Tailor a CV for a specific role</strong></summary>
+
+```text
+I’m applying for [role] at [company]. Here is my CV and the job description.
+Show my strongest matches and gaps, and flag anything that needs confirmation.
+```
+
+</details>
+
+<details>
+<summary><strong>Strengthen an existing CV</strong></summary>
+
+```text
+Review my CV for clarity, positioning, and ATS safety.
+I’m targeting [role] roles in [country]. Suggest stronger wording.
+```
+
+</details>
+
+<details>
+<summary><strong>Improve a LinkedIn profile</strong></summary>
+
+```text
+Help me improve my LinkedIn profile for [target role].
+Here is my current headline, About section, and experience.
+```
+
+</details>
+
+<details>
+<summary><strong>Analyze a job match</strong></summary>
+
+```text
+Compare my CV with this job posting. Build a requirement matrix showing what is
+confirmed, transferable, partial, unverified, or a genuine gap. Recommend
+whether and how I should apply.
+```
+
+</details>
+
+<details>
+<summary><strong>Prepare for an interview</strong></summary>
+
+```text
+I have an interview for [role] at [company]. Based on my CV and this job
+description, help me prepare the most likely questions, my verified evidence,
+and questions I should ask the interviewer.
+```
+
+</details>
+
+<details>
+<summary><strong>Interview pitches and STAR answers</strong></summary>
+
+Use the `interview-pitch` skill naturally, in English or Hebrew:
+
+- "Help me answer 'Tell me about yourself' for this role."
+- "Review and tighten this interview pitch."
+- "Help me answer: Tell me about a time you handled a conflict."
+- "Build a STAR answer from this real experience."
+
+For a pitch, share the target role plus your verified career highlights. For a STAR answer, share the exact interview question, a real example, your specific responsibility and actions, and the result — if there's no reliable metric, say so; Career Studio will use a truthful qualitative result rather than invent a number.
+
+You'll get a concise, spoken answer in your language. STAR requests also return a Situation–Task–Action–Result outline, items that need your confirmation, and one likely follow-up question to prepare for.
+
+</details>
 
 ## Privacy
 
 CVs can contain personal information. Remove unnecessary sensitive details before sharing one. Do not include real CVs, job applications, or other personal data in this repository or its issues.
 
-## Model compatibility
-
-Career Studio is a set of instructions, not code — its behavior (truth-policy enforcement, onboarding text, tone conventions, document handling) depends on how the underlying model interprets `SKILL.md` and its references. Each `CHANGELOG.md` entry from 0.5.0 onward notes which model(s) the release was last validated against using the eval harness in `plugins/shahar-polaks-career-studio/skills/shahar-cv-optimizer/eval/`. After upgrading Claude Code, Codex, or the underlying model, re-run that harness before trusting behavior to be unchanged — a new model can shift how terse reference files get interpreted even when no plugin file has changed.
-
 ## Support
 
-For support, use the contact details at [shaharpolak.com](https://www.shaharpolak.com/).
+Found a bug or have a feature idea? [Open a GitHub issue](https://github.com/shahar84/shahar-polaks-career-studio/issues) — just leave CVs and other personal data out of it. For anything else, reach out via [shaharpolak.com](https://www.shaharpolak.com/).
+
+## Model compatibility
+
+Career Studio is a set of instructions, not code, so its behavior depends on how the underlying model interprets it. See [`CHANGELOG.md`](plugins/shahar-polaks-career-studio/CHANGELOG.md) for which model each release was validated against, and the [eval harness](plugins/shahar-polaks-career-studio/skills/shahar-cv-optimizer/eval/README.md) if you want to re-check behavior yourself after a model or CLI upgrade.
 
 ## License
 

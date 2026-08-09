@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.1 — 2026-08-08
+
+- Restructured the repo README for scannability: badges and a quick-nav bar up top, install instructions moved above the usage examples with Claude Code leading (Codex flagged as less consistent for document handling), the six usage examples collapsed into `<details>` blocks, and a single concrete before/after example replacing the repeated "truthfully" wording throughout. Trimmed "Model compatibility" to a pointer at CHANGELOG/eval docs instead of full detail in the README. Note: `plugins/shahar-polaks-career-studio/README.md` was not updated to match and is now noticeably out of sync with the root README's structure — worth reconciling in a follow-up.
+
 ## 0.5.0 — 2026-08-08
 
 - Added an automated eval harness (`skills/shahar-cv-optimizer/eval/`) that runs the scenarios behind `tests/*.md` against a live `claude -p` call and checks the output deterministically and, where judgment is needed, via an LLM-judge rubric. Not yet run end-to-end against a live model in this environment — run it locally (`python3 eval/run_eval.py`) and note the result here before relying on it as a regression gate.

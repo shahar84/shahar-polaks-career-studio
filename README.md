@@ -92,7 +92,7 @@ Reload Claude Code, then just describe what you need — or invoke a skill direc
 
 ```bash
 codex plugin marketplace add shahar84/shahar-polaks-career-studio
-codex plugin install shahar-polaks-career-studio@shahar-polaks-career-studio
+codex plugin add shahar-polaks-career-studio@shahar-polaks-career-studio
 ```
 
 Then start a new task with the plugin enabled.

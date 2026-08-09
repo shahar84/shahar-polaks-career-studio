@@ -73,7 +73,21 @@ For a pitch, provide the target role and your verified career highlights. For a 
 
 ## Install and test
 
-Add this plugin to a personal or repo-scoped Codex marketplace, install `shahar-polaks-career-studio`, then start a new task to test the skill.
+In Claude Code:
+
+```bash
+claude plugin marketplace add shahar84/shahar-polaks-career-studio
+claude plugin install shahar-polaks-career-studio@shahar-polaks-career-studio
+```
+
+In Codex:
+
+```bash
+codex plugin marketplace add shahar84/shahar-polaks-career-studio
+codex plugin add shahar-polaks-career-studio@shahar-polaks-career-studio
+```
+
+Then start a new task to test the skill.
 
 ## Inputs
 

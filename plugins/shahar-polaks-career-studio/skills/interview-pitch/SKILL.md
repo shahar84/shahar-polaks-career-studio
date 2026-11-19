@@ -30,6 +30,8 @@ Use only verified facts. Never invent or inflate employers, titles, dates, outco
 
 When Career Studio has already analyzed the user's CV or job posting, reuse its evidence inventory, target role, and professional narrative. When it has not, gather only the facts needed for the pitch or STAR answer.
 
+When the requested pitch or interview preparation needs a LinkedIn profile, job posting, company page, or other browser context, follow the shared [browser research guidance](../shahar-cv-optimizer/references/browser-research.md). Use sourced context to improve relevance; do not turn company or interviewer facts into claims about the candidate.
+
 ## The North Star
 
 Every choice in the pitch should leave the listener with one feeling:

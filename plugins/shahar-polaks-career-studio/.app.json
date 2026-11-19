@@ -1,0 +1,7 @@
+{
+  "apps": {
+    "browser": {
+      "id": "connector_openai_browser"
+    }
+  }
+}

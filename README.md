@@ -1,4 +1,4 @@
-# Shahar Polak’s Career Studio
+# Shahar Polak Career Studio
 
 <p align="center">
   <img src="assets/shahar-career-studio-logo.jpeg" alt="Shahar Polak’s Career Studio yellow duck mascot wearing tortoiseshell glasses" width="360">
@@ -18,6 +18,7 @@ ATS-safe CV tailoring, LinkedIn positioning, job-fit analysis, and interview pre
 <p dir="rtl"><strong>אפשר לעבוד עם Career Studio בעברית מהמילה הראשונה ועד המסמך הסופי</strong> — שלחו קורות חיים ומשרת יעד, ותארו מה אתם צריכים במילים שלכם. הכלל היחיד שלא מתגמש: שום הישג, תפקיד או מספר לא מומצאים בשבילכם.</p>
 
 <p align="center">
+  <a href="#install-in-chatgpt">Install (ChatGPT)</a> ·
   <a href="#install-in-claude-code">Install (Claude Code)</a> ·
   <a href="#install-in-codex">Install (Codex)</a> ·
   <a href="#what-you-can-do">What you can do</a> ·
@@ -76,6 +77,30 @@ CV tailoring works the same way — sharper wording, but only from facts you've 
 > **Before:** "Responsible for data pipelines."
 >
 > **After:** "Migrated a legacy reporting job to an Airflow DAG, cutting run time from 6 hours to 40 minutes."
+
+## Install in ChatGPT
+
+Build a portable plugin archive from this repository:
+
+```bash
+python3 scripts/package_plugin.py
+```
+
+The archive is written to `dist/shahar-polaks-career-studio-<version>.zip`.
+Use ChatGPT's Plugin Creator to create a private plugin from that archive.
+Open the returned plugin link, enable it if prompted, and start a conversation
+with Career Studio selected. You can then attach your CV and a job description
+or ask for help with a specific career task.
+
+The package includes both career skills, their references and templates, the
+PDF design examples, and the existing duck branding. It does not require a
+separate server or API key. Browsing job links and creating documents depend on
+the tools available in the conversation; pasted text also works.
+
+This is a private-plugin installation path, not a public directory listing.
+GitHub changes do not automatically update an installed ChatGPT plugin.
+For an update, rebuild the archive and ask Plugin Creator to update the existing
+plugin, preserving its identity.
 
 ## Install in Claude Code
 

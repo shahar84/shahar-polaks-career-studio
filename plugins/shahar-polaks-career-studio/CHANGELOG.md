@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.6.0 - 2026-11-19
+
+- Added an Agent Plugins 1.0 manifest for private ChatGPT installation while preserving the two existing career workflows and their support files.
+- Synchronized the portable, Codex, and Claude Code package versions and display name; shortened the listing subtitle to meet ChatGPT's metadata limit.
+- Included the existing duck logo inside the plugin package.
+- Added a repeatable archive builder and validation for the portable manifest, compatibility metadata, assets, and final ZIP contents.
+- Added ChatGPT installation and update instructions and a package-build step in CI.
+- Validation covers packaging and metadata. The career instructions are unchanged; live model behavior and document exports have not been newly evaluated in this release.
+
 ## 0.5.1 — 2026-08-08
 
 - Restructured the repo README for scannability: badges and a quick-nav bar up top, install instructions moved above the usage examples with Claude Code leading (Codex flagged as less consistent for document handling), the six usage examples collapsed into `<details>` blocks, and a single concrete before/after example replacing the repeated "truthfully" wording throughout. Trimmed "Model compatibility" to a pointer at CHANGELOG/eval docs instead of full detail in the README. Note: `plugins/shahar-polaks-career-studio/README.md` was not updated to match and is now noticeably out of sync with the root README's structure — worth reconciling in a follow-up.

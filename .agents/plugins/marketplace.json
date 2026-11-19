@@ -1,7 +1,7 @@
 {
   "name": "shahar-polaks-career-studio",
   "interface": {
-    "displayName": "Shahar Polak’s Career Studio"
+    "displayName": "Shahar Polak Career Studio"
   },
   "plugins": [
     {

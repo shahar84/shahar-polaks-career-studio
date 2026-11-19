@@ -1,13 +1,22 @@
 {
   "name": "shahar-polaks-career-studio",
-  "version": "0.5.1",
-  "displayName": "Shahar Polak's Career Studio (Beta)",
-  "description": "Public-beta CV, LinkedIn, interview-pitch, and STAR-method support—tailored truthfully for your target role.",
+  "version": "0.6.0",
+  "displayName": "Shahar Polak Career Studio",
+  "description": "Public-beta CV, LinkedIn, interview-pitch, and STAR-method support - tailored truthfully for your target role.",
   "author": {
     "name": "Shahar Polak"
   },
   "homepage": "https://www.shaharpolak.com/",
   "repository": "https://github.com/shahar84/shahar-polaks-career-studio",
   "license": "LicenseRef-Shahar-Polak-Personal-Use-1.0",
-  "keywords": ["career", "cv", "resume", "ats", "linkedin", "interview", "hebrew", "israel"]
+  "keywords": [
+    "career",
+    "cv",
+    "resume",
+    "ats",
+    "linkedin",
+    "interview",
+    "hebrew",
+    "israel"
+  ]
 }

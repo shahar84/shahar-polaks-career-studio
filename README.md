@@ -93,14 +93,39 @@ with Career Studio selected. You can then attach your CV and a job description
 or ask for help with a specific career task.
 
 The package includes both career skills, their references and templates, the
-PDF design examples, and the existing duck branding. It does not require a
-separate server or API key. Browsing job links and creating documents depend on
-the tools available in the conversation; pasted text also works.
+PDF design examples, and the existing duck branding. It declares the Browser
+plugin as a dependency for profile and job-page research. No separate server or
+API key is required. Browser access depends on the user's connection and mode;
+document creation depends on the tools available in the conversation. Pasted
+text and uploaded career materials also work.
 
 This is a private-plugin installation path, not a public directory listing.
 GitHub changes do not automatically update an installed ChatGPT plugin.
 For an update, rebuild the archive and ask Plugin Creator to update the existing
 plugin, preserving its identity.
+
+### Browser-assisted reviews
+
+Career Studio can use Browser to inspect a requested LinkedIn profile, read a
+job posting, or gather company context for interview preparation. For example:
+
+```text
+Review my LinkedIn profile in the browser and compare it with this job posting.
+Suggest improvements to my headline, About section, and experience using only
+facts supported by my profile and CV.
+```
+
+Chat mode supports reading existing tabs. Navigation, clicks, and other browser
+interactions require Work mode and a connected browser. The user completes any
+LinkedIn sign-in in that browser. Career Studio reports inaccessible sections
+and keeps observed profile claims separate from confirmed experience.
+
+A review produces suggested edits. Saving profile changes, sending messages,
+or submitting applications requires a specific user request and the host's
+applicable approvals. The plugin does not automatically access every open tab.
+
+The Browser app binding is for private account/workspace packages. Public
+directory submission requires separate compatible integration packaging.
 
 ## Install in Claude Code
 

@@ -7,6 +7,7 @@ A skills-only plugin for ChatGPT, Codex, and Claude Code that provides truthful 
 ## What it does
 
 - Analyzes uploaded/pasted CVs and accessible job postings
+- Uses available Browser access to review requested LinkedIn profiles, job pages, and company context
 - Matches requirements only to verified candidate evidence
 - Creates ATS-safe CV content, LinkedIn recommendations, application strategy, interview preparation, spoken interview pitches, and STAR-method answers
 - Uses Israel as the default market, with explicit adjustment for other markets
@@ -84,8 +85,21 @@ python3 scripts/package_plugin.py
 Use the generated `dist/shahar-polaks-career-studio-<version>.zip` with
 ChatGPT's Plugin Creator to create a private plugin. Open the returned plugin
 link, enable it if prompted, and start a conversation with Career Studio selected.
-No separate server or API key is required. Job-link browsing and document export
-use the tools available in that conversation.
+The package declares Browser as a dependency. No separate server or API key is
+required. Browser access depends on the user's connection and mode; document
+export uses the tools available in that conversation.
+
+For example, ask: "Review my LinkedIn profile in the browser and suggest a
+headline and About section for this target role." Chat mode can read existing
+tabs. Navigation, clicks, and other browser interactions require Work mode and
+a connected browser. Complete any sign-in in the selected browser. Career
+Studio identifies what it could actually read and flags facts needing confirmation.
+
+Reading a profile produces recommendations. Saving changes, sending messages,
+uploading a CV, or applying for a job requires the user's specific instruction
+and the host's applicable approvals. This Browser app binding is intended for
+private account/workspace packages; public directory submission needs separate
+compatible integration packaging.
 
 Updates require rebuilding the archive and updating the existing ChatGPT plugin.
 The GitHub repository is the source of truth; installed releases do not

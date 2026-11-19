@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PLUGIN = ROOT / "plugins" / "shahar-polaks-career-studio"
 PLUGIN_NAME = "shahar-polaks-career-studio"
 PLUGIN_SCHEMA = "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json"
+BROWSER_APP_ID = "connector_openai_browser"
 EXPECTED_SKILLS = {"interview-pitch", "shahar-cv-optimizer"}
 SEMVER = re.compile(
     r"(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)"
@@ -146,6 +147,7 @@ def validate_repository() -> list[str]:
         ROOT / ".claude-plugin" / "marketplace.json",
         ROOT / ".agents" / "plugins" / "marketplace.json",
         PLUGIN / "plugin.json",
+        PLUGIN / ".app.json",
         PLUGIN / ".claude-plugin" / "plugin.json",
         PLUGIN / ".codex-plugin" / "plugin.json",
         PLUGIN / "LICENSE",
@@ -186,6 +188,17 @@ def validate_repository() -> list[str]:
         errors.append("Codex interface must match the portable OpenAI interface")
     if codex.get("skills") != "./skills/":
         errors.append("Codex manifest: skills must point at ./skills/")
+    if not isinstance(openai, dict) or openai.get("apps") != "./.app.json":
+        errors.append("Portable manifest: extensions.com.openai.apps must point at ./.app.json")
+    if codex.get("apps") != "./.app.json":
+        errors.append("Codex manifest: apps must match the portable ./.app.json reference")
+    app_path = PLUGIN / ".app.json"
+    if app_path.is_symlink() or not app_path.resolve().is_relative_to(PLUGIN.resolve()):
+        errors.append("App manifest must be a contained regular file, not a symlink")
+    else:
+        apps = read_json(app_path, errors)
+        if apps != {"apps": {"browser": {"id": BROWSER_APP_ID}}}:
+            errors.append("App manifest must declare only the verified connector_openai_browser dependency")
 
     claude_plugins = claude_marketplace.get("plugins")
     if not isinstance(claude_plugins, list) or len(claude_plugins) != 1 or not isinstance(claude_plugins[0], dict):

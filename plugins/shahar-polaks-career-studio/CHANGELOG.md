@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.7.1 - 2026-11-19
+
+- Preserved account-provided author metadata in the private release while keeping account contact details out of the public repository.
+
+## 0.7.0 - 2026-11-19
+
+- Declared the verified Browser app dependency for the private ChatGPT plugin.
+- Added shared browser guidance for LinkedIn reviews, job postings, and interview research, including mode-aware access, source attribution, and evidence checks.
+- Kept profile edits, messages, CV uploads, and applications tied to the user's specific request and existing host approvals.
+- Updated package validation and archive generation to preserve and verify the Browser dependency.
+- Documented connection requirements and private-package scope. Live LinkedIn navigation has not been exercised as part of this release.
+
 ## 0.6.0 - 2026-11-19
 
 - Added an Agent Plugins 1.0 manifest for private ChatGPT installation while preserving the two existing career workflows and their support files.

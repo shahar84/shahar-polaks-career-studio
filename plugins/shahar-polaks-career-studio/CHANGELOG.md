@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.7.1 - 2026-11-19
+
+- Preserved account-provided author metadata in the private release while keeping account contact details out of the public repository.
+
 ## 0.7.0 - 2026-11-19
 
 - Declared the verified Browser app dependency for the private ChatGPT plugin.

@@ -19,3 +19,7 @@ test-data/
 plugins/*/skills/*/eval/report.json
 plugins/*/skills/*/eval/__pycache__/
 *.tmp
+
+# Generated plugin archives and Python caches
+dist/
+__pycache__/

@@ -25,5 +25,8 @@ jobs:
       - name: Validate manifests and skill metadata
         run: python3 scripts/validate_plugin.py
 
+      - name: Build and inspect the ChatGPT plugin archive
+        run: python3 scripts/package_plugin.py
+
       - name: Validate evaluation suite definition
         run: python3 plugins/shahar-polaks-career-studio/skills/shahar-cv-optimizer/eval/run_eval.py --list

@@ -1,6 +1,6 @@
-# Shahar Polak’s Career Studio
+# Shahar Polak Career Studio
 
-A skills-only plugin for Codex and Claude Code that provides truthful CV tailoring, ATS optimization, LinkedIn positioning, job-posting analysis, and interview preparation. It supports Hebrew or English working conversations and produces final professional materials in English by default.
+A skills-only plugin for ChatGPT, Codex, and Claude Code that provides truthful CV tailoring, ATS optimization, LinkedIn positioning, job-posting analysis, and interview preparation. It supports Hebrew or English working conversations and produces final professional materials in English by default unless another language is requested. Interview pitches follow the user's language.
 
 > **Public beta:** This plugin is actively evolving. Workflows, templates, and outputs may change. Review every final document for accuracy before using it, and do not include CVs or other personal information in feedback.
 
@@ -72,6 +72,26 @@ Ask naturally in English or Hebrew:
 For a pitch, provide the target role and your verified career highlights. For a STAR answer, provide the exact interview question, a real event, your specific responsibility and actions, and the result. If there is no reliable metric, say so. The plugin will return a concise spoken answer, a Situation–Task–Action–Result outline, `Requires confirmation` items, and one likely follow-up question.
 
 ## Install and test
+
+### ChatGPT
+
+From the repository root, run:
+
+```bash
+python3 scripts/package_plugin.py
+```
+
+Use the generated `dist/shahar-polaks-career-studio-<version>.zip` with
+ChatGPT's Plugin Creator to create a private plugin. Open the returned plugin
+link, enable it if prompted, and start a conversation with Career Studio selected.
+No separate server or API key is required. Job-link browsing and document export
+use the tools available in that conversation.
+
+Updates require rebuilding the archive and updating the existing ChatGPT plugin.
+The GitHub repository is the source of truth; installed releases do not
+automatically follow repository changes.
+
+### Claude Code and Codex
 
 In Claude Code:
 

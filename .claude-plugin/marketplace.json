@@ -3,13 +3,13 @@
   "owner": {
     "name": "Shahar Polak"
   },
-  "description": "Truthful, ATS-safe career materials and job-fit analysis for Hebrew- and English-speaking professionals.",
+  "description": "AI career coaching for CVs, LinkedIn profiles and interviews, grounded in your real experience. Hebrew and English.",
   "plugins": [
     {
       "name": "shahar-polaks-career-studio",
       "source": "./plugins/shahar-polaks-career-studio",
-      "description": "Public-beta CV, LinkedIn, interview-pitch, and STAR-method support - tailored truthfully for your target role.",
-      "version": "0.6.0",
+      "description": "Build English CVs tailored to specific jobs through focused questions about your real experience. Discuss in Hebrew or English.",
+      "version": "0.10.0",
       "author": {
         "name": "Shahar Polak"
       },
@@ -21,11 +21,23 @@
         "career",
         "cv",
         "resume",
+        "resume-review",
+        "resume-builder",
+        "cv-template",
+        "job-match",
         "ats",
         "linkedin",
-        "interview",
+        "interview-preparation",
+        "interview-pitch",
+        "star-method",
+        "career-change",
         "hebrew",
-        "israel"
+        "english",
+        "israel",
+        "קורות חיים",
+        "הכנה לראיון",
+        "חיפוש עבודה",
+        "לינקדאין"
       ]
     }
   ]

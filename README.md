@@ -1,117 +1,152 @@
 # Shahar Polak Career Studio
 
 <p align="center">
-  <img src="assets/shahar-career-studio-logo.jpeg" alt="Shahar Polak’s Career Studio yellow duck mascot wearing tortoiseshell glasses" width="360">
+  <img src="plugins/shahar-polaks-career-studio/assets/career-studio-icon.png" alt="Career Studio's yellow duck mascot wearing tortoiseshell glasses" width="180" height="180">
 </p>
 
-<p align="center">
-  <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/license-Personal%20Use%201.0-blue.svg"></a>
-  <img alt="Status" src="https://img.shields.io/badge/status-public%20beta-orange.svg">
-  <a href="#install-in-claude-code"><img alt="Claude Code" src="https://img.shields.io/badge/Claude%20Code-supported-6e56cf.svg"></a>
-  <a href="#install-in-codex"><img alt="Codex" src="https://img.shields.io/badge/Codex-experimental-lightgrey.svg"></a>
-</p>
+**Build an English CV tailored to the job you want, through the right questions about your experience.**
 
-**Career Studio tailors your CV, LinkedIn profile, and interview prep to a specific job — without inventing a single achievement to get there.**
+Start with the job posting and whatever background you already have. Career Studio identifies what matters for that vacancy, asks focused questions about your relevant work, and turns your answers into a tailored CV. The conversation can be Hebrew or English; the CV defaults to English. An existing CV is helpful, but you can build one from scratch. LinkedIn improvement and interview preparation are also available.
 
-ATS-safe CV tailoring, LinkedIn positioning, job-fit analysis, and interview preparation, in Hebrew or English. Free for personal job-search use.
+<p dir="rtl"><strong>השאלות הנכונות. הניסיון שלכם. קורות חיים למשרה שאתם רוצים.</strong><br>שלחו תיאור משרה, ענו על שאלות ממוקדות, ונבנה קורות חיים מותאמים באנגלית. אפשר לנהל את כל השיחה בעברית ולהתחיל גם בלי קורות חיים מוכנים.</p>
 
-<p dir="rtl"><strong>אפשר לעבוד עם Career Studio בעברית מהמילה הראשונה ועד המסמך הסופי</strong> — שלחו קורות חיים ומשרת יעד, ותארו מה אתם צריכים במילים שלכם. הכלל היחיד שלא מתגמש: שום הישג, תפקיד או מספר לא מומצאים בשבילכם.</p>
+[Start here](#start-with-one-task) · [See an example](#what-a-useful-result-looks-like) · [ChatGPT setup](#set-up-in-chatgpt) · [Claude Code](#install-in-claude-code) · [Codex](#install-in-codex) · [Support](#support)
 
-<p align="center">
-  <a href="#install-in-chatgpt">Install (ChatGPT)</a> ·
-  <a href="#install-in-claude-code">Install (Claude Code)</a> ·
-  <a href="#install-in-codex">Install (Codex)</a> ·
-  <a href="#what-you-can-do">What you can do</a> ·
-  <a href="#what-the-output-looks-like">Sample output</a> ·
-  <a href="#how-to-use-career-studio">Usage examples</a> ·
-  <a href="#support">Support</a>
-</p>
+**Availability:** this repository is a source-available beta for personal career use. Follow the setup instructions below to use it in a supported host. ChatGPT setup creates a private plugin; a public directory installation link is not currently provided here.
 
-> **Public beta.** Workflows, templates, and outputs may still change as Career Studio gets tested on real career scenarios. Review every final document before you use it, and send feedback via [shaharpolak.com](https://www.shaharpolak.com/) — please don't include CVs or other personal information when you do.
+## Who this helps
 
-## Core principle
+Use Career Studio for a first professional CV, a career change, an experienced individual-contributor role, or an engineering leadership application. The review adapts to your target and the evidence you provide. For example, a Head of Engineering review should examine actual leadership scope, delivery, and business partnership; a junior review can draw on coursework and projects.
 
-Career Studio never invents achievements, titles, qualifications, dates, metrics, or experience. It only writes what your evidence actually supports — where evidence is missing, it says so and asks, instead of guessing. Everything else in this README is detail; this is the rule that doesn't bend.
+## Start with one task
+
+Choose a task in your own words. There is no need to complete a questionnaire first.
+
+### 1. Build a CV for a specific job
+
+Share the target job posting and your current CV or rough background. If you have no CV, the conversation builds the relevant evidence with you.
+
+```text
+Help me build an English CV for this job. Ask me about the relevant experience that is missing from my current CV.
+```
+
+The workflow reads the vacancy, identifies the most important requirements, and asks one or two useful questions at a time. It uses your answers to select the summary, achievements, technical language, and emphasis for this application. It asks about real contributions and outcomes without inventing numbers, titles, or responsibilities.
+
+When enough evidence is available, it writes the complete CV in English. If everything needed is already supplied, it proceeds directly. With no vacancy yet, it can build a baseline for your target role and tailor it later. Review-only and formatting-only requests stay focused on that task.
+
+### 2. LinkedIn profile improvement
+
+Paste your headline, About section, or experience. Include the target role when you know it.
+
+```text
+Improve my LinkedIn headline and About section for my target role.
+```
+
+Expect a more focused headline, an About section grounded in your experience, and consistent positioning across LinkedIn and your CV. Browser review is available when the host and connection support it.
+
+### 3. Interview preparation and STAR answers
+
+Share an existing introduction or a few career highlights. For a behavioral question, start with a real event.
+
+```text
+Help me answer "Tell me about yourself" in 90 seconds.
+```
+
+Expect a spoken introduction, a useful rehearsal prompt, or a Situation, Task, Action, Result answer. Details already shared during CV work carry forward into interview preparation.
 
 <details>
-<summary><strong>What that means in practice</strong></summary>
+<summary><strong>אפשר להתחיל גם ככה, בעברית</strong></summary>
 
-If your CV shows a reporting job that went from 6 hours to 40 minutes after a migration, Career Studio writes:
+```text
+זאת המשרה שאני רוצה. תשאל אותי את השאלות שצריך כדי להכין עבורה קורות חיים באנגלית.
+```
 
-> "Migrated a legacy reporting job to an Airflow DAG, cutting run time from 6 hours to 40 minutes."
+```text
+אני מכוון לתפקיד פיתוח בקאנד. תעזור לי לחדד את הכותרת וה-About בלינקדאין.
+```
 
-It will not add "cut cloud costs by 40%" just because that sounds stronger — no such number exists in your evidence, so it doesn't show up in your CV either.
+```text
+יש לי ראיון. איך אני עונה על "ספר לי על עצמך" בלי לספר את כל קורות החיים?
+```
 
 </details>
 
-## What you can do
+## What a useful result looks like
 
-Describe what you need in plain English or Hebrew — Career Studio figures out the right workflow. If you're not sure where to start, say so and it will suggest a starting path.
+**Fictional demonstration, not a customer result.** The sample candidate, Alex, says they replaced a nightly reporting cron job with an Airflow DAG. Their measured run time changed from six hours to 40 minutes.
 
-**CV & job-fit**
-
-- Tailor your CV for a specific job
-- Strengthen an existing CV
-- Improve your LinkedIn profile
-- Analyze how well you match a job posting — confirmed, transferable, partial, unverified, or a genuine gap
-- Prepare for an interview: likely questions, your verified evidence, questions to ask back
-
-**Interview pitches**
-
-- Build or sharpen a spoken "tell me about yourself" pitch, or a STAR-method answer to a behavioral question
-
-## What the output looks like
-
-A job-match analysis builds a requirement matrix from your actual evidence (illustrative example):
-
-| Job requirement | Verdict | Why |
-| --- | --- | --- |
-| 5+ years backend development | ✅ Confirmed | 7 years across Python and Node.js roles in your CV |
-| Kafka in production | 🔄 Transferable | You ran RabbitMQ at scale; the concepts carry over, the tool doesn't |
-| Team leadership | ⚠️ Partial | You mentored three engineers, but never held a formal management role |
-| Kubernetes | ❓ Unverified | Listed in your skills with no supporting project — Career Studio asks before using it |
-| Go | ❌ Gap | Nowhere in your evidence; flagged honestly, not papered over |
-
-CV tailoring works the same way — sharper wording, but only from facts you've confirmed:
-
-> **Before:** "Responsible for data pipelines."
+> **Before:** Responsible for data pipelines.
 >
-> **After:** "Migrated a legacy reporting job to an Airflow DAG, cutting run time from 6 hours to 40 minutes."
+> **After:** Migrated a nightly reporting job to an Airflow DAG, reducing runtime from six hours to forty minutes.
 
-## Install in ChatGPT
+The stronger version uses facts supplied in the example. It does not add a cost saving, team size, or revenue claim. If the target role prefers Kafka and Alex has only used RabbitMQ, the review labels that experience as transferable rather than claiming production Kafka experience.
 
-Build a portable plugin archive from this repository:
+See the [complete fictional CV-to-pitch demonstration](plugins/shahar-polaks-career-studio/skills/shahar-cv-optimizer/references/first-result-demo.md) for the source facts, job match, LinkedIn headline, and interview introduction.
+
+Career Studio is designed to flag details that need confirmation and keep them outside candidate-ready copy. Review the final wording before using it. AI output and third-party information can contain errors; the plugin does not guarantee ATS acceptance, interviews, or job offers.
+
+## What is included
+
+- **Three skills:** a short getting-started workflow, CV and LinkedIn optimization, and interview pitches and STAR answers.
+- **Role-specific analysis:** evidence inventory, job-match review, career narrative, and practical next steps.
+- **Reusable templates:** [CV content and layout guides](plugins/shahar-polaks-career-studio/skills/shahar-cv-optimizer/templates/template-index.md), LinkedIn profile sections, application strategy, and interview preparation. The workflow selects and reads the relevant template before creating the requested material.
+- **Editable CV files:** a shared renderer creates Classic, Crimson, and Warm DOCX files from supported candidate content, with PDF conversion when LibreOffice is available. Classic is the default; you can request another style directly. The assistant identifies the template it used outside your CV and checks the finished pages. The reference PDFs remain visual examples, never candidate evidence.
+- **Hebrew documents:** native right-to-left layout when requested, with mixed Hebrew/English contact details, dates, and technology names checked in the final output.
+- **Interview practice:** role-specific preparation, evidence-based stories, questions for the employer, and mock interviews one question at a time.
+- **Browser guidance:** requested LinkedIn profiles, job pages, and company research, with source and access limitations made explicit.
+
+The working conversation can be Hebrew or English. Final CV and LinkedIn materials default to English unless you request another language. Interview pitches follow your language. Israel is the default job market unless your context indicates another country.
+
+### Ask for a finished document
+
+```text
+Create my CV in the Classic template and give me an editable Word file and a PDF.
+```
+
+```text
+תכין לי קורות חיים בעברית בתבנית Warm, בקובץ Word וב-PDF.
+```
+
+The assistant prepares the content and runs the [document export workflow](plugins/shahar-polaks-career-studio/skills/shahar-cv-optimizer/references/document-export.md) when the host provides Python and document tools. DOCX creation uses `python-docx`; PDF conversion uses LibreOffice. If a requested exporter is unavailable, it delivers the supported format and identifies what remains. Fonts can differ from the design references, and each finished file still needs visual and text review.
+
+## Set up in ChatGPT
+
+From a local copy of this repository, build the package:
 
 ```bash
+python3 -m pip install -r scripts/requirements-validation.txt
 python3 scripts/package_plugin.py
 ```
 
-The archive is written to `dist/shahar-polaks-career-studio-<version>.zip`.
-Use ChatGPT's Plugin Creator to create a private plugin from that archive.
-Open the returned plugin link, enable it if prompted, and start a conversation
-with Career Studio selected. You can then attach your CV and a job description
-or ask for help with a specific career task.
+The builder writes `dist/shahar-polaks-career-studio-<version>.zip`. Give that archive to ChatGPT's Plugin Creator and ask it to create your private Career Studio plugin. Open the returned plugin link, enable it if prompted, and start with one of the tasks above.
 
-The package includes both career skills, their references and templates, the
-PDF design examples, and the existing duck branding. It does not require a
-separate server or API key. Browsing job links and creating documents depend on
-the tools available in the conversation; pasted text also works.
+The package does not require a separate author-operated server or API key. It declares Browser as a dependency. Access to Plugin Creator, Browser, and document tools depends on your host and account. Pasted text also works when a page or document cannot be read.
 
-This is a private-plugin installation path, not a public directory listing.
-GitHub changes do not automatically update an installed ChatGPT plugin.
-For an update, rebuild the archive and ask Plugin Creator to update the existing
-plugin, preserving its identity.
+Repository updates do not automatically update an installed ChatGPT plugin. Rebuild the archive and ask Plugin Creator to update your existing plugin, preserving its identity.
+
+### Browser-assisted reviews
+
+For example:
+
+```text
+Review my LinkedIn profile in the browser for this target role. Suggest changes
+to my headline, About section, and experience, and flag facts to confirm.
+```
+
+Available access depends on the host, mode, connection, and tools in your conversation. Career Studio follows those tools' current capabilities, reports the sections it actually read, and keeps profile claims separate from confirmed candidate evidence. If the requested page cannot be accessed, paste the relevant text to continue. Complete any necessary sign-in through the host's supported browser flow.
+
+A review produces suggested edits. Saving profile changes, sending messages, uploading a CV, or submitting an application requires a specific user request and the host's applicable approvals.
+
+The Browser dependency is preserved for compatible private account or workspace installations. Public directory submission requires separate preparation. See the [launch preparation notes](docs/career-studio-launch.md) for sharing options, public listing copy, and the remaining publication steps.
 
 ## Install in Claude Code
-
-Add the marketplace and install the plugin from your terminal:
 
 ```bash
 claude plugin marketplace add shahar84/shahar-polaks-career-studio
 claude plugin install shahar-polaks-career-studio@shahar-polaks-career-studio
 ```
 
-Reload Claude Code, then just describe what you need — or invoke a skill directly: `/shahar-polaks-career-studio:shahar-cv-optimizer` for CV and job-fit work, `/shahar-polaks-career-studio:interview-pitch` for interview pitches and STAR answers.
+Use the host's current plugin activation or reload flow, then describe the task. The package includes `career-studio-start`, `shahar-cv-optimizer`, and `interview-pitch` skills.
 
 ## Install in Codex
 
@@ -120,92 +155,16 @@ codex plugin marketplace add shahar84/shahar-polaks-career-studio
 codex plugin add shahar-polaks-career-studio@shahar-polaks-career-studio
 ```
 
-Then start a new task with the plugin enabled.
-
-> Career Studio is developed and tested primarily against Claude Code. Codex support works, but document handling (scanned PDFs, generated PDFs) can behave less consistently — if something feels off, try pasting text instead of a scan.
-
-## What to have ready
-
-Send a CV (PDF or text), a target role or job posting, and any achievements you want included. Add your target country if it isn't Israel, and your LinkedIn link if you have one and want it reviewed. That's it — everything else happens in conversation.
-
-## How to use Career Studio
-
-Write naturally in English or Hebrew, and replace the bracketed text with your own details. The two most common flows:
-
-**Tailor a CV for a specific role**
-
-```text
-I’m applying for [role] at [company]. Here is my CV and the job description.
-Show my strongest matches and gaps, and flag anything that needs confirmation.
-```
-
-**Analyze a job match**
-
-```text
-Compare my CV with this job posting. Build a requirement matrix showing what is
-confirmed, transferable, partial, unverified, or a genuine gap. Recommend
-whether and how I should apply.
-```
-
-More examples — click to expand:
-
-<details>
-<summary><strong>Strengthen an existing CV</strong></summary>
-
-```text
-Review my CV for clarity, positioning, and ATS safety.
-I’m targeting [role] roles in [country]. Suggest stronger wording.
-```
-
-</details>
-
-<details>
-<summary><strong>Improve a LinkedIn profile</strong></summary>
-
-```text
-Help me improve my LinkedIn profile for [target role].
-Here is my current headline, About section, and experience.
-```
-
-</details>
-
-<details>
-<summary><strong>Prepare for an interview</strong></summary>
-
-```text
-I have an interview for [role] at [company]. Based on my CV and this job
-description, help me prepare the most likely questions, my verified evidence,
-and questions I should ask the interviewer.
-```
-
-</details>
-
-<details>
-<summary><strong>Interview pitches and STAR answers</strong></summary>
-
-Ask naturally, in English or Hebrew:
-
-- "Help me answer 'Tell me about yourself' for this role."
-- "Review and tighten this interview pitch."
-- "Help me answer: Tell me about a time you handled a conflict."
-- "Build a STAR answer from this real experience."
-
-For a pitch, share the target role plus your verified career highlights. For a STAR answer, share the exact interview question, a real example, your specific responsibility and actions, and the result — if there's no reliable metric, say so; Career Studio will use a truthful qualitative result rather than invent a number.
-
-You'll get a concise, spoken answer in your language. STAR requests also return a Situation–Task–Action–Result outline, items that need your confirmation, and one likely follow-up question to prepare for.
-
-</details>
-
-## Privacy
-
-CVs can contain personal information. Remove unnecessary sensitive details before sharing one. Do not include real CVs, job applications, or other personal data in this repository or its issues.
+Start a new task with the plugin enabled. Browser access and document export vary by host, mode, and connected tools. Check the [changelog](plugins/shahar-polaks-career-studio/CHANGELOG.md) for the validation actually performed for each release.
 
 ## Support
 
-Found a bug or have a feature idea? [Open a GitHub issue](https://github.com/shahar84/shahar-polaks-career-studio/issues) — just leave CVs and other personal data out of it. For anything else, reach out via [shaharpolak.com](https://www.shaharpolak.com/).
+For a bug or feature idea, [open a GitHub issue](https://github.com/shahar84/shahar-polaks-career-studio/issues). Include the plugin version, host, task, expected behavior, and a short redacted example. GitHub issues are public: leave out CVs, contact details, application records, and credentials.
 
-**Model compatibility.** Career Studio is a set of instructions, not code, so its behavior depends on how the underlying model interprets it. See [`CHANGELOG.md`](plugins/shahar-polaks-career-studio/CHANGELOG.md) for which model each release was validated against, and the [eval harness](plugins/shahar-polaks-career-studio/skills/shahar-cv-optimizer/eval/README.md) if you want to re-check behavior yourself after a model or CLI upgrade.
+Read the [support guide](plugins/shahar-polaks-career-studio/SUPPORT.md) for troubleshooting and feedback instructions, and the [privacy information](plugins/shahar-polaks-career-studio/PRIVACY.md) before sharing career materials. General contact is available through [Shahar's website](https://www.shaharpolak.com/).
 
-## License
+## Development and license
 
-Free for individual personal career use under the [Shahar Polak Personal Use License 1.0](LICENSE). It is source-available, not open source: redistribution, modification, commercial use, and competing use require written permission.
+The [evaluation harness](plugins/shahar-polaks-career-studio/skills/shahar-cv-optimizer/eval/README.md) documents how to check model behavior against the local plugin source, with source/version evidence recorded for each run. Package validation, renderer checks, and model evaluation are separate checks; passing one does not establish the others.
+
+Free for individual personal career use under the [Shahar Polak Personal Use License 1.0](LICENSE). Host subscriptions or services may have their own requirements. This is source-available software, not an open-source license: redistribution, modification, commercial use, and competing use require written permission.

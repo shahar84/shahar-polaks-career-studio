@@ -1,110 +1,116 @@
-# Gold-standard example — annotated
+# Spoken pitch examples
 
-This is a real, high-performing "tell me about yourself" pitch (~90 seconds
-spoken). Study how every line maps to the framework. This is the calibration
-anchor — when a pitch you build or sharpen *feels* like this, you're there.
+Use these examples to calibrate selection, rhythm, attribution, and relevance.
+Do not copy their facts into another candidate's answer. They illustrate
+different structures; they are not mandatory scripts or measured speaking times.
 
-The pitch is shown in its original Hebrew (the language it's delivered in), with
-an English gloss and the technique annotation for each move.
+## Contents
 
----
+- [Owner-provided leadership example](#owner-provided-example-experienced-engineering-leader)
+- [Junior project example](#junior-example-a-bounded-project)
+- [Career-switcher example](#career-switcher-example-transferable-experience)
 
-**"נעים מאוד, קוראים לי שחר. לאורך השנים יצא לי לעשות כל תפקיד אפשרי ב-R&D —
-פרונטאנד, בקאנד, DevOps, DBA, CTO, ואפילו פרודקט לכמה שנים, רחמנא לצלן."**
+## Owner-provided example: experienced engineering leader
 
-*Gloss:* "Nice to meet you, I'm Shahar. Over the years I've done basically every
-role in R&D — frontend, backend, DevOps, DBA, CTO, and even product for a couple
-of years, God help me."
+**Provenance:** The following excerpts are adapted from the owner-provided Hebrew
+example already included in this plugin. They illustrate delivery, not independent
+verification of Shahar's employment history or current professional claims.
+Reconfirm relevant titles, dates, scope, and current facts before using them as
+his live interview pitch. No interview-success or measured-duration claim is
+established by this example.
 
-→ **Breadth opener.** One line establishes range *before* any specific story —
-signals "fits many roles." → **Humor as counterweight:** "even product… God help
-me" breaks what would otherwise read as a brag-list of titles.
+### A relevant breadth opener
 
----
+> נעים מאוד, קוראים לי שחר. לאורך השנים עבדתי בכמה צדדים של R&D, מפרונטאנד
+> ובקאנד ועד DevOps וניהול. הייתי גם בפרודקט לכמה שנים, רחמנא לצלן.
 
-**"את החברה הראשונה שהקמתי היה לי המזל למכור."**
+This opening makes breadth concrete without claiming literally every possible
+role. The light joke belongs to this speaker's supplied voice. Use it only if
+the candidate and interview setting support it; an equally good answer can have
+no humor.
 
-*Gloss:* "The first company I founded, I was lucky enough to sell."
+### A concise career anchor
 
-→ **Imply, don't state:** "lucky enough to sell" — he never says "I'm a successful
-founder"; the listener infers it. The humility ("lucky") does the bragging for
-him. → **Trajectory** begins: a founder exit as the opening rung.
+> את החברה הראשונה שהקמתי היה לי המזל למכור.
 
----
+The owner-provided sale claim supplies a clear event without the adjective
+"successful." It does not establish sale proceeds, personal profit, team size,
+or other unstated details. Understatement must leave an accurate impression.
 
-**"אחר כך הצטרפתי כעובד ראשון לסטארטאפ קטן בשם BreezoMeter. ניטרנו זיהום אוויר
-בזמן אמת, ייצגנו את ישראל באו״ם, פגשנו פעמיים את הנשיא אובמה, ופיצ'ר שפיתחתי נמצא
-עד היום בכל אייפון וכל אנדרואיד בעולם. בסוף נמכרנו לגוגל."**
+### Selective career context
 
-*Gloss:* "Then I joined, as the first employee, a small startup called
-BreezoMeter. We monitored air pollution in real time, represented Israel at the
-UN, met President Obama twice, and a feature I built is in every iPhone and
-Android in the world to this day. Eventually we were acquired by Google."
+> אחר כך הצטרפתי כעובד ראשון ל-BreezoMeter, שבה עסקנו בניטור זיהום אוויר.
+> בהמשך עבדתי ב-ActiveFence, ומשם הגעתי ל-Imagen AI להוביל את ה-R&D.
 
-→ **"Small startup called…" + first employee + acquired by Google** = the signature
-imply-don't-state move. He calls a huge success "small," and the "first employee →
-acquired by Google" gap forces the listener to conclude his role in that growth. →
-**Recognizable anchors, stacked:** the UN, Obama, "every iPhone and Android,"
-Google — every claim rides on something the listener instantly respects and needs
-no explanation. → **Trajectory rises** above the previous rung.
+This compresses several transitions while keeping the supplied sequence. A live
+pitch should add one verified responsibility or outcome relevant to the target
+role. Avoid treating a company acquisition, fundraising, or total headcount as
+proof of the candidate's personal contribution.
 
----
+### Optional context beyond the day job
 
-**"משם המשכתי לחברה קטנה בשם ActiveFence — נלחמנו בנאו-נאצים, פדופילים וארגוני
-טרור, כל הדברים הכיפיים שיש אונליין. עשינו 100 מיליון דולר והפכנו ליוניקורן."**
+> לצד העבודה, יש לי פודקאסט וכתבתי ספר על הובלת סטארטאפים.
 
-*Gloss:* "From there I moved to a small company called ActiveFence — we fought
-neo-Nazis, pedophiles, and terror organizations, all the fun stuff online. We did
-$100M and became a unicorn."
+Writing and community activity can be relevant to a leadership role. Their value
+does not require an unverified "number one" or "bestseller" claim. Connect this
+material to the actual target role when useful; omit it when time is tight.
 
-→ **"Small company" again** — the recurring understatement. → **Humor as
-counterweight:** "all the fun stuff online" defuses heavy subject matter and keeps
-the tone confident, not grim. → **Anchors:** "$100M," "unicorn" — universally
-understood scale. → **Trajectory rises again.**
+The previous example contained current device-coverage claims, ambiguous dollar
+figures, company growth figures, rankings, and bestseller language. Those claims
+are intentionally not used here because this reference does not establish their
+meaning, dates, attribution, or continuing accuracy. Select evidence for the
+candidate and role instead of reproducing the owner's career pattern.
 
----
+## Junior example: a bounded project
 
-**"ומשם לחברה בשם Imagen AI, להוביל את ה-R&D. אנחנו עובדים עם צלמים מקצועיים בכל
-העולם, לומדים את הסגנון הייחודי של כל אחד ובונים לו מודל AI שעורך במקומו, בסגנון
-שלו. גדלנו מהפאונדרים וממני בחדר קטן ל-140 איש, ומ-50 צלמים ליותר מ-50,000. לגדול
-פי 1,000 בחמש שנים זה מאתגר."**
+**Fictional facts for illustration only:** Noa recently completed a computer
+science degree. In a three-person course project, she built the API and data
+model for a volunteer-shift scheduling application using Python. The group
+completed a working course demonstration. The project has no production users.
+She is applying for a junior backend role and wants production experience.
 
-*Gloss:* "And from there to Imagen AI, leading R&D. We work with professional
-photographers worldwide, learn each one's unique style, and build them an AI model
-that edits in their place, in their style. We grew from the founders and me in a
-small room to 140 people, and from 50 photographers to more than 50,000. Growing
-1,000x in five years is challenging."
+**Example spoken draft:**
 
-→ **Anchors as numbers:** 140 people, 50 → 50,000, "1,000x in five years." →
-**Imply, don't state:** "growing 1,000x is challenging" — understatement again;
-he lets the number carry the weight instead of saying "I led massive scale." →
-**Trajectory peaks** on the current, largest role.
+> נעים מאוד, אני נועה, וסיימתי לאחרונה תואר במדעי המחשב. אני מחפשת תפקיד
+> ראשון בפיתוח בקאנד.
+>
+> בפרויקט בקורס בנינו בצוות של שלושה אפליקציה לתיאום משמרות של מתנדבים.
+> אני הייתי אחראית על ה-API ועל מודל הנתונים, ועבדתי ב-Python. הגענו להדגמה
+> עובדת במסגרת הקורס.
+>
+> הניסיון שלי כרגע הוא מפרויקטים לימודיים. אני רוצה לקחת את הבסיס הזה
+> לצוות שבונה מוצר אמיתי, ללמוד לעבוד על מערכת בפרודקשן, ולקבל בהדרגה
+> אחריות על חלקים ממנה.
 
----
+The draft distinguishes academic work from production experience, identifies
+personal ownership inside a team, and uses a relevant technology naturally.
+It does not need a fabricated user count, public audience, or joke. Its length
+can stay short when that fulfills the request.
 
-**"בנוסף — יש לי פודקאסט, היום הכי מאזין בהייטק בארץ, וכתבתי ספר שהפך לרב-מכר על
-איך להוביל סטארטאפים."**
+## Career-switcher example: transferable experience
 
-*Gloss:* "On top of that — I have a podcast, today the most-listened-to tech
-podcast in the country, and I wrote a book that became a bestseller on how to lead
-startups."
+**Fictional facts for illustration only:** Daniel worked for four years in
+customer support. He maintained a recurring-issues log and worked with product
+and engineering teams on difficult cases. He completed a software-testing course
+and created a practice test plan and bug reports for a sample application. He
+has not held a paid QA role. He is applying for a junior QA position because he
+wants to work on finding issues before customers encounter them.
 
-→ **Close beyond the role.** Ends on brand, audience, and thought leadership —
-assets larger than any single job. The final impression: hiring this person brings
-reach and influence, not just a filled seat.
+**Example spoken draft:**
 
----
+> I'm Daniel. I've spent the past four years in customer support, working on
+> difficult cases with product and engineering teams and maintaining a log of
+> recurring issues.
+>
+> That work is what drew me toward QA. I want to help find problems before they
+> reach customers. I recently completed a software-testing course, where I
+> practiced writing a test plan and bug reports for a sample application.
+>
+> This would be my first QA role. I bring experience understanding customer
+> problems and working across teams, alongside the testing foundation I've
+> started building. I'm looking for a junior position where I can put both to
+> work and develop stronger testing skills.
 
-## Why it works (the summary)
-
-- It never once says "I'm good." Every strong impression is **inferred** by the
-  listener from an understatement plus a recognizable fact.
-- Every claim has an **anchor** the listener already respects — nothing needs
-  explaining to land.
-- The line **keeps rising** — exit → acquired-by-Google → unicorn → 1,000x —
-  so the listener feels momentum, not a list.
-- **Humor** appears exactly at the two spots most likely to read as bragging.
-- It's a **trailer**: no tech stacks, no project details, deliberate gaps that
-  make the listener want to ask "tell me more about the Obama thing."
-- It **closes beyond the job**, leaving the listener feeling they'd be lucky to
-  land this person.
+The transition is clear without disguising support work as paid QA experience.
+The closing explains the target role instead of forcing a personal-brand story.
+Only evidence from the fictional fact block appears in the draft.

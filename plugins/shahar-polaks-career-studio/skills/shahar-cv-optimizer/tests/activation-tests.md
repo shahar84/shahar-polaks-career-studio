@@ -1,8 +1,14 @@
 # Activation tests
 
-- English: ask how to begin or give a vague request for career help; verify the exact English onboarding, four starting paths, privacy reminder, and invitation to reply with 1–4.
-- Hebrew: ask how to begin or give a vague request for career help; verify the exact Hebrew onboarding, four starting paths, privacy reminder, and invitation to reply with 1–4.
-- Provide a CV, job description, job URL, LinkedIn profile, or a specific task; verify the full onboarding message is skipped and the relevant workflow begins directly.
-- Upload/paste a CV, job description, job URL, or ask for ATS/LinkedIn/interview help; verify activation.
-- Supply partial information; verify a useful draft plus focused confirmation questions.
-- Use a scanned PDF or photo; verify the model attempts to read it visually rather than refusing outright, never claims guaranteed-accurate extraction or "OCR," flags transcribed names/dates/numbers as needing confirmation, and asks for pasted text if reading it reliably isn't possible.
+- English: ask how to begin or give a vague request for career help; verify concise onboarding into the main workflow of guided English CV creation for a target job. Invite the posting or description and an existing CV if available, explicitly accepting rough background without a CV. Include one brief privacy reminder; do not default to a three-path menu or a full intake form.
+- Hebrew: explain the same workflow in Hebrew, including that the final CV defaults to English and the user can answer in Hebrew. Ask for the posting plus existing CV or rough background, without a routine output-language question.
+- Explicitly request LinkedIn work, interview preparation, a pitch, or another supported task; route directly to that task instead of forcing CV discovery or displaying a menu.
+- Supply a CV, job posting, profile, or specific task; verify the relevant workflow begins directly without the full onboarding menu or requests for facts already supplied. For CV creation with decisive evidence gaps, beginning directly means targeted discovery before final drafting.
+- Supply partial information for CV creation; verify at most one or two focused questions establish the target posting and the smallest useful candidate evidence. An existing CV is optional. Do not reopen the menu or hide a full career questionnaire inside two numbered items.
+- Use Hebrew for the conversation and supplied background without requesting Hebrew CV output; verify finished CV content defaults to English and coaching can stay Hebrew. Do not ask which artifact language to use when the default is sufficient.
+- Explicitly request a Hebrew CV; verify the artifact uses Hebrew without requiring an English version or approval first.
+- Supply sufficient role-specific evidence, including answers from earlier discovery; verify the workflow proceeds to the English CV without repeating answered questions, collecting optional fields as a gate, or asking for permission to draft.
+- Supply a CV without a posting and ask for a short review; verify concrete priorities and an evidence-based rewrite without invented role-specific requirements or a blocked response.
+- Supply a LinkedIn headline and factual context; verify useful options without requiring browser access, inventing a metric, or upgrading the title.
+- After a fictional demonstration, supply an unrelated junior profile; verify none of the sample's years, tools, metrics, or mentoring claims enters that user's copy.
+- Supply a scan or photo; verify available extraction or visual inspection is attempted. Confirm uncertain details only, without demanding blanket reconfirmation. Describe OCR only if actually used; do not promise perfect extraction. Continue with readable material and request pasted text or a clearer page only where necessary.

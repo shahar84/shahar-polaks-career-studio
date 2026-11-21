@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the Career Studio plugin package without external dependencies."""
+"""Validate Career Studio manifests, YAML, and packaged references."""
 
 from __future__ import annotations
 
@@ -9,12 +9,15 @@ import sys
 from pathlib import Path
 from urllib.parse import urlsplit
 
+import yaml
+
 
 ROOT = Path(__file__).resolve().parents[1]
 PLUGIN = ROOT / "plugins" / "shahar-polaks-career-studio"
 PLUGIN_NAME = "shahar-polaks-career-studio"
 PLUGIN_SCHEMA = "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json"
-EXPECTED_SKILLS = {"interview-pitch", "shahar-cv-optimizer"}
+BROWSER_APP_ID = "connector_openai_browser"
+EXPECTED_SKILLS = {"career-studio-start", "interview-pitch", "shahar-cv-optimizer"}
 SEMVER = re.compile(
     r"(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)"
     r"(?:-(?:0|[1-9]\d*|\d*[A-Za-z-][0-9A-Za-z-]*)(?:\.(?:0|[1-9]\d*|\d*[A-Za-z-][0-9A-Za-z-]*))*)?"
@@ -67,17 +70,23 @@ def validate_skill(skill_path: Path, errors: list[str]) -> None:
         return
 
     frontmatter = text[4:closing]
-    # These repository skills deliberately use plain strings and folded text.
-    # This is a structural check of that subset, not a general YAML parser.
-    entries = re.findall(r"^([A-Za-z_-]+):[ \t]*(.*(?:\n[ \t]+.*)*)", frontmatter, re.MULTILINE)
-    values = dict(entries)
-    if len(entries) != len(values):
+    try:
+        values = yaml.safe_load(frontmatter)
+        node = yaml.compose(frontmatter)
+    except yaml.YAMLError as exc:
+        errors.append(f"{label}: invalid YAML ({exc})")
+        return
+    if not isinstance(values, dict):
+        errors.append(f"{label}: frontmatter must be a YAML object")
+        return
+    keys = [key.value for key, _ in node.value]
+    if len(keys) != len(set(keys)):
         errors.append(f"{label}: duplicate frontmatter keys")
     for required_key in ("name", "description"):
-        value = values.get(required_key, "").strip()
-        if value in {"", "null", "~", "true", "false", "[]", "{}", "''", '""', ">", ">-", "|", "|-"}:
+        value = values.get(required_key)
+        if not isinstance(value, str) or not value.strip():
             errors.append(f"{label}: frontmatter needs a nonblank string {required_key!r}")
-    if values.get("name", "").strip() != skill_path.parent.name:
+    if values.get("name") != skill_path.parent.name:
         errors.append(f"{label}: frontmatter name must match its skill directory")
 
     references = re.findall(r"\]\(([^)]+)\)|`((?:references|templates|assets)/[^`]+)`", text)
@@ -90,6 +99,21 @@ def validate_skill(skill_path: Path, errors: list[str]) -> None:
             errors.append(f"{label}: missing or external local reference {target!r}")
 
 
+def validate_resource_references(path: Path, errors: list[str]) -> None:
+    """Check local Markdown links in runtime references and templates."""
+    label = str(path.relative_to(ROOT))
+    text = path.read_text(encoding="utf-8")
+    for target in re.findall(r"\]\(([^)]+)\)", text):
+        target = target.split("#", 1)[0]
+        if not target or urlsplit(target).scheme:
+            continue
+        referenced = (path.parent / target).resolve()
+        if not referenced.is_relative_to(PLUGIN.resolve()) or not referenced.exists():
+            errors.append(f"{label}: missing or external local reference {target!r}")
+        elif any(part in {"tests", "eval", ".git", "__pycache__"} for part in referenced.relative_to(PLUGIN.resolve()).parts):
+            errors.append(f"{label}: link points at an unpackaged runtime file {target!r}")
+
+
 def validate_interface(interface: object, errors: list[str]) -> None:
     label = "Portable interface"
     if not isinstance(interface, dict):
@@ -97,7 +121,7 @@ def validate_interface(interface: object, errors: list[str]) -> None:
         return
     for field in ("displayName", "shortDescription", "longDescription", "developerName", "category"):
         value = require_value(interface, field, label, errors)
-        if field in {"displayName", "shortDescription"} and len(value) > 30:
+        if field == "shortDescription" and len(value) > 30:
             errors.append(f"{label}: {field} must be at most 30 characters")
     if not isinstance(interface.get("category"), str) or interface["category"] not in CATEGORIES:
         errors.append(f"{label}: unsupported category")
@@ -146,12 +170,19 @@ def validate_repository() -> list[str]:
         ROOT / ".claude-plugin" / "marketplace.json",
         ROOT / ".agents" / "plugins" / "marketplace.json",
         PLUGIN / "plugin.json",
+        PLUGIN / ".app.json",
         PLUGIN / ".claude-plugin" / "plugin.json",
         PLUGIN / ".codex-plugin" / "plugin.json",
         PLUGIN / "LICENSE",
         PLUGIN / "PRIVACY.md",
+        PLUGIN / "SUPPORT.md",
         PLUGIN / "README.md",
         PLUGIN / "CHANGELOG.md",
+        PLUGIN / "skills" / "shahar-cv-optimizer" / "scripts" / "render_cv.py",
+        PLUGIN / "skills" / "shahar-cv-optimizer" / "scripts" / "requirements.txt",
+        PLUGIN / "skills" / "shahar-cv-optimizer" / "assets" / "cv-input-example.json",
+        PLUGIN / "skills" / "shahar-cv-optimizer" / "references" / "document-export.md",
+        PLUGIN / "skills" / "shahar-cv-optimizer" / "references" / "hebrew-documents.md",
     ]
     for path in required_paths:
         if not path.is_file():
@@ -186,6 +217,26 @@ def validate_repository() -> list[str]:
         errors.append("Codex interface must match the portable OpenAI interface")
     if codex.get("skills") != "./skills/":
         errors.append("Codex manifest: skills must point at ./skills/")
+    onboarding = openai.get("onboardingSkill") if isinstance(openai, dict) else None
+    if onboarding != "./skills/career-studio-start/SKILL.md":
+        errors.append("Portable manifest: onboardingSkill must select the packaged career-studio-start skill")
+    elif not (PLUGIN / onboarding).is_file():
+        errors.append("Portable manifest: onboarding skill file is missing")
+    codex_extensions = codex.get("extensions", {})
+    codex_openai = codex_extensions.get("com.openai", {}) if isinstance(codex_extensions, dict) else {}
+    if not isinstance(codex_openai, dict) or codex_openai.get("onboardingSkill") != onboarding:
+        errors.append("Codex onboardingSkill must match the portable onboarding skill")
+    if not isinstance(openai, dict) or openai.get("apps") != "./.app.json":
+        errors.append("Portable manifest: extensions.com.openai.apps must point at ./.app.json")
+    if codex.get("apps") != "./.app.json":
+        errors.append("Codex manifest: apps must match the portable ./.app.json reference")
+    app_path = PLUGIN / ".app.json"
+    if app_path.is_symlink() or not app_path.resolve().is_relative_to(PLUGIN.resolve()):
+        errors.append("App manifest must be a contained regular file, not a symlink")
+    else:
+        apps = read_json(app_path, errors)
+        if apps != {"apps": {"browser": {"id": BROWSER_APP_ID}}}:
+            errors.append("App manifest must declare only the verified connector_openai_browser dependency")
 
     claude_plugins = claude_marketplace.get("plugins")
     if not isinstance(claude_plugins, list) or len(claude_plugins) != 1 or not isinstance(claude_plugins[0], dict):
@@ -218,13 +269,22 @@ def validate_repository() -> list[str]:
     skills_dir = PLUGIN / "skills"
     skill_files = sorted(skills_dir.glob("*/SKILL.md")) if skills_dir.is_dir() else []
     if {path.parent.name for path in skill_files} != EXPECTED_SKILLS:
-        errors.append("plugin must contain both interview-pitch and shahar-cv-optimizer skills")
+        errors.append("plugin must contain career-studio-start, interview-pitch and shahar-cv-optimizer skills")
     for skill_file in skill_files:
         validate_skill(skill_file, errors)
+    for path in sorted(skills_dir.rglob("*.md")):
+        if path.name != "SKILL.md" and not {"tests", "eval"}.intersection(path.relative_to(skills_dir).parts):
+            validate_resource_references(path, errors)
     for style in ("classic", "crimson", "warm"):
         reference = skills_dir / "shahar-cv-optimizer" / "assets" / "cv-design-examples" / f"{style}-reference.pdf"
         if not reference.is_file() or not reference.read_bytes().startswith(b"%PDF-"):
             errors.append(f"missing or invalid {style} PDF design reference")
+
+    example_path = skills_dir / "shahar-cv-optimizer" / "assets" / "cv-input-example.json"
+    if example_path.is_file():
+        example = read_json(example_path, errors)
+        if example.get("example") is not True:
+            errors.append("Bundled CV example must retain example: true for labeled sample export")
 
     return errors
 

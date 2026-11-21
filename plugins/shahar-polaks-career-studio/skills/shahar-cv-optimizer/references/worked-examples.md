@@ -1,79 +1,59 @@
-# Worked examples — calibration anchor
+# Worked examples
 
-Read this before writing final CV bullets, LinkedIn content, or gap-bridge
-language. Each example shows a fabricated version, an unearned-but-not-quite-
-lying version, and the truthful version that still reads strong. When a draft
-you're about to produce resembles a "wrong" line here, rewrite it before
-showing it to the candidate.
+Read before writing final CV bullets, LinkedIn copy, or gap bridges. All examples are fictional calibration material. Each evidence block is complete for that example; do not import facts from another example or apply sample facts to a real candidate.
 
-## CV bullet, metric available
+## CV bullet with a measured result
 
-Evidence given: rebuilt a nightly reporting cron job as an Airflow DAG; job
-time dropped from 6 hours to 40 minutes.
+Evidence: replaced a nightly reporting cron job with an Airflow DAG; measured runtime fell from six hours to forty minutes.
 
-- Wrong (unverifiable reach): "Reduced reporting latency, improving team
-  productivity company-wide." Vague, and "company-wide" was never claimed by
-  the candidate.
-- Wrong (invented metric): "Cut reporting costs by 85% by migrating to
-  Airflow." No cost figure was ever given; this manufactures one that merely
-  echoes the time reduction.
-- Right (STAR-I, verified metric only): "Migrated a legacy nightly reporting
-  job to an Airflow DAG, cutting run time from 6 hours to 40 minutes and
-  unblocking same-day reporting for the analytics team."
+- Unsupported: "Cut reporting costs by 85% and improved productivity company-wide." Runtime is not cost, and company-wide reach was never supplied.
+- Supported: "Migrated a nightly reporting job from cron to an Airflow DAG, reducing runtime from six hours to forty minutes."
 
-## CV bullet, no metric available
+Do not add a customer, analytics team, revenue impact, or same-day reporting outcome without supporting evidence. Prefer the supplied before/after numbers over a derived percentage unless the calculation adds useful clarity and is accurate.
 
-Evidence given: rebuilt failed-payment retry logic after a rise in support
-tickets; the candidate believes tickets dropped afterward but never measured
-it.
+## CV bullet without a measured result
 
-- Wrong: "Reduced failed-payment support tickets by 30%." No measurement
-  exists; the number is invented.
-- Right (truthful scope and ownership, no invented number): "Rebuilt the
-  failed-charge retry logic for the billing service after identifying it as a
-  recurring source of customer confusion; anecdotally reduced related support
-  tickets, though this was never formally measured. `Requires confirmation`:
-  exact ticket-volume change, if the candidate can pull it from a support
-  tool."
+Evidence: rebuilt failed-payment retry logic after a rise in related support tickets. The candidate believes tickets declined afterward but did not measure them.
 
-## Gap labeling — job requirement with no matching evidence
+- Unsupported: "Reduced failed-payment support tickets by 30%."
+- Submission-ready: "Rebuilt failed-payment retry logic after a rise in related support tickets."
+- Companion note: "Requires confirmation: is there support-ticket evidence that establishes the change after release?"
 
-Job requires: "5+ years leading a team." Candidate has never had direct
-reports.
+The supported action and context are enough for a useful bullet. Keep the unmeasured outcome out of the final CV rather than inserting a vague success claim or an editorial disclaimer into it.
 
-- Wrong: "Led cross-functional initiatives across a growing engineering
-  team." Implies people leadership that never existed.
-- Right: classify as **genuine gap**, not a wording issue or an evidence gap
-  — the capability itself is unverified, not just under-described. Bridge:
-  "No formal people-management experience. Surface the on-call ownership and
-  the mentoring-adjacent collaboration with junior engineers as transferable
-  signal, stated directly rather than implied as a title that wasn't held."
-  Practical action: suggest the candidate target senior-IC or tech-lead-track
-  roles first, or ask the company directly whether they'd consider growth
-  into management.
+## Missing management evidence versus a genuine gap
 
-## LinkedIn headline and About, weak vs. right
+Job requires five years of formal people management. The CV describes backend work but says nothing about direct reports.
 
-Evidence given: backend engineer, 5 years, payments/billing domain, one
-verified metric (6h to 40min), no formal CS degree, bootcamp graduate.
+- Assessment: **Unverified**. Ask whether the candidate has managed direct reports and for how long. Do not infer the answer from their title alone.
 
-- Weak (unearned and generic): "Passionate software engineer building
-  world-class solutions." Says nothing verifiable.
-- Weak (overclaimed): "Payments engineering leader driving 10x growth."
-  Neither "leader" nor "10x growth" is supported by anything given.
-- Right — Headline: "Backend Engineer | Payments & Billing Systems | Python,
-  Postgres, event-driven services."
-- Right — About: "I build and maintain billing infrastructure that processes
-  recurring charges at scale. Most recently, I rewrote a legacy reporting
-  pipeline, cutting a 6-hour nightly job down to 40 minutes. I moved into
-  backend engineering through a part-time bootcamp while working full-time,
-  and I'm now looking for senior backend or platform roles in fintech or
-  payments where reliability and ownership matter."
+If the candidate then confirms they have never had direct reports:
 
-## The rule underneath all four examples
+- Assessment: **Genuine gap** in formal people-management experience.
+- Honest bridge: name separately supplied mentoring or project-leadership experience, if any, while stating that it is not line management. If none was supplied, do not invent it.
+- Practical action: clarify whether the employer would consider a first management role, or identify an IC or technical-lead role aligned with the supported experience.
 
-A "Requires confirmation" tag stays in the working draft until the candidate
-confirms or removes it. Never let a tag quietly disappear between a draft and
-the final polished version just because it makes the copy read more
-smoothly — smoothing out an unconfirmed fact is the same failure as
-inventing one outright.
+The phrase "led a project" can be accurate when supported. It does not establish direct reports or justify changing a past title to Engineering Manager.
+
+## LinkedIn copy with a bounded evidence inventory
+
+Evidence: backend engineer; five years working on payments and billing; bootcamp graduate; migrated a reporting job from six hours to forty minutes. No tools, current job-search status, personal motivation, degree, production scale, or bootcamp schedule were supplied.
+
+- Unsupported headline: "Payments Engineering Leader | Driving 10x Growth."
+- Supported headline: "Backend Engineer | Payments & Billing Systems."
+- Supported About: "I'm a backend engineer with five years of experience in payments and billing. One project I worked on reduced a reporting job's runtime from six hours to forty minutes. My training includes a coding bootcamp."
+
+Do not add Python, PostgreSQL, leadership, large-scale systems, part-time study, working while studying, or a job-search invitation without evidence. Ask about direction only if it would improve the requested next version.
+
+## Senior leadership scope
+
+Evidence: VP of Engineering; twelve years of experience; leads a 45-person R&D organization across three teams. No manager count, reporting structure, budget, revenue, or measured organizational change was provided.
+
+- Supported: "VP of Engineering with twelve years of experience, currently leading a 45-person R&D organization across three teams."
+- Unsupported: "Manages three engineering managers, owns a multimillion-dollar budget, and scaled the company to enterprise readiness."
+
+Ask which responsibilities and outcomes the candidate personally owned. Treat organization size as scope, not proof of every executive competency.
+
+## Clean-copy rule
+
+Keep unresolved evidence in working notes. Before final delivery, confirm the fact, remove the dependent claim, or use wording that stays within supported evidence. A confirmation label must never disappear while the unconfirmed assertion remains. Do not embed editorial questions, bracketed placeholders, or `Requires confirmation` tags in a document described as ready to submit.

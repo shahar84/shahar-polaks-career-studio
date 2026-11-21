@@ -1,29 +1,18 @@
 # Document input handling
 
-Covers CVs or other materials supplied as images, scanned PDFs, or photos —
-anything without a reliable text layer. Applies on top of, not instead of,
-the truth policy.
+Use the tools actually available in the current host. Do not assume that a particular product always supports or fails at scanned documents.
 
-Attempt-then-disclose: try to read the document visually first. Current
-Claude Code environments generally view rendered pages as images even
-without a text layer; Codex's support for this is less consistent across
-setups. Don't assume either platform will read a given scan reliably — if it
-plainly can't, say so and ask for pasted text instead of proceeding.
+1. **Text-based PDF or document:** extract its text, inspect layout when ordering or completeness is uncertain, and compare any suspicious extraction with the original page.
+2. **Scan or photo:** inspect the image or rendered pages. Use an available OCR tool if helpful, then visually check names, dates, titles, numbers, and any uncertain text against the source.
+3. **Mixed or multi-column document:** check that experience, dates, skills, and contact information remain attached to the correct sections. Extraction order may differ from the visible page.
+4. **Unclear content:** identify the specific illegible or conflicting details. Continue with the readable material and ask for a clearer page or pasted text only where needed. Do not guess.
 
-Treat anything recovered from a scan or photo as an unverified transcription,
-not a confirmed fact, no matter how clean it looks. Ask the candidate to
-confirm names, dates, numbers, employers, and titles pulled from a scan
-before using them in a requirement match or a final deliverable. This is the
-same `Requires confirmation` handling used for any other unverified detail,
-applied here to transcription accuracy itself rather than to the underlying
-claim.
+For Hebrew or mixed-language material, compare extracted names, dates, punctuation, email addresses, URLs, and technology names with the rendered source. Right-to-left display and logical text order can differ; an apparently reversed extraction is not evidence that the candidate wrote an incorrect name or date. Do not reverse strings mechanically or silently repair numbers. Confirm only the details that remain ambiguous after inspection.
 
-Never claim guaranteed-accurate extraction, describe it as "running OCR," or
-state an accuracy rate — that promises a capability that isn't consistently
-available and isn't something to assert either way.
+Preserve supplied spellings of names, employers, qualifications, and links. Do not invent an official English transliteration or credential equivalence when translating. Keep the language of the conversation separate from the requested output language: a Hebrew conversation or source CV does not by itself override the plugin's English CV default. Follow an explicit Hebrew CV request or target-language requirement and use [Hebrew document guidance](hebrew-documents.md) for that output.
 
-If the scan is low quality, rotated, multi-column, or handwritten, say
-plainly which parts were unreadable or uncertain instead of guessing and
-presenting the guess as fact. If visual reading is unavailable or clearly
-unreliable for a given file, ask for the CV as pasted text or a text-based
-PDF rather than continuing on a guess.
+Clearly readable facts from a user-supplied scan are candidate-provided evidence, just as readable text in a document is. They are not independently verified facts. Confirm uncertain transcription; do not require the candidate to reconfirm every visible fact simply because the input was scanned.
+
+Say that OCR was used only when an actual OCR operation was performed. Do not promise perfect extraction, invent an accuracy percentage, or claim to have read pages the tools could not access. If visual reading and extraction are unavailable, explain the limitation and request pasted text or a readable file.
+
+Keep uncertain transcription and confirmation questions outside final candidate copy. Never convert a guessed number or date into a polished claim.

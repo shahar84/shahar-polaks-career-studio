@@ -13,6 +13,7 @@ jobs:
   validate-package:
     name: Validate plugin package
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -23,10 +24,24 @@ jobs:
           python-version: "3.12"
 
       - name: Validate manifests and skill metadata
-        run: python3 scripts/validate_plugin.py
+        run: |
+          python3 -m pip install -r scripts/requirements-validation.txt
+          python3 scripts/validate_plugin.py
 
       - name: Build and inspect the ChatGPT plugin archive
         run: python3 scripts/package_plugin.py
 
       - name: Validate evaluation suite definition
         run: python3 plugins/shahar-polaks-career-studio/skills/shahar-cv-optimizer/eval/run_eval.py --list
+
+      - name: Test evaluation source verification
+        run: python3 -m unittest discover -s plugins/shahar-polaks-career-studio/skills/shahar-cv-optimizer/eval -p test_run_eval.py
+
+      - name: Install document test dependencies
+        run: |
+          python3 -m pip install -r plugins/shahar-polaks-career-studio/skills/shahar-cv-optimizer/scripts/requirements.txt 'PyMuPDF>=1.24,<2'
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libreoffice-writer fonts-dejavu-core fonts-liberation
+
+      - name: Verify editable CVs and PDF exports
+        run: python3 tests/test_cv_renderer.py --with-pdf

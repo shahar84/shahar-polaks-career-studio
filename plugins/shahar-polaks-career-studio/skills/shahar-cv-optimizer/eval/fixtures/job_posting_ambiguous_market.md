@@ -1,10 +1,10 @@
-# Synthetic fixture — not a real posting
+# Synthetic fixture - not a real posting
 
-No country or city is named on purpose — this fixture exercises the "ask for market before applying tone conventions" behavior. Signals lean US (salary band in USD, "PST/EST hours") without stating it outright.
+No country or city is named on purpose - this fixture checks useful market-neutral work without inferring a country from currency or working hours. Signals lean US (salary band in USD, "PST/EST hours") without stating it outright.
 
 ---
 
-Senior Backend Engineer — Meridian Analytics
+Senior Backend Engineer - Meridian Analytics
 
 Compensation: $150,000–$185,000 base + equity.
 Team collaborates primarily during PST/EST overlap hours.

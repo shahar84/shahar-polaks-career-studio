@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "language": "en",
+  "example": true,
+  "name": "Alex Sample",
+  "headline": "Backend Developer",
+  "contact": [
+    {"text": "Haifa, Israel"},
+    {"text": "alex@example.com", "url": "mailto:alex@example.com"},
+    {"text": "example.com/alex", "url": "https://example.com/alex"}
+  ],
+  "sections": [
+    {
+      "heading": "Professional Summary",
+      "paragraphs": ["Backend developer working on Python services, automated tests, and operational reliability. Collaborates with product and support teams to turn customer issues into focused improvements."]
+    },
+    {
+      "heading": "Experience",
+      "entries": [
+        {
+          "title": "Backend Developer",
+          "subtitle": "Example Software",
+          "dates": "2022 - Present",
+          "location": "Haifa, Israel",
+          "bullets": [
+            "Built and maintained Python services for customer-facing workflows.",
+            "Added automated tests and documented recovery steps for recurring operational issues.",
+            "Worked with product and support colleagues to investigate and prioritize customer-reported bugs."
+          ]
+        },
+        {
+          "title": "Junior Developer",
+          "subtitle": "Sample Systems",
+          "dates": "2020 - 2022",
+          "bullets": ["Implemented API integrations and maintained SQL queries with review from senior developers."]
+        }
+      ]
+    },
+    {
+      "heading": "Skills",
+      "paragraphs": ["Development: Python, SQL, Git", "Delivery: automated tests, code review, incident investigation"]
+    },
+    {
+      "heading": "Education",
+      "entries": [{"title": "BSc in Computer Science", "subtitle": "Example University", "dates": "2020"}]
+    }
+  ]
+}

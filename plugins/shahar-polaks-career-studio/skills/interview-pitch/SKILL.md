@@ -1,231 +1,192 @@
 ---
 name: interview-pitch
 description: >-
-  Build or sharpen a 60-120 second spoken personal pitch for job interviews —
-  the answer to "tell me about yourself." Use this whenever someone wants help
-  introducing themselves in an interview, preparing an elevator pitch, a
-  personal/self pitch, a "tell me about yourself" answer, or wants an existing
-  self-introduction critiqued and tightened. Also trigger on Hebrew phrasings
-  like "ספר לי על עצמך", "פיץ' לריאיון עבודה", "תעזור לי להציג את עצמי",
-  "תחדד לי את הפיץ'". Also use for STAR-method answers, behavioral interview
-  questions, and requests to turn a real experience into a Situation, Task,
-  Action, Result story. Three modes: build a pitch from scratch, sharpen an
-  existing pitch, or build a STAR answer. Use this even
-  when the request looks simple — the framework (rising trajectory, recognizable
-  anchors, imply-don't-state, trailer-not-movie, humor as counterweight) adds
-  value that a generic "just list your experience" answer misses.
+  Build or sharpen a spoken job-interview introduction, personal pitch, elevator
+  pitch, or "tell me about yourself" answer. Also use for STAR-method answers,
+  behavioral interview questions, and turning a real experience into a Situation,
+  Task, Action, Result story. Trigger on Hebrew requests such as "ספר לי על עצמך",
+  "פיץ' לריאיון עבודה", "תעזור לי להציג את עצמי", and "תחדד לי את הפיץ'".
+  Adapt truthful evidence to the target role, candidate's voice, requested
+  language, and available speaking time, including junior and career-switcher
+  introductions and senior leadership pitches.
 ---
 
 # Interview Pitch
 
-Help someone deliver a strong, credible answer to "tell me about yourself" in a
-job interview: a spoken pitch of **60-120 seconds** that leaves the interviewer
-with a clear, memorable sense of the person's value.
+Help the candidate deliver a clear, credible spoken answer that makes their value
+and interest in the target role easy to understand. Default to a focused 60-90
+second introduction, with room up to 120 seconds when useful. Honor any explicit
+duration or format request, including a 30-second pitch.
 
 ## Shared trust and privacy rules
 
-Before asking for career materials, briefly remind the user to remove unnecessary sensitive personal details. Do not request identity documents, passwords, financial information, medical information, or unrelated sensitive data.
+Before asking for career materials, briefly remind the user to remove unnecessary
+sensitive personal details, unless that reminder has already been given in this
+conversation. Do not request identity documents, passwords, banking details,
+medical information, or unrelated sensitive data. Do not make promises about data
+retention or confidentiality that the available tools do not establish.
 
-Use only verified facts. Never invent or inflate employers, titles, dates, outcomes, metrics, customers, company status, responsibilities, certifications, or personal-brand claims. When a useful fact is missing, label it `Requires confirmation`, ask one focused question, and provide truthful wording that does not depend on it.
+Ground candidate claims in their supplied facts and confirmed career evidence.
+Never invent or inflate employers, titles, dates, outcomes, metrics, customers,
+company status, responsibilities, certifications, or personal-brand claims.
+Distinguish the candidate's contribution from team and company outcomes. An early
+role at a company does not prove responsibility for its later acquisition or
+growth. Flag material conflicts for confirmation instead of silently resolving
+them in the candidate's favor.
 
-When Career Studio has already analyzed the user's CV or job posting, reuse its evidence inventory, target role, and professional narrative. When it has not, gather only the facts needed for the pitch or STAR answer.
+When a useful fact is missing, provide truthful wording that does not depend on
+it. Ask one focused question only if the answer would materially improve the
+draft. Keep any `Requires confirmation` notes outside the spoken text. Never copy
+the owner's history, an example's facts, or another person's profile into a
+candidate's pitch.
+
+When Career Studio has already analyzed the CV or job posting, reuse its evidence
+inventory, target role, professional narrative, and unresolved facts. Do not ask
+for the same materials again or repeat onboarding during a handoff.
+
+For requested LinkedIn, job-posting, company, or other browser context, follow
+the shared [browser research guidance](../shahar-cv-optimizer/references/browser-research.md).
+Use sourced company context to improve relevance; do not turn it into evidence
+of the candidate's experience.
+
+## Start with a useful first pass
+
+Read supplied material or a draft before asking questions. If there is enough
+evidence, produce a usable draft immediately. If facts are too sparse, ask for
+the target role and one real experience, not a full career questionnaire. Use
+[career-studio-start](../career-studio-start/SKILL.md) only when the user needs
+help choosing a task.
+
+For a review, give up to three concrete improvements and a rewrite. Lead with the
+rewrite when the user mainly wants better wording; give a brief diagnosis first
+when they explicitly request critique. Apply the full diagnostic internally.
+If the user asks for only the final text, provide only that text, using safe
+wording that omits unresolved claims. Do not promise an interview or job outcome.
 
 ## The North Star
 
-Every choice in the pitch should leave the listener with one feeling:
+Leave the listener with a clear reason to think: "This person is credible,
+capable, and worth learning more about."
 
-> "This person is credible, capable, and worth learning more about."
+Preserve the useful coaching principles:
 
-The pitch does not exist to list a résumé. It exists to create that feeling. When
-any decision is unclear — what to include, what order, how to phrase — ask: *does
-this make the value clear and credible?* If not, cut it or rewrite it.
+1. **Trailer, not the movie.** Select relevant highlights and leave detail for
+   follow-up questions. Include a technical detail when it establishes fit or
+   makes the achievement understandable. One or two relevant technologies can
+   help; a stack inventory or implementation walkthrough usually does not.
+2. **Evidence before adjectives.** Show ownership, a specific outcome, or a
+   concrete responsibility instead of saying "I'm exceptional." Understatement
+   is useful only when the resulting impression remains accurate. Do not imply
+   causal responsibility, seniority, or scope that the evidence does not support.
+3. **All true.** Keep names, chronology, attribution, and outcomes accurate. Use
+   qualitative evidence when metrics are unavailable. A clear small achievement
+   can establish fit without a famous employer or a large number.
 
-## The three rules (apply to every single line)
+## Build a coherent arc
 
-**1. Trailer, not the movie.** Highlights only. No specific technologies, no
-granular details, no full explanations. Leave gaps *on purpose* — a good pitch
-makes the listener want to interrupt and ask "wait, tell me more about that."
-You're selling the ticket, not screening the film.
+1. **Open with relevant identity.** State the professional focus or strength
+   that matters for this role. Use breadth when breadth is an advantage. A junior
+   can open with training and a project; a career switcher can connect prior
+   experience to the target field; a leader can lead with leadership scope.
+2. **Choose one to three evidence beats.** Connect selected experiences through
+   ownership, learning, or relevance. Use chronological or thematic order, but
+   never imply a false sequence. Do not force each role to sound bigger than the
+   previous one. Explain a relevant lateral move, gap, or setback briefly and
+   neutrally, without inventing a redemption story.
+3. **Make each claim concrete.** Choose evidence for relevance, attribution,
+   clarity, and credibility. Read [anchors](references/anchors.md) when selecting
+   or strengthening evidence. Company prestige is optional.
+4. **Close with the next step.** Connect what the candidate brings to what they
+   want to do in this role. Verified community work, writing, a network, or side
+   projects can help when relevant; a public personal brand is not required.
 
-**2. Imply, don't state.** Never say "I was great," "I had huge impact," "I'm
-versatile." Engineer the words so the listener concludes it themselves — that
-conclusion is far more powerful than the claim. The classic move: *"a small
-startup called X"* + *"we were acquired by Google"* = the listener does the math
-and arrives at "this person was early at something huge" without you ever
-bragging. Understatement that forces the inference.
-
-**3. All true.** Real names, real numbers, real outcomes. The "wow" comes from
-truth doing the work — never from inflation. If it isn't true, it isn't in the
-pitch.
-
-## The arc (the order of the pitch)
-
-1. **Breadth opener.** One short line up front that shows range and versatility,
-   *before* any specific story. It signals "I fit many roles" in the first
-   seconds and buys attention for what follows. (e.g. "Over the years I've done
-   basically every role in R&D.")
-
-2. **Rising trajectory.** Walk the career oldest → newest, but every stop must be
-   *bigger or more significant than the one before it.* This is not a résumé
-   list — it's an evolution the listener can feel climbing. If two stops are
-   roughly equal, compress or reorder so the line keeps rising.
-   **Handling dips.** Real careers aren't monotonic — a startup that folded, a
-   role that didn't work out, a gap. Never place a dip as its own rung; it breaks
-   the climb. Instead, fold it into the *breadth opener* as range ("I've seen the
-   chaos of a startup that folded and systems serving millions"), or frame it as a
-   forging experience in one quick, humor-tinged line, then move straight back up.
-   The trajectory the listener feels must only ever rise.
-
-3. **Recognizable or credible anchors.** Give claims a fact the listener can
-   quickly understand: a famous acquirer, a household-name customer, a scale
-   number, a familiar status (unicorn, IPO, "in every iPhone"), or a concrete and
-   verifiable scope, outcome, responsibility, or before→after change. If a point
-   needs a long explanation before it lands, simplify it, find a clearer fact, or
-   cut it. See
-   `references/anchors.md` for the anchor taxonomy.
-
-4. **Humor as counterweight.** Drop a light, self-deprecating beat *exactly* where
-   a line risks sounding boastful. The humor breaks the bragging and makes an
-   impressive résumé land as confident rather than arrogant. Used surgically, not
-   sprinkled everywhere.
-
-5. **Close beyond the role.** End on what the person brings *beyond the job spec* —
-   personal brand, network, audience, business leverage, side projects with reach.
-   The message: hiring me is worth more than filling this one chair.
+Use light humor only when it fits the candidate's voice and the interview
+setting. Never force a joke, self-deprecation, or the owner's personality into
+someone else's answer. Read the relevant [examples](references/example.md) when
+calibrating a new pitch; adapt the structure and rhythm, never the facts.
 
 ## Three modes
 
-Decide which mode you're in from what the person gives you.
+### Mode A - BUILD
 
-### Mode A — BUILD (they have no pitch yet)
+Extract the following from supplied material before asking anything:
 
-Interview the person to extract raw material, then assemble it. Don't ask
-everything at once — pull the thread. Aim to surface:
+- The target role or direction, if known.
+- The candidate's relevant professional identity.
+- One to three specific experiences and their personal contribution.
+- Verified outcomes or concrete scope, complexity, responsibility, or learning.
+- A truthful reason the next role connects to their experience and interests.
 
-- **Breadth** — the range of roles/skills they've held, for the opener.
-- **The stops** — companies/roles in chronological order, and for each: what
-  makes it *impressive to an outsider* (not what they personally found hard).
-- **Anchors per stop** — for each stop, find the clearest verifiable hook:
-  acquisition, famous customer/investor, scale number, known company name,
-  status-everyone-knows, or a concrete scope/outcome. If a stop has no clear
-  hook, it may not earn a place.
-- **Boast points** — where the material risks sounding arrogant, so you can place
-  humor there.
-- **Beyond-the-job** — brand, audience, network, writing, community, anything
-  that makes them an asset larger than the role.
-- **Target** — the role/company they're interviewing for, so you emphasize the
-  parts that matter most to *that* listener.
+Draft as soon as those facts support a coherent answer. If the exact employer is
+unknown, write for the known role instead of blocking on it. If the target is
+unknown but the direction is evident, label that assumption briefly outside the
+pitch. Ask a focused question only when the missing fact materially changes the
+positioning.
 
-**Anchor-extraction question bank.** Most people don't hand you a Google or a
-unicorn — the anchors are buried and they undersell them. When a stop feels
-anchor-less, dig with questions like these until a number or a recognizable fact
-surfaces:
+Useful evidence questions, used selectively:
 
-- "What's the biggest number you can honestly attach to this — users, revenue,
-  requests, team size, growth multiple?"
-- "Did a feature you built become core to how the product works?"
-- "Even if the company isn't famous — was there a customer, investor, or partner
-  everyone would recognize?"
-- "Did the company raise, exit, IPO, or grow a lot while you were there? By how
-  much?"
-- "What grew under *your* ownership — and by how much, from what to what?"
-- "What's the thing you did that a smart outsider would go 'wow' at without you
-  explaining it?"
+- "What did you personally own, and what did the team do?"
+- "What changed because of your work? A concrete qualitative result is fine."
+- "What was difficult about the scope, stakeholders, or constraints?"
+- "Which part of that experience would help you in this role?"
 
-Ratios and before→after numbers ("3 → 12", "1,000x", "40%") often make the
-strongest anchors when household names are absent. Keep pulling until each kept
-stop has one.
+Do not keep interviewing until a large number or recognizable company emerges.
+Keep the strongest relevant evidence, even if other impressive material must be
+cut. Save detailed projects and secondary achievements for follow-up questions.
 
-Then assemble a 60-120s pitch following the arc and the three rules. Read
-`references/anchors.md` before assembling. Show the pitch, then offer one round
-of tightening.
+### Mode B - SHARPEN
 
-**Selection filter (critical):** most of their career does *not* go in. Keep only
-highlights that carry a clear, truthful hook. Early or hard-to-explain roles can
-be cut, unless they provide essential context for a career switch or show a useful
-transferable strength. When in doubt, cut. The pitch is a trailer.
+Review the draft internally for:
 
-**When everything is impressive (the abundance problem).** For very
-accomplished people, the risk flips: too many strong anchors flatten into a
-prize list, the pitch blows past 120s, and each big claim buries the last. Cut
-*strong* material too. Select on two axes: (a) does it keep the line **rising**,
-and (b) is it **relevant to the target role**. Keep one anchor per beat — one
-Google beats three logos even when all three are real. A CTO candidate leads with
-the scaling and leadership anchors and drops the tangential ones, however
-shiny. Restraint reads as more senior than a firehose; the buried gems become
-what they ask about.
+- **Fit:** Is the candidate's relevance to the target role clear?
+- **Evidence:** Are claims supported and personal contributions attributed?
+- **Narrative:** Is the sequence coherent and accurate, including transitions?
+- **Focus:** Do details earn their place within the requested duration?
+- **Voice:** Does the wording sound natural for this person and language?
+- **Close:** Does the ending explain the next step or contribution?
 
-### Mode B — SHARPEN (they already have a pitch)
+Then rewrite using the available facts. Preserve useful technical specificity
+and authentic humor without adding either as a requirement. An effective short
+pitch does not need padding. If a missing fact could improve the next pass, ask
+one question after delivering the grounded draft, unless only final text was
+requested. Do not manufacture an anchor to fill a weak section.
 
-Diagnose the existing pitch against the framework, then rewrite. Run this
-checklist and report what's working and what's weak *before* rewriting:
+### Mode C - STAR
 
-- [ ] **Length** — is it 60-120s spoken? (Very roughly ~130-260 words. Over →
-      cut. Well under → it's thin.)
-- [ ] **Breadth opener** — does it open with a short range-signaling line, or does
-      it dive straight into one job?
-- [ ] **Rising trajectory** — does each stop feel bigger than the last, or is it a
-      flat list?
-- [ ] **Anchors** — does every claim ride on something instantly recognizable? Flag
-      any claim that needs explaining to land.
-- [ ] **Imply-don't-state** — flag every place they *tell* the listener they were
-      good instead of letting them infer it.
-- [ ] **Trailer, not movie** — flag specific technologies, granular detail, or
-      over-explanation that should be cut to leave the listener wanting more.
-- [ ] **Humor** — is there a counterweight beat where the résumé risks arrogance?
-- [ ] **Close beyond the role** — does it end on brand/network/leverage, or fizzle
-      on the last job?
+Use the exact interview question and target role when known. Build one story from
+the supplied evidence:
 
-**Never invent anchors.** If the pitch lacks recognizable facts, do NOT
-manufacture impressive-sounding claims to fill the gap — that breaks Rule 3 (all
-true) and is the fastest way to get someone caught in an interview. Instead, do
-the rewrite with what's real, and explicitly ask the person for the missing
-anchors (using the question bank in Mode A) so the next pass can land. A pitch
-that's honest but thin is fixable; a pitch that's polished but fabricated is a
-liability.
+- **Situation:** What was happening and why did it matter? Keep context brief.
+- **Task:** What was the candidate's specific responsibility or challenge?
+- **Action:** What steps and choices did they personally make? Make this the
+  core of the answer and distinguish their work from the team's work.
+- **Result:** What changed? Use verified numbers or a truthful qualitative
+  outcome. Preserve incomplete or negative results and genuine learning.
 
-Then deliver the rewrite, and briefly note what you changed and why.
+If a necessary story element is missing, ask one focused question or provide a
+clearly incomplete outline. Do not invent the missing event, dialogue, result,
+lesson, or next action. A proposed future action belongs in preparation advice,
+not in the past-tense story.
 
-### Mode C — STAR (they need a behavioral-interview answer)
+Normally deliver a compact STAR outline, a natural 60-90 second spoken answer,
+and only material confirmation notes. Add one likely follow-up question with a
+truthful preparation cue when helpful. Honor explicit requests for a different
+duration or only the spoken answer. For a weak or overlong story, explain the
+single most useful change without turning the response into a questionnaire.
 
-Use this mode when the user asks for a STAR answer, a behavioral-interview answer,
-or help answering questions such as "Tell me about a challenge," "Describe a
-conflict," "Tell me about a time you led," or "Give an example of failure."
+## Output and rehearsal
 
-First identify the exact interview question and target role if known. Then gather
-only the verified facts needed to build one story. Pull the thread rather than
-asking every question at once:
-
-- **Situation:** What was happening, where, and why did it matter? Keep context brief.
-- **Task:** What was the user's specific responsibility, goal, or challenge?
-- **Action:** What exact steps and personal choices did the user make? This is the core of the answer; distinguish their contribution from the team's work.
-- **Result:** What changed? Prefer verified numbers, but use truthful outcomes, scope, quality, speed, stakeholder feedback, or learning when a metric is unavailable.
-
-Keep the story truthful and specific. Do not turn a team outcome into a personal achievement, invent a positive result, or hide a mixed outcome. If the result was incomplete or negative, show the honest learning and the next action.
-
-Deliver:
-
-1. A compact STAR outline with one short entry for each element.
-2. A natural 60–90 second spoken answer in the user's language.
-3. Any facts marked `Requires confirmation`.
-4. One optional follow-up question the interviewer is likely to ask, with a truthful preparation cue.
-
-For a weak or overlong story, explain which STAR element is missing or overloaded, then help the user strengthen it with evidence rather than embellishment.
-
-## Output format
-
-- Deliver the pitch as **clean spoken text** — the words they'll actually say, in
-  short spoken sentences. Not bullet points, not a résumé.
-- Match the **person's language** (Hebrew stays Hebrew, English stays English) and
-  preserve their voice — their humor, their idioms. You are sharpening *their*
-  pitch, not imposing a house style.
-- Keep it inside the 60-120s window. Err toward the shorter end; a tight 75-second
-  pitch beats a padded two-minute one.
-- After delivering, you can offer: a shorter 30-second variant, or a version tuned
-  to a specific target company.
-
-## Gold-standard example
-
-`references/example.md` holds a fully worked, annotated pitch showing every rule
-and every stage of the arc in action. Read it before building or sharpening — it
-is the calibration anchor for what "good" feels like.
+- Deliver the spoken answer in short, natural paragraphs, without headings,
+  bullets, stage directions, or placeholders inside the answer itself.
+- Honor an explicit delivery language first. Otherwise match the user's language
+  for pitches and STAR answers. A Hebrew conversation can produce an English
+  pitch when requested; written-CV language defaults do not override this rule.
+- Preserve the candidate's voice and use short paragraphs without emojis or em
+  dashes unless requested. Do not impose a house style or an executive persona
+  on every candidate.
+- Treat duration as an estimate. Do not claim a measured speaking time from word
+  count alone; pacing and pauses vary by language and speaker. When useful,
+  suggest one read-aloud rehearsal to check timing and naturalness.
+- Offer a shorter variant or a company-specific version only when it is a useful
+  next step. Do not append an offer, checklist, or question to a final-text-only
+  request.

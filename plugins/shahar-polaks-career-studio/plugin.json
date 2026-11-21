@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "shahar-polaks-career-studio",
-  "version": "0.6.0",
-  "description": "Truthful, ATS-safe CV, LinkedIn, job-match, interview-pitch, and STAR-method support.",
+  "version": "0.10.0",
+  "description": "Build English CVs tailored to specific jobs through focused questions about your real experience. Discuss in Hebrew or English.",
   "homepage": "https://www.shaharpolak.com/",
   "repository": "https://github.com/shahar84/shahar-polaks-career-studio",
   "license": "LicenseRef-Shahar-Polak-Personal-Use-1.0",
@@ -10,11 +10,30 @@
     "career",
     "cv",
     "resume",
+    "resume-review",
+    "resume-builder",
+    "cv-template",
+    "job-match",
     "ats",
     "linkedin",
-    "interview",
+    "interview-preparation",
+    "interview-pitch",
+    "star-method",
+    "career-change",
     "hebrew",
-    "israel"
+    "english",
+    "israel",
+    "קורות חיים",
+    "הכנה לראיון",
+    "חיפוש עבודה",
+    "לינקדאין",
+    "docx",
+    "pdf",
+    "hebrew-cv",
+    "mock-interview",
+    "english-cv",
+    "guided-cv",
+    "job-specific-cv"
   ],
   "author": {
     "name": "Shahar Polak",
@@ -24,8 +43,8 @@
     "com.openai": {
       "interface": {
         "displayName": "Shahar Polak Career Studio",
-        "shortDescription": "CVs, LinkedIn and interviews",
-        "longDescription": "A public-beta bilingual workflow for evidence-based CV tailoring, LinkedIn optimization, job analysis, interview pitches, STAR answers, and interview preparation.",
+        "shortDescription": "AI CV & Interview Coach",
+        "longDescription": "Build an English CV tailored to the job you want through a focused conversation about your real experience. Start with the job posting and your current CV, rough notes, or the background you can describe. An existing CV is optional.\n\nCareer Studio identifies the job's most important requirements, asks one or two relevant questions at a time, and uses your answers to shape the summary, achievements, skills, and emphasis. When enough evidence is available, it writes the complete CV. It reuses facts already supplied and keeps missing evidence separate from genuine experience gaps.\n\nQuestions and explanations can be in Hebrew or English. The entire CV defaults to English, even when your conversation or source material is in Hebrew. Request another language when needed.\n\nYou can also review an existing CV, improve LinkedIn sections, or prepare and practice interview answers. Classic, Crimson, and Warm themes support editable Word files and PDF exports when the required document tools are available.\n\nRequested profile, job, and company-page research uses Browser when connected and supported by your host. Access and document export depend on available tools. Career Studio keeps unverified claims and sample facts out of candidate-ready materials.",
         "developerName": "Shahar Polak",
         "category": "Productivity",
         "capabilities": [
@@ -40,9 +59,12 @@
           "Analyze my CV against this job posting.",
           "Improve my LinkedIn profile for my target role."
         ],
-        "logo": "./assets/shahar-career-studio-logo.jpeg",
-        "composerIcon": "./assets/shahar-career-studio-logo.jpeg"
-      }
+        "logo": "./assets/career-studio-icon.png",
+        "composerIcon": "./assets/career-studio-icon.png",
+        "supportURL": "https://github.com/shahar84/shahar-polaks-career-studio/issues"
+      },
+      "apps": "./.app.json",
+      "onboardingSkill": "./skills/career-studio-start/SKILL.md"
     }
   }
 }

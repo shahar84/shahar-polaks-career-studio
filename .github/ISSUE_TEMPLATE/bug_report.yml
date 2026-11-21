@@ -1,0 +1,48 @@
+name: Report a problem
+description: Share a small, redacted example that helps improve Career Studio.
+title: "Bug: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue is public. Use fictional or redacted examples. Do not attach CVs, personal contact details, private application records, credentials, or private browser screenshots.
+  - type: input
+    id: version
+    attributes:
+      label: Plugin version
+      placeholder: For example, 0.8.0
+    validations:
+      required: true
+  - type: input
+    id: host
+    attributes:
+      label: Host and available mode
+      placeholder: ChatGPT, Codex, Claude Code, or another host
+    validations:
+      required: true
+  - type: dropdown
+    id: workflow
+    attributes:
+      label: Task
+      options:
+        - CV review or job match
+        - CV template or file export
+        - LinkedIn profile
+        - Interview pitch
+        - STAR answer
+        - Setup or another task
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened?
+      description: Include a short prompt, output, or error with personal information removed.
+    validations:
+      required: true

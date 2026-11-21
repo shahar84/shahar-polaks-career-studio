@@ -1,118 +1,111 @@
 # Shahar Polak Career Studio
 
-A skills-only plugin for ChatGPT, Codex, and Claude Code that provides truthful CV tailoring, ATS optimization, LinkedIn positioning, job-posting analysis, and interview preparation. It supports Hebrew or English working conversations and produces final professional materials in English by default unless another language is requested. Interview pitches follow the user's language.
+**AI CV & Interview Coach**
 
-> **Public beta:** This plugin is actively evolving. Workflows, templates, and outputs may change. Review every final document for accuracy before using it, and do not include CVs or other personal information in feedback.
+Turn your real experience into stronger CVs, LinkedIn profiles, and interview answers. This AI career coach helps with CV and resume review, job matching, LinkedIn profile improvement, and interview preparation in Hebrew or English.
 
-## What it does
+<p dir="rtl"><strong>יש לכם ניסיון. בואו נספר אותו כמו שצריך.</strong><br>אפשר להתחיל מקורות חיים, טקסט מלינקדאין או סיפור אמיתי מהעבודה. לא צריך להגיע עם כל התשובות.</p>
 
-- Analyzes uploaded/pasted CVs and accessible job postings
-- Matches requirements only to verified candidate evidence
-- Creates ATS-safe CV content, LinkedIn recommendations, application strategy, interview preparation, spoken interview pitches, and STAR-method answers
-- Uses Israel as the default market, with explicit adjustment for other markets
-- Keeps Classic as the default PDF style; Crimson and Warm are late-stage options
+## Start with what you have
 
-## Quick start
+Choose a task in your own words:
 
-Choose one path: tailor a CV for a specific job, strengthen an existing CV, improve a LinkedIn profile, or prepare for an interview. Interview preparation includes a spoken "tell me about yourself" pitch and STAR-method behavioral answers. Send a CV (PDF or text), a target role or job posting, and any achievements that must be included. Your LinkedIn link is optional. If you are unsure where to begin, reply with `1`, `2`, `3`, or `4` after activating the plugin.
+1. **CV and job match:** share a CV or section. Add a target role or job description when available.
+2. **LinkedIn:** paste a headline, About section, or experience. A requested browser review also works when the host and connection support it.
+3. **Interview preparation:** share an introduction, career highlights, or a real story for a behavioral question.
 
-## How to use Career Studio
-
-You can write naturally in English or Hebrew. Replace bracketed text with your own details and share only verified information.
-
-### Tailor a CV for a specific role
+Try one of these:
 
 ```text
-I’m applying for [role] at [company]. Here is my CV and the job description.
-Tailor my CV truthfully for this role, show my strongest matches and gaps,
-and flag anything that needs confirmation.
+Review my CV for this role and show the three most important improvements.
 ```
-
-### Strengthen an existing CV
 
 ```text
-Review my CV for clarity, positioning, and ATS safety.
-I’m targeting [role] roles in [country]. Suggest stronger wording without
-inventing any achievements or metrics.
+Improve my LinkedIn headline and About section for my target role.
 ```
-
-### Improve a LinkedIn profile
 
 ```text
-Help me improve my LinkedIn profile for [target role].
-Here is my current headline, About section, and experience. Keep every claim
-grounded in my verified experience.
+Help me answer "Tell me about yourself" in 90 seconds.
 ```
 
-### Analyze a job match
+The first result focuses on useful improvements supported by your materials, then asks about important missing facts. A review produces a focused assessment; a request to create or tailor a CV produces a complete draft. If you already shared a CV or story, you do not need to provide it again for the next related task.
 
-```text
-Compare my CV with this job posting. Build a requirement matrix showing what is
-confirmed, transferable, partial, unverified, or a genuine gap. Recommend
-whether and how I should apply.
-```
+The package contains three skills: a short getting-started workflow, CV and LinkedIn optimization, and interview pitches and STAR answers. It adapts to juniors, career switchers, experienced individual contributors, and senior leaders.
 
-### Prepare for an interview
+## What you can create
 
-```text
-I have an interview for [role] at [company]. Based on my CV and this job
-description, help me prepare the most likely questions, my verified evidence,
-and questions I should ask the interviewer.
-```
+- A clearer, ATS-friendly CV and role-specific job-match assessment.
+- A LinkedIn headline, About section, and experience descriptions consistent with your CV.
+- A spoken personal introduction in your requested length and STAR answers to behavioral questions.
+- An application strategy, focused interview preparation, and mock practice one question at a time when requested.
 
-### Interview pitches and STAR answers
+The package includes [CV content and layout templates](skills/shahar-cv-optimizer/templates/template-index.md), LinkedIn profile sections, application strategy, and interview-preparation guides. The workflow selects and reads the relevant template before drafting, then briefly states what it actually used outside your professional material.
 
-Ask naturally in English or Hebrew:
+The [bundled document renderer](skills/shahar-cv-optimizer/references/document-export.md) creates editable DOCX files in Classic, Crimson, and Warm from supported candidate content. PDF export uses the same layout when LibreOffice is available. Classic is the default, and you can request Crimson or Warm directly. The assistant prepares the structured input internally, so you can simply ask for your preferred theme and file format.
 
-- “Help me answer ‘Tell me about yourself’ for this role.”
-- “Review and tighten this interview pitch.”
-- “Help me answer: Tell me about a time you handled a conflict.”
-- “Build a STAR answer from this real experience.”
+The PDF design references remain visual examples rather than fillable candidate forms. The renderer uses a single reading column, inline dates, and installed font fallbacks. It is a practical implementation of each theme, not an exact copy of the reference. Final pages and extracted text are checked before delivery when the host supports those checks.
 
-For a pitch, provide the target role and your verified career highlights. For a STAR answer, provide the exact interview question, a real event, your specific responsibility and actions, and the result. If there is no reliable metric, say so. The plugin will return a concise spoken answer, a Situation–Task–Action–Result outline, `Requires confirmation` items, and one likely follow-up question.
+For Hebrew CVs, ask explicitly for Hebrew output. The workflow uses native right-to-left paragraphs and checks mixed English names, technologies, dates, and contact links. A Hebrew conversation alone does not change the English CV default.
 
-## Install and test
+Work in Hebrew or English. Final CV and LinkedIn materials default to English unless you request another language; spoken interview pitches follow your language. Israel is the default job market unless your context indicates another country.
+
+## Evidence before polish
+
+Career Studio is instructed to preserve your actual titles, responsibilities, dates, technologies, and achievements. It labels missing evidence, transferable skills, and genuine gaps rather than treating them as wording problems.
+
+**Fictional example:** a sample candidate says they migrated a nightly reporting job to Airflow and measured a change from six hours to 40 minutes.
+
+> Before: Responsible for data pipelines.
+>
+> After: Migrated a nightly reporting job to an Airflow DAG, reducing runtime from six hours to forty minutes.
+
+The example supplies the metric. It does not imply that another candidate achieved the same result. See the [complete fictional demonstration](skills/shahar-cv-optimizer/references/first-result-demo.md). Questions marked `Requires confirmation` remain outside candidate-ready copy until resolved.
+
+Review final materials for accuracy. The plugin does not guarantee ATS acceptance, interviews, or employment outcomes.
+
+## Setup and availability
+
+The public repository is a source-available beta. The ChatGPT archive installs as a **private plugin**; the package does not provide a verified public directory installation link.
 
 ### ChatGPT
 
-From the repository root, run:
+From the repository root:
 
 ```bash
+python3 -m pip install -r scripts/requirements-validation.txt
 python3 scripts/package_plugin.py
 ```
 
-Use the generated `dist/shahar-polaks-career-studio-<version>.zip` with
-ChatGPT's Plugin Creator to create a private plugin. Open the returned plugin
-link, enable it if prompted, and start a conversation with Career Studio selected.
-No separate server or API key is required. Job-link browsing and document export
-use the tools available in that conversation.
+Use the resulting `dist/shahar-polaks-career-studio-<version>.zip` with Plugin Creator. Ask it to create your private plugin, or update your existing Career Studio plugin when upgrading. Open the returned link and start a conversation with Career Studio selected.
 
-Updates require rebuilding the archive and updating the existing ChatGPT plugin.
-The GitHub repository is the source of truth; installed releases do not
-automatically follow repository changes.
+The package declares Browser as a dependency and does not configure a separate author-operated server or API key. Host and account capabilities determine access to Plugin Creator, Browser, and document export.
 
-### Claude Code and Codex
-
-In Claude Code:
+### Claude Code
 
 ```bash
 claude plugin marketplace add shahar84/shahar-polaks-career-studio
 claude plugin install shahar-polaks-career-studio@shahar-polaks-career-studio
 ```
 
-In Codex:
+### Codex
 
 ```bash
 codex plugin marketplace add shahar84/shahar-polaks-career-studio
 codex plugin add shahar-polaks-career-studio@shahar-polaks-career-studio
 ```
 
-Then start a new task to test the skill.
+Reload the host or start a new task after installation. Repository changes do not automatically update an installed ChatGPT release.
 
-## Inputs
+## Browser-assisted work
 
-Provide a CV (PDF or text), target role/job description or URL, optional LinkedIn link, target country, and verified achievements. Sample PDF content is never candidate evidence.
+Ask for the relevant profile, job posting, or company page. Reading and interacting with pages depends on the tools, connection, and mode available in the host. Career Studio follows their current capabilities and reports what it actually accessed. If access is unavailable, pasted profile or job text can keep the task moving. Complete any necessary sign-in through the host's supported browser flow rather than sharing credentials in chat.
 
-## Privacy and licence
+Career Studio states which sources it could access and flags candidate claims that need confirmation. A profile review produces suggestions. Saving edits, sending messages, uploading a CV, or submitting an application requires your specific instruction and the host's applicable approvals.
 
-Read [PRIVACY.md](PRIVACY.md) before use. This plugin is free for individual personal career use under the [Shahar Polak Personal Use License 1.0](LICENSE). It is source-available, not open source: redistribution, modification, commercial use, and competing use require written permission.
+The existing Browser dependency is intended for compatible private account or workspace use. Public directory submission is a separate release step; a private plugin link alone does not establish public access.
+
+## Support, privacy, and license
+
+Read [PRIVACY.md](PRIVACY.md) before sharing career materials. See [SUPPORT.md](SUPPORT.md) for troubleshooting and redacted feedback instructions. [GitHub issues](https://github.com/shahar84/shahar-polaks-career-studio/issues) are public and should not contain CVs or personal data.
+
+The plugin is free for individual personal career use under the [Shahar Polak Personal Use License 1.0](LICENSE). Host subscriptions and services may have separate requirements. Redistribution, modification, commercial use, and competing use require written permission.

@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "shahar-polaks-career-studio",
-  "version": "0.6.0",
-  "description": "Truthful, ATS-safe CV, LinkedIn, job-match, interview-pitch, and STAR-method support.",
+  "version": "0.9.0",
+  "description": "AI career coaching for CVs, LinkedIn profiles and interviews, grounded in your real experience. Hebrew and English.",
   "homepage": "https://www.shaharpolak.com/",
   "repository": "https://github.com/shahar84/shahar-polaks-career-studio",
   "license": "LicenseRef-Shahar-Polak-Personal-Use-1.0",
@@ -10,11 +10,27 @@
     "career",
     "cv",
     "resume",
+    "resume-review",
+    "resume-builder",
+    "cv-template",
+    "job-match",
     "ats",
     "linkedin",
-    "interview",
+    "interview-preparation",
+    "interview-pitch",
+    "star-method",
+    "career-change",
     "hebrew",
-    "israel"
+    "english",
+    "israel",
+    "קורות חיים",
+    "הכנה לראיון",
+    "חיפוש עבודה",
+    "לינקדאין",
+    "docx",
+    "pdf",
+    "hebrew-cv",
+    "mock-interview"
   ],
   "author": {
     "name": "Shahar Polak",
@@ -24,8 +40,8 @@
     "com.openai": {
       "interface": {
         "displayName": "Shahar Polak Career Studio",
-        "shortDescription": "CVs, LinkedIn and interviews",
-        "longDescription": "A public-beta bilingual workflow for evidence-based CV tailoring, LinkedIn optimization, job analysis, interview pitches, STAR answers, and interview preparation.",
+        "shortDescription": "AI CV & Interview Coach",
+        "longDescription": "Turn your real experience into stronger CVs, LinkedIn profiles, and interview answers. Career Studio helps you compare your background with a target role, identify matches and gaps, sharpen your wording, and prepare a clear personal pitch.\n\nStart with what you have: a CV, a job description, profile text, an existing pitch, or a real interview story. Get practical improvements first, followed by focused questions where important evidence is missing. Work in Hebrew or English.\n\nBuild an ATS-friendly CV, improve your LinkedIn headline and About section, practice a role-focused introduction, or shape a STAR answer. Choose from the included Classic, Crimson, and Warm CV design references when supported export tools are available.\n\nWhen Browser is connected and supported by your host, review requested profile, job, and company pages. Browser access and document export depend on your connection and available tools. Career Studio flags claims that need confirmation and keeps sample material separate from your experience.",
         "developerName": "Shahar Polak",
         "category": "Productivity",
         "capabilities": [
@@ -40,9 +56,12 @@
           "Analyze my CV against this job posting.",
           "Improve my LinkedIn profile for my target role."
         ],
-        "logo": "./assets/shahar-career-studio-logo.jpeg",
-        "composerIcon": "./assets/shahar-career-studio-logo.jpeg"
-      }
+        "logo": "./assets/career-studio-icon.png",
+        "composerIcon": "./assets/career-studio-icon.png",
+        "supportURL": "https://github.com/shahar84/shahar-polaks-career-studio/issues"
+      },
+      "apps": "./.app.json",
+      "onboardingSkill": "./skills/career-studio-start/SKILL.md"
     }
   }
 }

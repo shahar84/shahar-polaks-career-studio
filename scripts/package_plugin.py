@@ -10,10 +10,10 @@ import sys
 import zipfile
 from pathlib import Path
 
-from validate_plugin import EXPECTED_SKILLS, PLUGIN, PLUGIN_NAME, ROOT, validate_repository
+from validate_plugin import BROWSER_APP_ID, EXPECTED_SKILLS, PLUGIN, PLUGIN_NAME, ROOT, validate_repository
 
 
-ROOT_FILES = {"plugin.json", "LICENSE", "README.md", "PRIVACY.md", "CHANGELOG.md"}
+ROOT_FILES = {"plugin.json", ".app.json", "LICENSE", "README.md", "PRIVACY.md", "SUPPORT.md", "CHANGELOG.md"}
 SKILL_DIRECTORIES = {"references", "templates", "assets", "agents", "scripts"}
 EXCLUDED_DIRECTORIES = {"tests", "eval", "__pycache__", ".cache", ".git", "node_modules", "dist"}
 EXCLUDED_SUFFIXES = {".pyc", ".pyo", ".tmp", ".log", ".key", ".pem", ".p12", ".pfx"}
@@ -28,12 +28,12 @@ def included(path: Path) -> bool:
         return False
     if any(part in EXCLUDED_DIRECTORIES for part in parts):
         return False
+    if len(parts) == 1:
+        return parts[0] in ROOT_FILES
     if any(part.startswith(".") and part not in {".codex-plugin", ".claude-plugin"} for part in parts):
         return False
     if path.stem.lower() in {"credentials", "secrets"} or path.suffix.lower() in EXCLUDED_SUFFIXES:
         return False
-    if len(parts) == 1:
-        return parts[0] in ROOT_FILES
     if parts[0] in {".codex-plugin", ".claude-plugin"}:
         return parts[1:] == ("plugin.json",)
     if parts[0] == "assets":
@@ -51,6 +51,13 @@ def verify_archive(archive: Path, expected: dict[str, bytes]) -> None:
         f"skills/shahar-cv-optimizer/assets/cv-design-examples/{style}-reference.pdf"
         for style in ("classic", "crimson", "warm")
     }
+    required |= {
+        "skills/shahar-cv-optimizer/scripts/render_cv.py",
+        "skills/shahar-cv-optimizer/scripts/requirements.txt",
+        "skills/shahar-cv-optimizer/assets/cv-input-example.json",
+        "skills/shahar-cv-optimizer/references/document-export.md",
+        "skills/shahar-cv-optimizer/references/hebrew-documents.md",
+    }
     missing = {f"{PLUGIN_NAME}/{path}" for path in required} - expected.keys()
     if missing:
         raise ValueError(f"archive is missing required runtime files: {', '.join(sorted(missing))}")
@@ -66,6 +73,12 @@ def verify_archive(archive: Path, expected: dict[str, bytes]) -> None:
         manifest = json.loads(packaged.read(f"{PLUGIN_NAME}/plugin.json"))
         if manifest["name"] != PLUGIN_NAME:
             raise ValueError("archive plugin identity differs from the source")
+        onboarding = manifest["extensions"]["com.openai"].get("onboardingSkill", "")
+        if f"{PLUGIN_NAME}/{onboarding.removeprefix('./')}" not in expected:
+            raise ValueError("archive is missing the selected onboarding skill")
+        apps = json.loads(packaged.read(f"{PLUGIN_NAME}/.app.json"))
+        if manifest["extensions"]["com.openai"]["apps"] != "./.app.json" or apps != {"apps": {"browser": {"id": BROWSER_APP_ID}}}:
+            raise ValueError("archive Browser dependency differs from the verified app binding")
         for field in ("logo", "composerIcon", "logoDark", "composerIconDark"):
             icon = manifest["extensions"]["com.openai"]["interface"].get(field)
             if icon and f"{PLUGIN_NAME}/{icon.removeprefix('./')}" not in expected:

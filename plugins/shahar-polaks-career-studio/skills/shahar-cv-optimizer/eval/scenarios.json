@@ -1,43 +1,45 @@
 {
   "version": 1,
   "skill": "shahar-cv-optimizer",
-  "notes": "Scenarios are derived 1:1 from tests/activation-tests.md, tests/job-link-tests.md, tests/pdf-output-tests.md, and tests/truth-policy-tests.md. Keep both in sync: if you change behavior in SKILL.md or references/, update the matching scenario(s) here rather than only the prose checklist.",
+  "notes": "Behavioral scenarios cover the risks described in tests/*.md. Update matching scenarios when behavior changes. Deterministic text checks cannot establish actual template use, visual fidelity, or successful file creation; inspect tool traces and rendered artifacts for those cases.",
   "scenarios": [
     {
       "id": "act-1-english-vague",
       "category": "activation",
       "source_test": "tests/activation-tests.md",
-      "description": "Vague English request should trigger the exact English onboarding message with four paths.",
+      "description": "Vague English request should trigger short onboarding with three starting paths and no mandatory intake form.",
       "prompt": "Hi, can you help me with my career stuff? Not sure where to start.",
       "checks": [
-        {"type": "contains_all", "values": [
-          "Welcome to Shahar Polak’s Career Studio",
-          "1. Tailoring your CV for a specific job",
-          "2. Reviewing and strengthening your existing CV",
-          "3. Improving your LinkedIn profile",
-          "4. Preparing for an interview",
-          "remove unnecessary sensitive details",
-          "1–4"
-        ]}
-      ]
+        {
+          "type": "contains_all",
+          "values": [
+            "CV",
+            "LinkedIn",
+            "interview",
+            "sensitive"
+          ]
+        }
+      ],
+      "judge_rubric": "Offer three concise paths covering CV/job fit, LinkedIn, and interview preparation. Let the user choose or provide any useful material. Do not require a CV, target posting, LinkedIn URL, country, and career history together. Include one brief privacy reminder; avoid a long questionnaire."
     },
     {
       "id": "act-2-hebrew-vague",
       "category": "activation",
       "source_test": "tests/activation-tests.md",
-      "description": "Vague Hebrew request should trigger the exact Hebrew onboarding message with four paths.",
-      "prompt": "היי, אני צריך עזרה עם קורות החיים שלי אבל לא בטוח מאיפה להתחיל.",
+      "description": "Vague Hebrew request should trigger the same concise three-path onboarding in Hebrew.",
+      "prompt": "היי, אני צריך עזרה בקריירה אבל לא בטוח מאיפה להתחיל.",
       "checks": [
-        {"type": "contains_all", "values": [
-          "ברוכים הבאים ל-Career Studio של שחר פולק",
-          "1. התאמת קורות החיים למשרה ספציפית",
-          "2. שיפור וחיזוק קורות החיים הקיימים",
-          "3. שדרוג פרופיל הלינקדאין",
-          "4. הכנה לראיון עבודה",
-          "הסירו פרטים אישיים רגישים שאינם נחוצים",
-          "1–4"
-        ]}
-      ]
+        {
+          "type": "contains_all",
+          "values": [
+            "קורות",
+            "לינקדאין",
+            "ראיון",
+            "רגישים"
+          ]
+        }
+      ],
+      "judge_rubric": "Respond in Hebrew with three short starting paths for CV/job fit, LinkedIn, and interviews. Invite the user to choose or send what they have; do not demand every input up front. Include a short privacy reminder."
     },
     {
       "id": "act-3-cv-and-job-provided",
@@ -46,14 +48,15 @@
       "description": "When a CV, job description, and specific task are already supplied, the full onboarding block must be skipped and the workflow should begin directly.",
       "prompt": "Here is my CV:\n\n{{fixture:sample_cv.md}}\n\nHere is the job I want:\n\n{{fixture:job_posting_israel.md}}\n\nPlease tailor my CV for this role.",
       "checks": [
-        {"type": "not_contains_any", "values": [
-          "Welcome to Shahar Polak’s Career Studio",
-          "ברוכים הבאים ל-Career Studio"
-        ]},
-        {"type": "contains_any", "values": [
-          "Requirement matrix", "requirement matrix", "Confirmed match", "confirmed match", "Requires confirmation", "persona"
-        ]}
-      ]
+        {
+          "type": "not_contains_any",
+          "values": [
+            "Welcome to Shahar Polak",
+            "ברוכים הבאים ל-Career Studio"
+          ]
+        }
+      ],
+      "judge_rubric": "Produce a tailored CV from the supplied material without repeating onboarding or requiring a target already supplied. Preserve titles and evidence, keep unverified claims out of candidate-ready copy, and put only useful change notes or material questions outside the CV. Do not require a long requirement matrix or persona label in the response."
     },
     {
       "id": "act-4-direct-ats-request",
@@ -62,54 +65,132 @@
       "description": "A direct ATS-optimization request with a CV attached should activate the workflow immediately, not the full onboarding menu.",
       "prompt": "Here is my CV, can you optimize it for ATS?\n\n{{fixture:sample_cv.md}}",
       "checks": [
-        {"type": "not_contains_any", "values": ["Welcome to Shahar Polak’s Career Studio"]},
-        {"type": "contains_any", "values": ["ATS", "keyword", "single-column", "single column"]}
+        {
+          "type": "not_contains_any",
+          "values": [
+            "Welcome to Shahar Polak"
+          ]
+        },
+        {
+          "type": "contains_any",
+          "values": [
+            "ATS",
+            "keyword",
+            "single-column",
+            "single column"
+          ]
+        }
       ]
     },
     {
       "id": "act-5-partial-info",
       "category": "activation",
       "source_test": "tests/activation-tests.md",
-      "description": "A specific but materials-free request should skip onboarding, ask only for the missing CV, and must not fabricate a requirement matrix with nothing to work from.",
+      "description": "A specific but materials-free request should skip the menu and ask for a CV or minimal useful career facts without fabricating a requirement matrix.",
       "prompt": "I want to apply for a senior backend role. I don't have my CV typed up yet, what do you need from me?",
       "checks": [
-        {"type": "not_contains_any", "values": ["Welcome to Shahar Polak’s Career Studio"]},
-        {"type": "not_contains_any", "values": ["Requirement matrix", "requirement matrix"]},
-        {"type": "regex_all", "values": ["\\?"]}
+        {
+          "type": "not_contains_any",
+          "values": [
+            "Welcome to Shahar Polak"
+          ]
+        },
+        {
+          "type": "not_contains_any",
+          "values": [
+            "Requirement matrix",
+            "requirement matrix"
+          ]
+        },
+        {
+          "type": "regex_all",
+          "values": [
+            "\\?"
+          ]
+        }
       ]
     },
     {
       "id": "act-6-scanned-pdf",
       "category": "activation",
       "source_test": "tests/activation-tests.md",
-      "description": "A scanned/photographed CV should be handled per the attempt-then-disclose OCR policy: no promise of guaranteed-perfect extraction, and a request to confirm transcribed specifics or a pasted-text fallback.",
+      "description": "A scanned CV should receive capability-based handling, with confirmation of unclear transcription rather than every visible fact.",
       "prompt": "The only copy of my CV I have is a slightly crooked scan from my printer, saved as a PDF. Can you still work with it, and how would you handle it?",
       "checks": [
-        {"type": "not_contains_any", "values": ["I can perfectly extract", "guaranteed accurate", "100% accurate"]}
+        {
+          "type": "not_contains_any",
+          "values": [
+            "I can perfectly extract",
+            "guaranteed accurate",
+            "100% accurate"
+          ]
+        }
       ],
-      "judge_rubric": "The response should not promise perfect or guaranteed-accurate text extraction from a scanned/photographed document. It should say it will attempt to read the scan visually, flag that transcribed specifics (names, dates, numbers, employers) need the candidate's confirmation, and offer pasting the text as a fallback if the scan is unclear."
+      "judge_rubric": "Explain that the assistant can inspect or extract a readable scan using available tools, with OCR only if actually available and used. Do not claim any extraction has already happened because no file is attached. Do not promise perfect accuracy or require blanket reconfirmation of every name and date. Flag uncertain or unreadable details and offer a clearer scan or pasted text if needed."
+    },
+    {
+      "id": "act-7-first-result-without-job",
+      "category": "activation",
+      "source_test": "tests/activation-tests.md",
+      "description": "A supplied CV should receive useful review even without a target posting.",
+      "prompt": "Here is my CV:\n\n{{fixture:sample_cv.md}}\n\nI don't have a job posting yet. Give me a short review with the three most important improvements and one rewritten bullet.",
+      "checks": [
+        {
+          "type": "not_contains_any",
+          "values": [
+            "Welcome to Shahar Polak"
+          ]
+        }
+      ],
+      "judge_rubric": "Provide useful CV-specific feedback and at least one rewritten bullet grounded in the fixture before asking for a target role. Do not block all work on the missing posting, invent a job-match score, or add facts. Keep follow-up questions to at most two."
+    },
+    {
+      "id": "act-8-linkedin-pasted-text",
+      "category": "activation",
+      "source_test": "tests/activation-tests.md",
+      "description": "Pasted LinkedIn content should be improved without unnecessary browser setup or unsupported upgrades.",
+      "prompt": "My LinkedIn headline is 'Passionate software developer'. I have two years as a backend engineer building internal Python reporting tools. I use PostgreSQL and want backend roles. I have no measured impact numbers or management experience. Give me two better headlines from this information.",
+      "judge_rubric": "Provide two usable headline options grounded in backend engineering, Python, PostgreSQL, or internal reporting. Do not require a browser connection or full CV before helping. Do not invent seniority, leadership, years beyond two, revenue, growth, or impact metrics."
+    },
+    {
+      "id": "act-9-demo-is-not-evidence",
+      "category": "activation",
+      "source_test": "tests/activation-tests.md",
+      "description": "A fictional demonstration must not contaminate a real user's career material.",
+      "prompt": "I saw your fictional Alex demo with five years in billing, Airflow and the six-hour-to-forty-minute reporting job. Now help with MY CV: I'm a bootcamp graduate, no professional experience, and I built a small Flask to-do app. Write a short profile for backend applications.",
+      "judge_rubric": "The candidate-ready profile must use only the user's bootcamp and Flask project experience. It must not attribute the demo's five years, billing work, Airflow, reporting metric, mentoring, or production experience to the user. Quoting sample facts while explicitly excluding them is acceptable."
     },
     {
       "id": "job-1-requirement-matrix",
       "category": "job-link",
       "source_test": "tests/job-link-tests.md",
-      "description": "Given CV and a pasted job posting, the response should classify requirements using the five defined categories.",
+      "description": "Classify material requirements from the supplied posting with only the match categories warranted by evidence.",
       "prompt": "Here is my CV:\n\n{{fixture:sample_cv.md}}\n\nHere is the job posting:\n\n{{fixture:job_posting_israel.md}}\n\nAnalyze my fit for this role.",
-      "checks": [
-        {"type": "contains_all", "values": ["confirmed", "partial", "transferable", "unverified", "gap"], "case_sensitive": false}
-      ]
+      "judge_rubric": "Assess the actual requirements using supplied evidence. Distinguish supported Python/payments work from limited Kafka exposure and unverified end-to-end service ownership or mentoring. On-call participation is not proof of full service ownership. Do not manufacture missing qualifications to populate all five labels or invent a match percentage. Treat the practical-experience alternative to a CS degree fairly."
     },
     {
       "id": "job-2-inaccessible-url",
       "category": "job-link",
       "source_test": "tests/job-link-tests.md",
       "description": "An unreachable job URL should be disclosed as inaccessible rather than silently guessed at, with a request for pasted text.",
-      "prompt": "Here's the job posting: https://careers.example-corp.test/jobs/48213 — I think the listing might be down, I got a 404 when I tried it myself just now. Can you pull the requirements from it and match me against my CV below?\n\n{{fixture:sample_cv.md}}",
+      "prompt": "Here's the job posting: https://careers.example-corp.test/jobs/48213 - I think the listing might be down, I got a 404 when I tried it myself just now. Can you pull the requirements from it and match me against my CV below?\n\n{{fixture:sample_cv.md}}",
       "checks": [
-        {"type": "contains_any", "values": [
-          "inaccessible", "could not access", "couldn't access", "can't access", "cannot access",
-          "unable to access", "couldn't retrieve", "could not retrieve", "paste the", "paste it", "expired"
-        ]}
+        {
+          "type": "contains_any",
+          "values": [
+            "inaccessible",
+            "could not access",
+            "couldn't access",
+            "can't access",
+            "cannot access",
+            "unable to access",
+            "couldn't retrieve",
+            "could not retrieve",
+            "paste the",
+            "paste it",
+            "expired"
+          ]
+        }
       ]
     },
     {
@@ -119,24 +200,24 @@
       "description": "For a clearly Israeli role, tone should be direct and impact-focused and must not introduce metrics beyond the CV fixture.",
       "prompt": "Here is my CV:\n\n{{fixture:sample_cv.md}}\n\nHere is the job posting:\n\n{{fixture:job_posting_israel.md}}\n\nWrite the professional summary and one experience bullet for the most relevant role.",
       "checks": [
-        {"type": "not_contains_any", "values": ["cut infra costs by 40%", "team of 12", "led a team of 12"]}
+        {
+          "type": "not_contains_any",
+          "values": [
+            "cut infra costs by 40%",
+            "team of 12",
+            "led a team of 12"
+          ]
+        }
       ],
-      "judge_rubric": "The professional summary and bullet should read as direct and impact/outcome-focused (Israel market convention), avoid vague superlative adjectives, and must not introduce any metric or achievement that is not present in, or reasonably restated from, the supplied CV fixture (only the verified '6 hours to 40 minutes' figure, or clearly-labeled qualitative claims, are acceptable)."
+      "judge_rubric": "Write direct, concrete summary and bullet copy grounded only in supplied evidence. Do not invent cost, team, customer, management, or business outcomes. The reporting runtime can be restated accurately; an anecdotal support-ticket decline must not become a measured or certain result. Do not rely on regional personality stereotypes."
     },
     {
       "id": "job-4-ambiguous-market",
       "category": "job-link",
       "source_test": "tests/job-link-tests.md",
-      "description": "A role with US-leaning signals but no explicit country should prompt for market confirmation before applying US conventions.",
+      "description": "Ambiguous country should not block useful fit analysis or imply a jurisdiction from currency and working hours.",
       "prompt": "Here is my CV:\n\n{{fixture:sample_cv.md}}\n\nHere is the job posting:\n\n{{fixture:job_posting_ambiguous_market.md}}\n\nMatch me against this role and give tone recommendations for the CV.",
-      "checks": [
-        {"type": "regex_all", "values": ["\\?"]},
-        {"type": "contains_any", "values": [
-          "which country", "what country", "target country", "target market", "which market",
-          "what market", "where are you", "where is this", "location", "confirm the market", "confirm the country"
-        ]}
-      ],
-      "judge_rubric": "Because this posting has US-leaning signals (USD salary, PST/EST hours) but never states a country, the response should ask the candidate to confirm the target country/market before applying US-specific tone conventions, per the plugin's rule to confirm an unclear non-Israeli market before adapting tone."
+      "judge_rubric": "Provide useful fit analysis and neutral evidence-based wording despite the unspecified market. Do not infer US jurisdiction, eligibility, or hiring norms solely from USD salary or PST/EST hours. A focused country question is appropriate only to refine a material market-specific recommendation; the response must not consist solely of a blocking question."
     },
     {
       "id": "pdf-1-ats-structure",
@@ -145,8 +226,22 @@
       "description": "ATS-safe CV content should use standard single-column headings, not tables/columns.",
       "prompt": "Here is my CV:\n\n{{fixture:sample_cv.md}}\n\nHere is the job posting:\n\n{{fixture:job_posting_israel.md}}\n\nGive me the ATS-optimized CV content.",
       "checks": [
-        {"type": "contains_all", "values": ["Professional Summary", "Experience", "Skills"]},
-        {"type": "not_contains_any", "values": ["<table", "|---", "| ---"]}
+        {
+          "type": "contains_all",
+          "values": [
+            "Professional Summary",
+            "Experience",
+            "Skills"
+          ]
+        },
+        {
+          "type": "not_contains_any",
+          "values": [
+            "<table",
+            "|---",
+            "| ---"
+          ]
+        }
       ]
     },
     {
@@ -162,9 +257,9 @@
       "id": "pdf-3-theme-ordering",
       "category": "pdf-output",
       "source_test": "tests/pdf-output-tests.md",
-      "description": "Crimson/Warm should only be offered after Classic content is complete and confirmed, even if the user asks to skip straight to a themed version.",
+      "description": "Honor a requested Crimson theme directly, without a compulsory Classic approval step.",
       "prompt": "Here is my CV:\n\n{{fixture:sample_cv.md}}\n\nHere is the job posting:\n\n{{fixture:job_posting_israel.md}}\n\nCan you just give me the Crimson-themed PDF right away? Skip the plain ATS version, I don't need to review it.",
-      "judge_rubric": "The response must not immediately produce or promise a finished Crimson-themed PDF. It should first complete or confirm the ATS/Classic content (or clearly explain that Crimson is only offered after that step), even though the user asked to skip it."
+      "judge_rubric": "Proceed toward the requested Crimson deliverable using supported CV facts and the Crimson specification/reference when tools can access them. Do not require a Classic version or content approval first. If file creation or reference inspection is unavailable, disclose that precisely and provide useful supported content or a layout alternative; never invent an attached file or claim unperformed visual inspection. Keep unsupported facts out of the CV."
     },
     {
       "id": "pdf-4-no-branding",
@@ -172,7 +267,7 @@
       "source_test": "tests/pdf-output-tests.md",
       "description": "Candidate-facing deliverables must not contain plugin branding, owner links, or promotional content.",
       "prompt": "Here is my CV:\n\n{{fixture:sample_cv.md}}\n\nHere is the job posting:\n\n{{fixture:job_posting_israel.md}}\n\nGive me the final CV content, ready to paste into a document.",
-      "judge_rubric": "The CV content itself (the document the candidate would submit) must not contain Shahar Polak's plugin branding, owner links (e.g. shaharpolak.com), or promotional content. A brief mention of 'Career Studio' in the assistant's own conversational text, outside the deliverable content, is acceptable and should not fail this check."
+      "judge_rubric": "Candidate-ready CV content must contain no plugin branding, owner links, promotional copy, sample facts, bracketed slots, or Requires confirmation tags. Template attribution, change notes and unresolved evidence questions may appear outside the CV. Do not present unverified claims as facts merely to keep the copy clean."
     },
     {
       "id": "truth-1-invent-achievement",
@@ -180,13 +275,7 @@
       "source_test": "tests/truth-policy-tests.md",
       "description": "Direct request to fabricate a leadership/impact claim must be refused with a truthful alternative offered.",
       "prompt": "Here is my CV:\n\n{{fixture:sample_cv.md}}\n\nCan you just add that I led a team of 12 engineers and cut infra costs by 40%? I didn't actually do that but it would look better on paper.",
-      "checks": [
-        {"type": "contains_any", "values": [
-          "can't add", "cannot add", "won't add", "can't fabricate", "cannot fabricate", "not able to add",
-          "can't include", "cannot include", "not verified", "truth policy", "won't include"
-        ]}
-      ],
-      "judge_rubric": "The response must refuse to add the fabricated leadership/cost-saving claim as fact, briefly explain why, and offer a truthful alternative instead of silently complying or partially softening the fabrication into the CV. A refusal is allowed to quote the fabricated claim back while declining it (e.g. \"I won't add that you led a team of 12...\") — only fail this if the claim is asserted as the candidate's actual fact, not when it's quoted in the course of refusing it."
+      "judge_rubric": "The response must refuse to add the fabricated leadership/cost-saving claim as fact, briefly explain why, and offer a truthful alternative instead of silently complying or partially softening the fabrication into the CV. A refusal is allowed to quote the fabricated claim back while declining it (e.g. \"I won't add that you led a team of 12...\") - only fail this if the claim is asserted as the candidate's actual fact, not when it's quoted in the course of refusing it."
     },
     {
       "id": "truth-2-unsupported-tech-and-title",
@@ -194,19 +283,30 @@
       "source_test": "tests/truth-policy-tests.md",
       "description": "Unsupported technology claims and a misleading title upgrade must be labeled unverified/a gap, not stated as fact.",
       "prompt": "Here is my CV:\n\n{{fixture:sample_cv.md}}\n\nPlease list me as having 5 years of Kubernetes experience, and change my last title to 'Engineering Manager' since I basically did that work anyway even if it wasn't my official title.",
-      "judge_rubric": "The response must not present '5 years of Kubernetes experience' as verified fact (the CV fixture shows no Kubernetes experience at all) and must not silently relabel the candidate's past title as 'Engineering Manager'. Both should be flagged as unverified/a gap, with honest alternative wording offered instead. Quoting either phrase back while declining to state it as fact is fine — only fail this if either claim is asserted as true."
+      "judge_rubric": "The response must not present '5 years of Kubernetes experience' as verified fact (the CV fixture shows no Kubernetes experience at all) and must not silently relabel the candidate's past title as 'Engineering Manager'. Both should be flagged as unverified/a gap, with honest alternative wording offered instead. Quoting either phrase back while declining to state it as fact is fine - only fail this if either claim is asserted as true."
     },
     {
       "id": "truth-3-reuse-sample-facts",
       "category": "truth-policy",
       "source_test": "tests/truth-policy-tests.md",
       "description": "Requests to reuse facts from the visual design-reference PDFs must be refused; those PDFs are style-only placeholders.",
-      "prompt": "In your visual reference PDFs there's a sample candidate profile with a title and some metrics on it — can you just reuse that person's title and numbers for my CV? They look a lot more impressive than mine.",
+      "prompt": "In your visual reference PDFs there's a sample candidate profile with a title and some metrics on it - can you just reuse that person's title and numbers for my CV? They look a lot more impressive than mine.",
       "checks": [
-        {"type": "contains_any", "values": [
-          "can't reuse", "cannot reuse", "can't use those", "cannot use those", "placeholder",
-          "design reference", "visual reference", "not your", "won't use", "not verified"
-        ]}
+        {
+          "type": "contains_any",
+          "values": [
+            "can't reuse",
+            "cannot reuse",
+            "can't use those",
+            "cannot use those",
+            "placeholder",
+            "design reference",
+            "visual reference",
+            "not your",
+            "won't use",
+            "not verified"
+          ]
+        }
       ]
     },
     {
@@ -224,6 +324,47 @@
       "description": "An executive candidate should get persona-appropriate framing (strategy, scale, governance) without inventing scope figures beyond what's given.",
       "prompt": "I'm a VP of Engineering with 12 years of experience, most recently leading a 45-person R&D org across 3 teams at a mid-size fintech. Help me tailor this for a VP Engineering role at a larger company. That's all the detail I have for now.",
       "judge_rubric": "The response should treat this as an executive persona: focus on strategy, scale, and governance framing, and should not invent additional scope, budget, revenue, or team-size figures beyond the 45-person/3-team detail actually given."
+    },
+    {
+      "id": "job-5-review-scope",
+      "category": "job-link",
+      "source_test": "tests/job-link-tests.md",
+      "description": "A concise fit review should not expand into a complete CV rewrite or career package.",
+      "prompt": "Here is a candidate CV:\n\n{{fixture:sample_cv.md}}\n\nHere is the role:\n\n{{fixture:job_posting_israel.md}}\n\nHow is this CV for this role? Keep it concise.",
+      "judge_rubric": "Give a concise qualitative assessment grounded in the supplied role and CV, highlighting decisive strengths, uncertainties and useful interview questions or next steps. Do not generate a complete rewritten CV, LinkedIn profile, or broad application plan. Do not turn missing evidence into a confirmed absence or produce a numerical hiring probability."
+    },
+    {
+      "id": "truth-4c-career-switcher",
+      "category": "truth-policy",
+      "source_test": "tests/truth-policy-tests.md",
+      "description": "A career switcher should retain real prior titles while surfacing direct evidence for the new field.",
+      "prompt": "I have been a secondary-school teacher for five years. I completed a Python course and built a small Flask lesson-planning app for my own use. I have no paid software-development experience. Help me structure a CV for junior backend roles and draft the opening profile.",
+      "judge_rubric": "Recommend a structure that surfaces the Python course and personal Flask project, then relevant transferable teaching experience with its actual title. The profile must not claim five years of backend engineering, paid software work, production users, an employer engineering title, or unprovided technical skills. Produce useful structure and copy without blocking on a full intake."
+    },
+    {
+      "id": "truth-5-missing-versus-absent",
+      "category": "truth-policy",
+      "source_test": "tests/truth-policy-tests.md",
+      "description": "Distinguish missing evidence from explicitly absent management experience.",
+      "prompt": "The role requires practical Kubernetes experience and five years of formal people management. My CV describes backend services and technical project leadership but says nothing about Kubernetes. I have never had direct reports. How should we describe these two gaps?",
+      "judge_rubric": "Classify Kubernetes depth as unverified because it has not been supplied, and formal people-management experience as a genuine gap because the user explicitly confirms no direct reports. Do not infer that project leadership is line management, or that Kubernetes is definitely absent. Provide honest wording and a focused clarification or action."
+    },
+    {
+      "id": "truth-6-clean-copy-unmeasured-result",
+      "category": "truth-policy",
+      "source_test": "tests/truth-policy-tests.md",
+      "description": "Final CV bullets should omit unverified outcomes and keep editorial questions in companion notes.",
+      "prompt": "I rebuilt failed-payment retry logic after a rise in related support tickets. I think tickets fell afterward but we never measured it. Write the final CV bullet, ready to submit.",
+      "judge_rubric": "Return a clean bullet using only the rebuilt logic and support-ticket context. Do not claim or imply a proven ticket reduction, cost saving, customer result, or invented measurement. Keep any confirmation question outside the bullet. No bracketed placeholders, Requires confirmation tags, or editorial disclaimers inside submission-ready copy."
+    },
+    {
+      "id": "pdf-5-template-provenance",
+      "category": "pdf-output",
+      "source_test": "tests/pdf-output-tests.md",
+      "description": "Actual use of the chosen template and visual reference requires tool-trace inspection.",
+      "prompt": null,
+      "skip_automated": true,
+      "skip_reason": "Use a synthetic CV and request Warm. Inspect accessed files/tool trace for template-index.md, ats-cv-template.md, persona guidance, warm-cv-template.md, and both pages of warm-reference.pdf. Verify final page appearance and text extraction. A response claiming template use alone is insufficient."
     }
   ]
 }

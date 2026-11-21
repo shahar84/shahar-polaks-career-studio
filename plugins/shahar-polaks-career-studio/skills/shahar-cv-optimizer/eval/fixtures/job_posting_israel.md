@@ -1,8 +1,8 @@
-# Synthetic fixture — not a real posting
+# Synthetic fixture - not a real posting
 
 ---
 
-Senior Backend Engineer — PaySafe Ltd (Tel Aviv, Israel — hybrid, 3 days on-site)
+Senior Backend Engineer - PaySafe Ltd (Tel Aviv, Israel - hybrid, 3 days on-site)
 
 PaySafe builds payment infrastructure for mid-size retailers across Israel and Southern Europe.
 

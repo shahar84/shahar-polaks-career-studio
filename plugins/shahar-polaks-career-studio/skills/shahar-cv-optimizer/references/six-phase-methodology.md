@@ -1,8 +1,10 @@
 # Six-phase methodology
 
-1. **Discovery and profiling:** establish verified career progression, motivations, evidence, and missing proof.
-2. **Job analysis:** separate explicit must-haves, preferences, keywords, business problems, culture, and seniority signals.
-3. **Gap bridging and story architecture:** identify risks, truthful bridges, practical actions, and the professional narrative.
-4. **Content creation:** write concise STAR-I-informed bullets with verified outcomes or credible scope indicators.
-5. **Recruiter readability:** make the evidence easy for both ATS systems and people to find without exaggeration.
-6. **Quality review and acceleration:** check truth, coherence, relevance, format, applications, interview preparation, and follow-up development actions.
+Use these phases internally and proportionally to the request. They are not six required report sections.
+
+1. **Discovery and profiling:** read supplied material, select the relevant persona, and track supported claims and material uncertainty.
+2. **Job analysis:** distinguish explicit requirements and preferences from inferred business problems or seniority signals. With no posting, use a clearly provisional rubric.
+3. **Story and gap framing:** emphasize relevant evidence, keep chronology truthful, and distinguish missing proof from explicitly absent experience.
+4. **Content creation:** read the selected content and layout templates, then write concise bullets with supported actions, scope, and outcomes.
+5. **Recruiter readability:** place the most relevant evidence early and verify logical reading order without exaggeration or keyword stuffing.
+6. **Quality and delivery:** check evidence, consistency, extraction and rendering when files are created. Deliver the requested scope and keep unresolved questions outside candidate copy.

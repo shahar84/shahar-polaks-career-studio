@@ -24,7 +24,19 @@ Describe the smallest example that reproduces the issue. For a wording problem, 
 
 ### I have only a CV, without a job description
 
-Start with a general review. Career Studio can improve clarity and positioning now. A target role or job description makes later tailoring more specific.
+For a review, Career Studio can improve clarity now. For a tailored CV, it will ask for the specific posting or job description. If you do not have a vacancy yet, name the role you want and build a role-focused baseline, then tailor it when you find a posting.
+
+### I do not have a CV yet
+
+Start with the job you want and a few notes about your experience. Career Studio asks one or two relevant questions at a time and uses the answers to build the CV. You do not need to prepare a document or complete a long questionnaire first.
+
+### Why is it asking about my experience before writing?
+
+The questions connect your actual work to the job's requirements. They may clarify what you personally owned, how you used a technology, the scope of a project, or what changed because of your work. If you have no measured result, say so; concrete responsibilities and outcomes can still be useful. When enough material exists, it drafts. You can also ask it to proceed with the facts already provided.
+
+### Can we speak Hebrew while preparing an English CV?
+
+Yes. Questions and explanations follow your conversation language, while the entire CV defaults to English. A Hebrew source CV or job posting does not change that default. Ask explicitly if you want the finished CV in another language.
 
 ### My document cannot be read reliably
 

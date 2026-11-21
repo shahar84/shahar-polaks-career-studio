@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.10.0 - 2026-11-21
+
+- Made guided creation of an English CV for a specific vacancy the main workflow. A Hebrew conversation, source CV, or posting no longer leaves output-language choice implicit.
+- Changed discovery to happen before final drafting when meaningful job-specific evidence is missing: read the vacancy, map its decisive requirements to candidate evidence, ask one or two focused questions per round, and use the answers in the CV.
+- Added practical Hebrew/English questions about personal contribution, outcomes without metrics, technical depth, leadership scope, projects, and career changes. An existing CV is optional.
+- Defined when to stop asking and draft, reuse prior answers, honor explicit language or no-questions requests, and distinguish a role-focused baseline from a CV tailored to an actual vacancy.
+- Updated onboarding, product copy, support guidance, and evaluation cases to match the workflow. Document themes, exporter, Browser binding, and existing starter prompts remain available.
+- Validation: package checks and all 33 scenario definitions pass. A fresh Hebrew conversation asked relevant ownership/async-processing questions, reused the answers, and produced an English CV without invented metrics or direct-management claims. Separate onboarding accepted a candidate without an existing CV. The full Claude evaluation suite was not executed.
+
 ## 0.9.0 - 2026-11-21
 
 - Added a reusable document renderer for Classic, Crimson, and Warm editable DOCX files, plus PDF conversion from the same layout when LibreOffice is available. Candidate content and theme styling remain separate.

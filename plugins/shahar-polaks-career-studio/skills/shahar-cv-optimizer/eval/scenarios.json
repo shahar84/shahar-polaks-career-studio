@@ -7,45 +7,50 @@
       "id": "act-1-english-vague",
       "category": "activation",
       "source_test": "tests/activation-tests.md",
-      "description": "Vague English request should trigger short onboarding with three starting paths and no mandatory intake form.",
+      "description": "Vague English onboarding should lead into guided English CV creation for a target job, accepting an existing CV or rough background.",
       "prompt": "Hi, can you help me with my career stuff? Not sure where to start.",
       "checks": [
         {
           "type": "contains_all",
           "values": [
-            "CV",
-            "LinkedIn",
-            "interview",
+            "English",
             "sensitive"
+          ]
+        },
+        {
+          "type": "contains_any",
+          "values": [
+            "CV",
+            "resume"
           ]
         }
       ],
-      "judge_rubric": "Offer three concise paths covering CV/job fit, LinkedIn, and interview preparation. Let the user choose or provide any useful material. Do not require a CV, target posting, LinkedIn URL, country, and career history together. Include one brief privacy reminder; avoid a long questionnaire."
+      "judge_rubric": "Respond in English with a concise introduction to the main workflow: build an English CV tailored to the target job after focused questions about relevant experience. Ask for the job posting or description and an existing CV if available, while explicitly accepting rough background or starting without a CV. Include one brief privacy reminder. Do not default to a three-path menu, require a finished CV, ask the user to choose an output language, or demand LinkedIn, country, complete history and metrics upfront. Do not imply the assistant has already analyzed material that was not supplied."
     },
     {
       "id": "act-2-hebrew-vague",
       "category": "activation",
       "source_test": "tests/activation-tests.md",
-      "description": "Vague Hebrew request should trigger the same concise three-path onboarding in Hebrew.",
+      "description": "Vague Hebrew onboarding should explain guided English CV creation in Hebrew and invite the job posting plus existing CV or rough background.",
       "prompt": "היי, אני צריך עזרה בקריירה אבל לא בטוח מאיפה להתחיל.",
       "checks": [
         {
           "type": "contains_all",
           "values": [
             "קורות",
-            "לינקדאין",
-            "ראיון",
+            "אנגלית",
+            "משרה",
             "רגישים"
           ]
         }
       ],
-      "judge_rubric": "Respond in Hebrew with three short starting paths for CV/job fit, LinkedIn, and interviews. Invite the user to choose or send what they have; do not demand every input up front. Include a short privacy reminder."
+      "judge_rubric": "Respond in Hebrew and make clear that the main outcome is an English CV tailored to the target job. Invite the job posting or its description and the current CV if one exists; explain that the user can answer in Hebrew and begin from rough experience without an existing CV. Describe a short sequence of reading the material, asking focused questions and then preparing the CV. Include one brief privacy reminder. Do not replace this with a three-path menu, automatically promise Hebrew CV output, ask the user to choose the default language, or demand a full intake questionnaire."
     },
     {
       "id": "act-3-cv-and-job-provided",
       "category": "activation",
       "source_test": "tests/activation-tests.md",
-      "description": "When a CV, job description, and specific task are already supplied, the full onboarding block must be skipped and the workflow should begin directly.",
+      "description": "A supplied CV and posting should start role-specific discovery directly, skipping onboarding and questions about material already provided.",
       "prompt": "Here is my CV:\n\n{{fixture:sample_cv.md}}\n\nHere is the job I want:\n\n{{fixture:job_posting_israel.md}}\n\nPlease tailor my CV for this role.",
       "checks": [
         {
@@ -56,7 +61,7 @@
           ]
         }
       ],
-      "judge_rubric": "Produce a tailored CV from the supplied material without repeating onboarding or requiring a target already supplied. Preserve titles and evidence, keep unverified claims out of candidate-ready copy, and put only useful change notes or material questions outside the CV. Do not require a long requirement matrix or persona label in the response."
+      "judge_rubric": "Skip the onboarding menu and read the supplied CV and job first. Identify the role-relevant missing evidence, particularly personal end-to-end service ownership or hands-on event-driven work, and ask at most one or two focused questions before calling a full CV final. Do not ask for the posting, CV, location, or already supplied career history again. Do not infer service ownership from on-call participation or production Kafka depth from teammate-led exposure. Brief useful observations are welcome; a generic full CV or a long intake questionnaire does not satisfy this case."
     },
     {
       "id": "act-4-direct-ats-request",
@@ -86,7 +91,7 @@
       "id": "act-5-partial-info",
       "category": "activation",
       "source_test": "tests/activation-tests.md",
-      "description": "A specific but materials-free request should skip the menu and ask for a CV or minimal useful career facts without fabricating a requirement matrix.",
+      "description": "A specific CV-creation request without materials should seek the target posting and a small amount of real background, with no compulsory existing CV.",
       "prompt": "I want to apply for a senior backend role. I don't have my CV typed up yet, what do you need from me?",
       "checks": [
         {
@@ -108,7 +113,8 @@
             "\\?"
           ]
         }
-      ]
+      ],
+      "judge_rubric": "Skip the general menu. Ask for the specific job posting or requirements and a small useful starting point from the candidate, such as the most recent role or a relevant project. Use at most two focused questions. An existing CV is optional because the user has none; do not require one, a LinkedIn profile, a complete career history, all impact metrics, and location together. Do not fabricate a requirement matrix or final CV before receiving evidence."
     },
     {
       "id": "act-6-scanned-pdf",
@@ -224,7 +230,7 @@
       "category": "pdf-output",
       "source_test": "tests/pdf-output-tests.md",
       "description": "ATS-safe CV content should use standard single-column headings, not tables/columns.",
-      "prompt": "Here is my CV:\n\n{{fixture:sample_cv.md}}\n\nHere is the job posting:\n\n{{fixture:job_posting_israel.md}}\n\nGive me the ATS-optimized CV content.",
+      "prompt": "Here is my CV:\n\n{{fixture:sample_cv.md}}\n\nHere is the job posting:\n\n{{fixture:job_posting_israel.md}}\n\nGive me the ATS-optimized CV content.\n\nWe have finished discovery for this draft. I have no additional evidence for full service ownership, mentoring, or deeper Kafka experience. Use only what is supported here, omit unsupported claims, and do not ask more questions before producing the requested output.",
       "checks": [
         {
           "type": "contains_all",
@@ -258,7 +264,7 @@
       "category": "pdf-output",
       "source_test": "tests/pdf-output-tests.md",
       "description": "Honor a requested Crimson theme directly, without a compulsory Classic approval step.",
-      "prompt": "Here is my CV:\n\n{{fixture:sample_cv.md}}\n\nHere is the job posting:\n\n{{fixture:job_posting_israel.md}}\n\nCan you just give me the Crimson-themed PDF right away? Skip the plain ATS version, I don't need to review it.",
+      "prompt": "Here is my CV:\n\n{{fixture:sample_cv.md}}\n\nHere is the job posting:\n\n{{fixture:job_posting_israel.md}}\n\nCan you just give me the Crimson-themed PDF right away? Skip the plain ATS version, I don't need to review it.\n\nWe have finished discovery for this draft. I have no additional evidence for full service ownership, mentoring, or deeper Kafka experience. Use only what is supported here, omit unsupported claims, and do not ask more questions before producing the requested output.",
       "judge_rubric": "Proceed toward the requested Crimson deliverable using supported CV facts and the Crimson specification/reference when tools can access them. Do not require a Classic version or content approval first. If file creation or reference inspection is unavailable, disclose that precisely and provide useful supported content or a layout alternative; never invent an attached file or claim unperformed visual inspection. Keep unsupported facts out of the CV."
     },
     {
@@ -266,7 +272,7 @@
       "category": "pdf-output",
       "source_test": "tests/pdf-output-tests.md",
       "description": "Candidate-facing deliverables must not contain plugin branding, owner links, or promotional content.",
-      "prompt": "Here is my CV:\n\n{{fixture:sample_cv.md}}\n\nHere is the job posting:\n\n{{fixture:job_posting_israel.md}}\n\nGive me the final CV content, ready to paste into a document.",
+      "prompt": "Here is my CV:\n\n{{fixture:sample_cv.md}}\n\nHere is the job posting:\n\n{{fixture:job_posting_israel.md}}\n\nGive me the final CV content, ready to paste into a document.\n\nWe have finished discovery for this draft. I have no additional evidence for full service ownership, mentoring, or deeper Kafka experience. Use only what is supported here, omit unsupported claims, and do not ask more questions before producing the requested output.",
       "judge_rubric": "Candidate-ready CV content must contain no plugin branding, owner links, promotional copy, sample facts, bracketed slots, or Requires confirmation tags. Template attribution, change notes and unresolved evidence questions may appear outside the CV. Do not present unverified claims as facts merely to keep the copy clean."
     },
     {
@@ -365,6 +371,54 @@
       "prompt": null,
       "skip_automated": true,
       "skip_reason": "Use a synthetic CV and request Warm. Inspect accessed files/tool trace for template-index.md, ats-cv-template.md, persona guidance, warm-cv-template.md, and both pages of warm-reference.pdf. Verify final page appearance and text extraction. A response claiming template use alone is insufficient."
+    },
+    {
+      "id": "job-6-specific-job-missing",
+      "category": "job-link",
+      "source_test": "tests/job-link-tests.md",
+      "description": "A request for a CV tailored to a specific job should establish the missing target before claiming a tailored result.",
+      "prompt": "Here is my CV:\n\n{{fixture:sample_cv.md}}\n\nI want you to build a CV tailored to the specific job I am applying for. What should we do first?",
+      "judge_rubric": "Read the supplied CV and ask for the actual job posting, a pasted description, or the relevant requirements if no link is available. Do not request the same CV again or invent an employer, vacancy, or job requirements. At most two focused questions are appropriate. A brief observation about available evidence is useful, but do not present a generic CV as already tailored to the unspecified vacancy. If offering an interim general draft, label its role-specific limits outside candidate copy."
+    },
+    {
+      "id": "job-7-thin-evidence-targeted-questions",
+      "category": "job-link",
+      "source_test": "tests/job-link-tests.md",
+      "description": "A thin CV plus a real requirement set should produce one or two decisive evidence questions before final CV drafting.",
+      "prompt": "אני רוצה להכין קורות חיים למשרת Senior Backend Developer. אלה דרישות המשרה שהעתקתי: Python, PostgreSQL, ניסיון מעשי עם תורים, ואחריות על שירות בפרודקשן משלב הפיתוח ועד תפעול ותקלות. המידע שיש לי כרגע: עבדתי כמפתחת Backend בחברת Example Systems בשנים 2021-2026. כתבתי קוד ב-Python ועבדתי עם PostgreSQL. כתבתי בקורות החיים \"עבודה על שירותים ותהליכי רקע\", אבל עוד לא פירטתי מה עשיתי בעצמי. איך נתחיל?",
+      "judge_rubric": "Respond in Hebrew and use the actual supplied requirements to select one or two focused questions about personal production-service ownership and concrete hands-on queue/background-job work. The questions must build on the known Python/PostgreSQL experience rather than ask for a full history, the job posting, a CV upload, or known dates again. Avoid hiding a many-part questionnaire inside two numbered items. Do not assume a particular queue technology, production ownership, leadership, reliability result, or measured impact. Do not produce a complete supposedly finished CV before clarifying this decisive missing evidence. The eventual CV defaults to English; no output-language selection question is needed."
+    },
+    {
+      "id": "job-8-rich-evidence-english-default",
+      "category": "job-link",
+      "source_test": "tests/job-link-tests.md",
+      "description": "Rich evidence provided in Hebrew should yield a targeted English CV without redundant discovery or a language-selection question.",
+      "prompt": "תכין לי קורות חיים מותאמים למשרה הזו. המשרה: Backend Developer בחברת Example Cloud. דרישות חובה: לפחות 3 שנות ניסיון ב-Python, עבודה עם PostgreSQL ותורים, אחריות על שירות בפרודקשן וכתיבת בדיקות. המידע שלי: נועה לביא, חיפה, noa@example.com. עבדתי כמפתחת Backend בחברת Example Systems בשנים 2021-2026. פיתחתי שירותי Python עם FastAPI ו-PostgreSQL, תכננתי ומימשתי עובדי RabbitMQ לעיבוד קבצים, והייתי אחראית על שירות אחד מתכנון ומימוש עד העלאה לפרודקשן, ניטור וטיפול בתקלות בכוננות. כתבתי בדיקות אוטומטיות. אין לי מדדי ביצועים בדוקים ואין לי ניסיון בניהול אנשים. תואר ראשון במדעי המחשב מאוניברסיטת חיפה, 2021. זה כל המידע הרלוונטי שלי.",
+      "judge_rubric": "Produce the finished candidate CV in English by default, with any short coaching notes in Hebrew. Emphasize the supplied Python/FastAPI, PostgreSQL, RabbitMQ, production-service ownership and automated testing because they match the actual requirements. Use the exact supplied dates, education and employment level, and do not add metrics, direct reports, senior titles, or other technologies. Do not ask which language to use, request the posting or supplied facts again, or require more discovery just to follow a process. Missing optional contact details do not block the CV. Do not put a fit matrix, placeholders, or confirmation notes inside candidate-ready copy."
+    },
+    {
+      "id": "job-9-explicit-hebrew-cv",
+      "category": "job-link",
+      "source_test": "tests/activation-tests.md",
+      "description": "An explicit Hebrew CV request overrides the English artifact default.",
+      "prompt": "אני רוצה שקורות החיים עצמם יהיו בעברית. המשרה: מפתח Backend, דרישות Python, PostgreSQL וכתיבת בדיקות. שמי רון דוגמה, בחיפה, ron@example.com. התפקיד האחרון: Backend Developer בחברת Example Systems, בשנים 2022-2026. פיתחתי שירותי Python, כתבתי שאילתות PostgreSQL וכתבתי בדיקות אוטומטיות. אין לי מדדי השפעה נוספים או ניסיון ניהולי. אין מידע נוסף שצריך להשלים. תכין את קורות החיים לפי הנתונים האלה, ללא קובץ כרגע.",
+      "judge_rubric": "Deliver candidate-ready CV content in Hebrew because it was explicitly requested, while preserving technology names and the supplied role title accurately. English remains a default, not an enforced rule. Do not demand an English version first, ask which language is desired, start a redundant intake, invent metrics or management experience, or claim that a file was created. Keep any short template or change notes outside candidate copy."
+    },
+    {
+      "id": "job-10-user-declines-questions",
+      "category": "job-link",
+      "source_test": "tests/job-link-tests.md",
+      "description": "A user who declines discovery should receive an honest supported draft with its limits identified outside the CV.",
+      "prompt": "Please do not ask me any questions. Use the information below to make the best English CV draft you can for this job. Job: Backend Developer requiring Python, PostgreSQL and production Kubernetes operations. I am Alex Demo, alex@example.com. I worked as a Backend Developer at Example Systems from 2022 to 2026, developing Python reporting APIs, writing PostgreSQL queries and maintaining automated tests. I have never operated Kubernetes. I have no measured impact numbers to add. This is all I can share.",
+      "judge_rubric": "Honor the request to proceed without questions. Produce a useful English CV draft using the supplied name, contact, exact employment and supported work. Emphasize Python, PostgreSQL and tests. Do not fabricate or imply Kubernetes operations, impact metrics, missing education or management. Briefly identify the genuine Kubernetes gap or tailoring limit outside the candidate document, without inserting disclaimers or placeholders into CV bullets. Do not block completion on an interview or ask for permission to draft."
+    },
+    {
+      "id": "job-11-use-discovery-answers",
+      "category": "job-link",
+      "source_test": "tests/job-link-tests.md",
+      "description": "Once decisive discovery questions are answered, update the evidence and deliver the English job-specific CV without restarting intake.",
+      "prompt": "נמשיך להכין את קורות החיים. זו המשרה שכבר שלחתי: Backend Developer, דרישות Python, PostgreSQL, תורים ואחריות על שירות בפרודקשן. אלה הפרטים שכבר נתתי: מאיה דוגמה, maya@example.com, Backend Developer בחברת Example Systems בשנים 2022-2026, עבודה ב-Python וב-PostgreSQL. שאלת אותי על תורים ועל אחריות אישית. הנה התשובות: מימשתי בעצמי עובדי RabbitMQ לעיבוד קבצים וכתבתי להם בדיקות. הייתי אחראית על שירות העיבוד מתכנון דרך מימוש ופריסה ועד ניטור וטיפול בתקלות. לא ניהלתי את שאר המפתחים. לא מדדנו שיפור בביצועים. עכשיו תכין את קורות החיים מהמידע הזה.",
+      "judge_rubric": "Use the newly supplied RabbitMQ implementation, tests and end-to-end service responsibility in the final English CV, while preserving the given role and dates. Keep short commentary in Hebrew if needed. Do not ask the same questions again, restart onboarding, ask about optional fields merely to prolong discovery, infer management or a performance improvement, or request approval to start drafting. Treat the supplied answers as candidate evidence rather than independently verified facts. Keep missing optional details out of the CV instead of filling them with placeholders."
     }
   ]
 }

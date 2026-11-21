@@ -1,7 +1,7 @@
 {
   "name": "shahar-polaks-career-studio",
-  "version": "0.9.0",
-  "description": "AI career coaching for CVs, LinkedIn profiles and interviews, grounded in your real experience. Hebrew and English.",
+  "version": "0.10.0",
+  "description": "Build English CVs tailored to specific jobs through focused questions about your real experience. Discuss in Hebrew or English.",
   "homepage": "https://www.shaharpolak.com/",
   "repository": "https://github.com/shahar84/shahar-polaks-career-studio",
   "license": "LicenseRef-Shahar-Polak-Personal-Use-1.0",
@@ -29,7 +29,10 @@
     "docx",
     "pdf",
     "hebrew-cv",
-    "mock-interview"
+    "mock-interview",
+    "english-cv",
+    "guided-cv",
+    "job-specific-cv"
   ],
   "author": {
     "name": "Shahar Polak",
@@ -39,7 +42,7 @@
   "interface": {
     "displayName": "Shahar Polak Career Studio",
     "shortDescription": "AI CV & Interview Coach",
-    "longDescription": "Turn your real experience into stronger CVs, LinkedIn profiles, and interview answers. Career Studio helps you compare your background with a target role, identify matches and gaps, sharpen your wording, and prepare a clear personal pitch.\n\nStart with what you have: a CV, a job description, profile text, an existing pitch, or a real interview story. Get practical improvements first, followed by focused questions where important evidence is missing. Work in Hebrew or English.\n\nBuild an ATS-friendly CV, improve your LinkedIn headline and About section, practice a role-focused introduction, or shape a STAR answer. Choose from the included Classic, Crimson, and Warm CV design references when supported export tools are available.\n\nWhen Browser is connected and supported by your host, review requested profile, job, and company pages. Browser access and document export depend on your connection and available tools. Career Studio flags claims that need confirmation and keeps sample material separate from your experience.",
+    "longDescription": "Build an English CV tailored to the job you want through a focused conversation about your real experience. Start with the job posting and your current CV, rough notes, or the background you can describe. An existing CV is optional.\n\nCareer Studio identifies the job's most important requirements, asks one or two relevant questions at a time, and uses your answers to shape the summary, achievements, skills, and emphasis. When enough evidence is available, it writes the complete CV. It reuses facts already supplied and keeps missing evidence separate from genuine experience gaps.\n\nQuestions and explanations can be in Hebrew or English. The entire CV defaults to English, even when your conversation or source material is in Hebrew. Request another language when needed.\n\nYou can also review an existing CV, improve LinkedIn sections, or prepare and practice interview answers. Classic, Crimson, and Warm themes support editable Word files and PDF exports when the required document tools are available.\n\nRequested profile, job, and company-page research uses Browser when connected and supported by your host. Access and document export depend on available tools. Career Studio keeps unverified claims and sample facts out of candidate-ready materials.",
     "developerName": "Shahar Polak",
     "category": "Productivity",
     "capabilities": [

@@ -23,17 +23,18 @@ For public directory preparation, review the current submission requirements and
 
 **Short description:** AI CV & Interview Coach
 
-**Core promise:** Turn your real experience into stronger CVs, LinkedIn profiles, and interview answers.
+**Core promise:** Build an English CV tailored to the job you want through focused questions about your real experience.
 
 **Hebrew introduction:**
 
 > יש לכם ניסיון. בואו נספר אותו כמו שצריך.
 >
-> Career Studio של שחר פולק עוזר לשפר קורות חיים, לחדד את פרופיל הלינקדאין ולהתכונן לראיונות עבודה. מתחילים ממה שכבר יש לכם, בעברית או באנגלית, ומתקדמים לצעד הבא.
+> Career Studio של שחר פולק קורא את המשרה שאתם רוצים, שואל את השאלות הנכונות על הניסיון שלכם ובונה קורות חיים מותאמים באנגלית. אפשר לענות בעברית ולהתחיל גם בלי קורות חיים מוכנים.
 
 **What makes the product specific:**
 
 - It connects a target role to evidence from the candidate's actual experience.
+- It asks one or two job-specific questions at a time before drafting when important evidence is missing, then writes the CV in English by default.
 - It distinguishes missing evidence, transferable experience, and confirmed experience gaps.
 - It reads bundled templates before producing the requested material and identifies the template used.
 - It generates editable Classic, Crimson, and Warm DOCX files through a shared renderer, with PDF conversion when LibreOffice is available.

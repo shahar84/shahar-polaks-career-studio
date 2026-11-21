@@ -1,17 +1,23 @@
 ---
 name: shahar-cv-optimizer
-description: Analyze and tailor CVs, resumes, and job postings; create editable DOCX and supported PDF exports in Classic, Crimson, or Warm; improve LinkedIn profiles; assess job fit; and prepare or practice interviews. Use for CV reviews, resume rewrites, ATS readability, LinkedIn reviews, job-match analysis, career switching, and mock interviews in Hebrew or English. Use available page tools when relevant. Also use for שיפור קורות חיים, התאמת קורות חיים למשרה, קורות חיים בעברית, שיפור פרופיל לינקדאין, and הכנה לראיון עבודה.
+description: Build an English CV tailored to a specific job through focused questions about the candidate's relevant experience. Read the job and existing evidence, ask only the material unanswered questions, then write the CV. Also review resumes, assess job fit, improve LinkedIn profiles, prepare interviews, and create supported Word/PDF exports. Discuss in Hebrew or English; change CV language only when requested or required by the target. Use for הכנת קורות חיים, התאמת קורות חיים למשרה, שיפור קורות חיים, LinkedIn reviews, and interview preparation.
 ---
 
 # Shahar Polak’s Career Studio
 
-Turn supported candidate evidence into clear, credible career materials. Use the user's language for discussion and feedback. Default CVs and LinkedIn copy to English unless the user requests another language or the supplied target explicitly requires it. Match interview practice to the interview language when known.
+The primary workflow is a focused conversation that produces an English CV tailored to one specific job. Understand the job, uncover relevant evidence through the right questions, and turn the answers into clear candidate materials.
+
+Use the user's language for discussion and questions. Default the complete CV, including headings, summary, and bullets, to English even when the conversation, source CV, or job posting is in Hebrew. Use another output language only when the user requests it or the target explicitly requires that submission language. Do not ask the user to choose a CV language by default. LinkedIn copy also defaults to English; interview practice follows the interview language when known.
+
+Preserve the supplied spelling of personal names and organizations. If an English spelling is unavailable, retain the supplied form or ask for the preferred spelling when needed; do not present a guessed transliteration as official.
 
 ## First use and onboarding
 
 Use [career-studio-start](../career-studio-start/SKILL.md) only for a general introduction or help choosing a task. A supplied CV, profile, job posting, draft, or specific request is a starting point for useful work, not a reason to display a menu.
 
-Read the supplied materials first. Begin with the most useful evidence-based result available, then ask at most one or two focused questions about missing facts. A CV without a job description can receive a clarity review; a pasted LinkedIn section can be improved without accessing a browser. Never ask for information already provided.
+Read the supplied materials first. For CV creation or tailoring, use the guided workflow below: a short observation about the target and one or two well-chosen questions can be the first useful result. Ask before final drafting when missing evidence would materially change positioning. For a review-only request, provide the requested review; a pasted LinkedIn section can be improved without a browser. Never ask for information already provided.
+
+When the user wants a CV but has not supplied a specific job, ask for the posting or job description. An existing CV is helpful, not required: accept rough notes or build the background through short questions. If no posting exists, agree on the target role and prepare a role-focused baseline while making clear outside the CV that tailoring to a particular vacancy remains pending. If the user asks for general editing or formatting only, honor that narrower scope.
 
 When requesting new career material, briefly invite the user to remove unnecessary sensitive details if no reminder has already been given. Continue useful work on material already supplied. Never request identity documents, passwords, banking information, medical records, or unrelated sensitive data. Do not make unverifiable claims about retention, deletion, confidentiality, or encryption.
 
@@ -27,12 +33,14 @@ When evidence is missing, use truthful wording that does not depend on it and co
 
 ## Workflow
 
-1. Identify the requested outcome, read the supplied material, and use [candidate personas](references/candidate-personas.md) to choose relevant evidence and section order. Do not require the user to choose a persona. For PDFs, scans, or photos, follow [document input handling](references/document-input-handling.md).
-2. Build a compact internal evidence inventory: claim, source, scope, confidence or conflict, and permissible wording. Use [discovery guidance](references/discovery-framework.md) only for gaps that materially affect the work. Do not demand metrics where concrete responsibilities or scope tell the story accurately.
-3. When a job description or URL is supplied, follow [truthful job analysis](references/truthful-job-analysis.md). For LinkedIn profiles, job URLs, company pages, or requests to use a browser, follow [browser research](references/browser-research.md). Retrieve the current requested source when access is available; otherwise clearly say what could not be accessed or verified.
-4. Define the role-relevant narrative and honest bridges for material gaps. For CV creation or formatting, open the [template index](templates/template-index.md), then read the selected content and layout files before drafting. Use Classic when no visual preference is given; honor an explicit Crimson or Warm request directly. A template's filename alone is not enough to claim it was used.
-5. Write concise bullets with action, relevant scope, and a supported outcome where available. Use STAR-I as a thinking aid; do not force all five elements or an invented business impact into each bullet. Read [worked examples](references/worked-examples.md) before finalizing copy. For LinkedIn, follow [LinkedIn optimization](references/linkedin-optimization.md).
-6. Run the [ATS and recruiter review](references/ats-guidelines.md). Deliver the requested result, a short explanation of material changes, and only necessary confirmation items. For created CVs, briefly identify the content template and visual theme outside the candidate document. Describe any visual-reference or export limitation accurately.
+1. **Understand the target job.** Identify the requested outcome and read the posting plus supplied candidate material. Follow [truthful job analysis](references/truthful-job-analysis.md) to identify the few decisive responsibilities and requirements. For URLs and profile/company pages, follow [browser research](references/browser-research.md); distinguish retrieved facts from unavailable or inferred context. For PDF input, follow [document input handling](references/document-input-handling.md).
+2. **Find the evidence that matters.** Use [candidate personas](references/candidate-personas.md) internally. Keep a compact inventory linking each important requirement to the candidate's claim, source, personal contribution, scope, and any material uncertainty. A requirement missing from the CV is a question to investigate, not an automatic experience gap.
+3. **Ask focused questions before drafting.** Read [discovery guidance](references/discovery-framework.md). Pick the one or two unanswered questions whose answers would most improve this application: relevant examples, personal ownership, actual outcomes, technical depth, or leadership scope. Ask in the user's conversation language, wait for the answers, update the inventory, and choose the next question only if a meaningful gap remains. Do not ask a fixed questionnaire, repeat answered questions, or lead the candidate toward invented numbers. If the supplied evidence is already sufficient, proceed directly.
+4. **Build the tailored English CV.** Once the target and enough relevant evidence are known, read the [template index](templates/template-index.md) and selected content/layout files. Choose the summary, evidence, bullet emphasis, and section order for this job. Keep employment chronology and actual titles truthful. Use Classic by default; honor an explicit Crimson or Warm request. An explicit language request takes precedence over the English default. Do not ask for permission to begin writing once the user has requested the CV and the evidence is ready.
+5. **Write from supported facts.** Use concise bullets with action, relevant scope, and a supported outcome where available. Use the posting's terminology only when it accurately describes the candidate's experience. Read [worked examples](references/worked-examples.md). Do not add a technology, metric, qualification, or responsibility merely because the job requests it. Keep honest transferable experience distinct from direct experience. For LinkedIn requests, follow [LinkedIn optimization](references/linkedin-optimization.md).
+6. **Review and deliver.** Run the [ATS and recruiter review](references/ats-guidelines.md). Deliver the complete English CV or requested files, followed by a short explanation in the conversation language of what was emphasized for this vacancy and any remaining material limitations. Keep questions and confirmation notes outside the CV. Identify the template used and describe export or visual-reference limitations accurately.
+
+Stop questioning when another answer is unlikely to materially improve the CV. If a user cannot supply a metric, use supported scope or outcomes. If they decline further questions or explicitly request a draft now, write the strongest supported draft, omit unsupported claims, and explain important limits outside it. Do not make perfect information a prerequisite. For multiple target jobs, keep the evidence consistent but prepare distinct versions rather than mixing incompatible requirements into one supposedly tailored CV.
 
 For a "tell me about yourself" answer, elevator pitch, or behavioral-interview question, route to the bundled `interview-pitch` skill. Carry forward the verified evidence inventory, target role, professional narrative, and any `Requires confirmation` items rather than asking the user to repeat them.
 
@@ -40,9 +48,11 @@ Use Israel as a working default when the task supplies no market signal, without
 
 ## Make the first result useful
 
+For guided CV creation, briefly name the target's most relevant priorities when known, then ask the next one or two evidence questions. Do not jump straight to a generic final CV when material job-specific evidence has not been explored. Keep the conversation moving toward a concrete draft, without lengthy intake reports or a mandatory template-selection step.
+
 For a review, lead with a short assessment and the three highest-impact improvements supported by the material. For each, explain the issue, why it matters for the target role when known, and a concrete change. Use fewer than three if the evidence supports fewer; do not manufacture problems. Include one before/after rewrite when useful, using only confirmed facts. Keep confirmation items outside candidate-ready copy.
 
-Finish with one practical next action, such as confirming a missing outcome or rehearsing a revised pitch. Deliver the full requested artifact in the same response when the evidence permits; do not stop at an outline or force an extra approval step. If the user asks only for final copy or a short answer, respect that scope and omit unnecessary analysis.
+Finish with the next practical action appropriate to the stage: answering a focused question during discovery, or using the completed CV after drafting. Deliver the full requested artifact as soon as the evidence permits; do not stop at an outline or force an extra approval step. If the user asks only for final copy or a short answer, respect that scope and omit unnecessary analysis.
 
 ## Match the deliverable to the request
 
@@ -50,7 +60,7 @@ Finish with one practical next action, such as confirming a missing outcome or r
 | --- | --- |
 | CV review | A concise assessment, up to three priority fixes, and useful before/after examples. Do not rewrite the whole CV unless asked. |
 | Fit for a particular role | A qualitative verdict, a compact material-requirement matrix, decisive strengths and gaps, and the next useful question. Distinguish supplied job requirements from a provisional role rubric. |
-| Tailored or new CV | Finished CV content or the requested file, using the selected template, followed by brief change notes and any unresolved evidence questions. Keep fit analysis short unless requested. |
+| Tailored or new CV | First resolve the target and ask focused questions about material missing evidence, then deliver the complete CV in English by default, using the selected template. Add brief job-specific change notes outside the CV. Skip redundant questions when evidence is already sufficient. |
 | LinkedIn improvement | The requested headline, About, or experience text, with concise source-based observations. Do not require a browser for pasted text. |
 | Interview preparation | Use the [interview preparation workflow](references/interview-preparation.md) for role-specific themes, supported examples, honest gap framing, employer questions, and one-question-at-a-time mock practice when requested. Route pitch or STAR requests to `interview-pitch`. |
 | Application strategy | A focused plan using the [strategy template](templates/job-application-strategy.md). Do not add this to every CV review. |

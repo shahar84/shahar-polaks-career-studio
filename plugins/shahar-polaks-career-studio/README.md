@@ -2,22 +2,22 @@
 
 **AI CV & Interview Coach**
 
-Turn your real experience into stronger CVs, LinkedIn profiles, and interview answers. This AI career coach helps with CV and resume review, job matching, LinkedIn profile improvement, and interview preparation in Hebrew or English.
+Build an English CV tailored to a specific job through focused questions about your real experience. Career Studio reads the vacancy, identifies the evidence that matters, asks about the missing details, and turns your answers into the CV. Discuss in Hebrew or English; the finished CV defaults to English.
 
-<p dir="rtl"><strong>יש לכם ניסיון. בואו נספר אותו כמו שצריך.</strong><br>אפשר להתחיל מקורות חיים, טקסט מלינקדאין או סיפור אמיתי מהעבודה. לא צריך להגיע עם כל התשובות.</p>
+<p dir="rtl"><strong>מתחילים מהמשרה, מגלים את הניסיון הרלוונטי, ובונים קורות חיים באנגלית.</strong><br>אפשר לענות בעברית ולהתחיל גם בלי קורות חיים מוכנים.</p>
 
 ## Start with what you have
 
 Choose a task in your own words:
 
-1. **CV and job match:** share a CV or section. Add a target role or job description when available.
+1. **A tailored English CV:** share the job posting and your CV or rough background. The workflow asks the relevant unanswered questions before writing.
 2. **LinkedIn:** paste a headline, About section, or experience. A requested browser review also works when the host and connection support it.
 3. **Interview preparation:** share an introduction, career highlights, or a real story for a behavioral question.
 
 Try one of these:
 
 ```text
-Review my CV for this role and show the three most important improvements.
+Help me build an English CV for this role. Ask focused questions about the relevant experience missing from my current CV.
 ```
 
 ```text
@@ -28,7 +28,9 @@ Improve my LinkedIn headline and About section for my target role.
 Help me answer "Tell me about yourself" in 90 seconds.
 ```
 
-The first result focuses on useful improvements supported by your materials, then asks about important missing facts. A review produces a focused assessment; a request to create or tailor a CV produces a complete draft. If you already shared a CV or story, you do not need to provide it again for the next related task.
+For CV creation, the first result may be a short observation about the vacancy and one or two questions about your relevant experience. Each answer shapes the next question or the resulting CV. Once the evidence is sufficient, the workflow produces the complete English draft without an extra approval step. If the supplied material already covers what matters, it drafts directly. It reuses everything already shared and honors requests for a review, formatting only, or a draft without further questions.
+
+An existing CV is optional. If you do not yet have a specific vacancy, start with the role you want; the result is a role-focused baseline that can later be tailored to a posting. Hebrew output remains available when you explicitly request it.
 
 The package contains three skills: a short getting-started workflow, CV and LinkedIn optimization, and interview pitches and STAR answers. It adapts to juniors, career switchers, experienced individual contributors, and senior leaders.
 

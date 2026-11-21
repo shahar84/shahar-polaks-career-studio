@@ -8,8 +8,8 @@
     {
       "name": "shahar-polaks-career-studio",
       "source": "./plugins/shahar-polaks-career-studio",
-      "description": "AI career coaching for CVs, LinkedIn profiles and interviews, grounded in your real experience. Hebrew and English.",
-      "version": "0.9.0",
+      "description": "Build English CVs tailored to specific jobs through focused questions about your real experience. Discuss in Hebrew or English.",
+      "version": "0.10.0",
       "author": {
         "name": "Shahar Polak"
       },

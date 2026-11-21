@@ -4,11 +4,11 @@
   <img src="plugins/shahar-polaks-career-studio/assets/career-studio-icon.png" alt="Career Studio's yellow duck mascot wearing tortoiseshell glasses" width="180" height="180">
 </p>
 
-**Turn your real experience into stronger CVs, LinkedIn profiles, and interview answers.**
+**Build an English CV tailored to the job you want, through the right questions about your experience.**
 
-An AI career coach for CV and resume review, LinkedIn profile improvement, and interview preparation. Career Studio helps you see what matters for a target role, explain your experience clearly, and prepare a personal pitch. Start with what you have, in Hebrew or English.
+Start with the job posting and whatever background you already have. Career Studio identifies what matters for that vacancy, asks focused questions about your relevant work, and turns your answers into a tailored CV. The conversation can be Hebrew or English; the CV defaults to English. An existing CV is helpful, but you can build one from scratch. LinkedIn improvement and interview preparation are also available.
 
-<p dir="rtl"><strong>יש לכם ניסיון. בואו נספר אותו כמו שצריך.</strong><br>שיפור קורות חיים, חידוד פרופיל הלינקדאין והכנה לראיונות עבודה, על בסיס הניסיון שלכם. אפשר להתחיל בעברית, גם אם קורות החיים באנגלית.</p>
+<p dir="rtl"><strong>השאלות הנכונות. הניסיון שלכם. קורות חיים למשרה שאתם רוצים.</strong><br>שלחו תיאור משרה, ענו על שאלות ממוקדות, ונבנה קורות חיים מותאמים באנגלית. אפשר לנהל את כל השיחה בעברית ולהתחיל גם בלי קורות חיים מוכנים.</p>
 
 [Start here](#start-with-one-task) · [See an example](#what-a-useful-result-looks-like) · [ChatGPT setup](#set-up-in-chatgpt) · [Claude Code](#install-in-claude-code) · [Codex](#install-in-codex) · [Support](#support)
 
@@ -22,17 +22,17 @@ Use Career Studio for a first professional CV, a career change, an experienced i
 
 Choose a task in your own words. There is no need to complete a questionnaire first.
 
-### 1. CV and resume review
+### 1. Build a CV for a specific job
 
-Share a CV or paste a section. Add a job description if you want a role-specific review.
+Share the target job posting and your current CV or rough background. If you have no CV, the conversation builds the relevant evidence with you.
 
 ```text
-Review my CV for this role and show the three most important improvements.
+Help me build an English CV for this job. Ask me about the relevant experience that is missing from my current CV.
 ```
 
-Expect a clear assessment, practical rewrites, and a distinction between confirmed experience, transferable skills, partial matches, missing evidence, and genuine gaps. A CV without a target job can still receive a useful clarity review.
+The workflow reads the vacancy, identifies the most important requirements, and asks one or two useful questions at a time. It uses your answers to select the summary, achievements, technical language, and emphasis for this application. It asks about real contributions and outcomes without inventing numbers, titles, or responsibilities.
 
-Ask for a review to get a focused assessment, or ask for a tailored CV to get a complete draft. Add a job description when you want the result aligned to a specific vacancy.
+When enough evidence is available, it writes the complete CV in English. If everything needed is already supplied, it proceeds directly. With no vacancy yet, it can build a baseline for your target role and tailor it later. Review-only and formatting-only requests stay focused on that task.
 
 ### 2. LinkedIn profile improvement
 
@@ -58,7 +58,7 @@ Expect a spoken introduction, a useful rehearsal prompt, or a Situation, Task, A
 <summary><strong>אפשר להתחיל גם ככה, בעברית</strong></summary>
 
 ```text
-אלה קורות החיים שלי. מה שלושת הדברים שהכי כדאי לשפר?
+זאת המשרה שאני רוצה. תשאל אותי את השאלות שצריך כדי להכין עבורה קורות חיים באנגלית.
 ```
 
 ```text
